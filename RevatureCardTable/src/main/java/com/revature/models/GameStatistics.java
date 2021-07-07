@@ -2,7 +2,6 @@ package com.revature.models;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
