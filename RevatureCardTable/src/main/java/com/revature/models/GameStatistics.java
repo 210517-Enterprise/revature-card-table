@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="game_stats")
+@Table(name="leaderboard")
 @Data @NoArgsConstructor
 public class GameStatistics {
 	
@@ -34,5 +34,7 @@ public class GameStatistics {
 	private boolean won;
 	
 	private Date datePlayed;
+	
+	private String gameName;
 
 }
