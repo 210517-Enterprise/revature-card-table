@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -29,12 +30,19 @@ public class GameStatistics {
 	@JoinColumn(name="user_id")
 	private int userID;
 	
+	@Column(name="points", nullable=false)
 	private int points;
 	
+	@Column(name="won", nullable=false)
 	private boolean won;
 	
+	@Column(name="date_played", nullable=false)
 	private Date datePlayed;
 	
+	@Column(name="time_completed", nullable=true)
+	private Time timeCompleted;
+	
+	@Column(name="game_name", nullable=false)
 	private String gameName;
 
 }
