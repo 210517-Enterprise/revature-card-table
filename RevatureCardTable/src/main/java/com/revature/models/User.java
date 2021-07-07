@@ -12,10 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="users")
-@Data
+@Data @NoArgsConstructor
 public class User {
 	
 	@Id
