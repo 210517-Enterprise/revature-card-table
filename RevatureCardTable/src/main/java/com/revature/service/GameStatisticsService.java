@@ -18,8 +18,8 @@ public class GameStatisticsService {
 		this.gameStatRepo = gameStatRepo;
 	}
 	
-	public List<GameStatistics> findByUsername(String username) {
-		return gameStatRepo.findByUsername(username);
+	public List<GameStatistics> findByUser(int id) {
+		return gameStatRepo.findByUser(id);
 	}
 	
 	public void saveOrUpdate(GameStatistics gameStat) {

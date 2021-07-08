@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,7 +37,7 @@ public class User {
 	@Column(name="last_name", nullable=false)
 	private String lastName;
 	
-	@OneToMany(mappedBy="user_id")
+	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
 	private List<GameStatistics> gameStats;
 
 }

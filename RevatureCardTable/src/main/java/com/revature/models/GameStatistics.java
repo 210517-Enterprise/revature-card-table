@@ -5,6 +5,7 @@ import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +26,9 @@ public class GameStatistics {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private int userID;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id", nullable=false, referencedColumnName="user_id")
+	private User user;
 	
 	@Column(name="points", nullable=false)
 	private int points;
