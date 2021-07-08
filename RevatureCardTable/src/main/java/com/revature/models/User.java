@@ -36,7 +36,7 @@ public class User {
 	@Column(name="last_name", nullable=false)
 	private String lastName;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="users")
+	@OneToMany(mappedBy="user_id")
 	private List<GameStatistics> gameStats;
 
 }
