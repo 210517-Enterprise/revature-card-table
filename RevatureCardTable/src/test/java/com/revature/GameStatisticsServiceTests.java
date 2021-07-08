@@ -36,7 +36,7 @@ public class GameStatisticsServiceTests {
 		userRepo.save(user);
 		
 		GameStatistics stats = new GameStatistics();
-		stats.setUser_id(user);
+		stats.setUser(user);
 		stats.setPoints(20);
 		stats.setWon(true);
 		stats.setGameName("war");
