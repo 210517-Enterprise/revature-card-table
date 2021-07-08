@@ -25,9 +25,9 @@ public class GameStatistics {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = User.class)
 	@JoinColumn(name="user_id")
-	private int userID;
+	private User user_id;
 	
 	@Column(name="points", nullable=false)
 	private int points;
@@ -38,7 +38,7 @@ public class GameStatistics {
 	@Column(name="date_played", nullable=false)
 	private Date datePlayed;
 	
-	@Column(name="time_completed", nullable=true)
+	@Column(name="time_completed", nullable=false)
 	private Time timeCompleted;
 	
 	@Column(name="game_name", nullable=false)
