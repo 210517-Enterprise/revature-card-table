@@ -39,7 +39,7 @@ public class GameStatistics {
 	@Column(name="date_played", nullable=false)
 	private Date datePlayed;
 	
-	@Column(name="time_completed", nullable=true)
+	@Column(name="time_completed", nullable=false)
 	private Time timeCompleted;
 	
 	@Column(name="game_name", nullable=false)
