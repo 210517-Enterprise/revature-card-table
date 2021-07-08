@@ -18,6 +18,10 @@ public class GameStatisticsService {
 		this.gameStatRepo = gameStatRepo;
 	}
 	
+	public List<GameStatistics> findByUsername(String username) {
+		return gameStatRepo.findByUsername(username);
+	}
+	
 	public void saveOrUpdate(GameStatistics gameStat) {
 		gameStatRepo.save(gameStat);
 	}
