@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,20 @@ public class UserService implements UserDetailsService{
 		return null;
 	}
 	
-	public void register(User user) {
-		udao.save(user);
+	public User register(User user) {
+		return udao.save(user);
+	}
+	
+	public User findById(int id) {
+		return udao.getById(id);
+	}
+	
+	public List<User> findAll(){
+		return udao.findAll();
+	}
+	
+	public void delete(User user) {
+		udao.delete(user);
 	}
 
 	@Override
