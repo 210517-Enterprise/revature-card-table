@@ -16,3 +16,4 @@ buildNumber.properties
 **/.settings
 **/logs/*
 .metadata
+RevatureCardTable/src/main/resources/application.properties
