@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -37,9 +39,11 @@ public class GameStatistics {
 	private boolean won;
 	
 	@Column(name="date_played", nullable=false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date datePlayed;
 	
 	@Column(name="time_completed", nullable=false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="hh:mm a")
 	private Time timeCompleted;
 	
 	@Column(name="game_name", nullable=false)
