@@ -27,8 +27,8 @@ public class GameStatisticsService {
 		return gameStatRepo.findByUser(u);
 	}
 	
-	public void saveOrUpdate(GameStatistics gameStat) {
-		gameStatRepo.save(gameStat);
+	public GameStatistics saveOrUpdate(GameStatistics gameStat) {
+		return gameStatRepo.save(gameStat);
 	}
 	
 	public List<GameStatistics> getAll() {
