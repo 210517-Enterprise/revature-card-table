@@ -22,7 +22,7 @@ public class GameStatisticsService {
 		this.userRepo = userRepo;
 	}
 	
-	public List<GameStatistics> findByUser(int id) {
+	public List<GameStatistics> findByUserId(int id) {
 		User u = userRepo.getById(id);
 		return gameStatRepo.findByUser(u);
 	}
@@ -41,5 +41,9 @@ public class GameStatisticsService {
 	
 	public int getNumberOfWins(User user, String gameName) {
 		return gameStatRepo.findNumberOfWinsByUserIDAndGameName(user, gameName);
+	}
+	
+	public void deleteById(int id) {
+		gameStatRepo.deleteById(id);
 	}
 }
