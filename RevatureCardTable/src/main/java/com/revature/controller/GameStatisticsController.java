@@ -26,8 +26,13 @@ public class GameStatisticsController {
 		return statService.getAll();
 	}
 	
-	@GetMapping(value="/{id}")
+	@GetMapping("/{id}")
 	public List<GameStatistics> getStatsByID(@PathVariable int id) {
 		return statService.findByUser(id);
+	}
+	
+	@GetMapping("/{gameName}")
+	public List<GameStatistics> getStatsByGameName(@PathVariable String gameName) {
+		return statService.findByGameName(gameName);
 	}
 }

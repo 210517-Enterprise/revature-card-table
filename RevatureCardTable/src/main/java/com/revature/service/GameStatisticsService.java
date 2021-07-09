@@ -6,20 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.GameStatistics;
+import com.revature.models.User;
 import com.revature.repository.GameStatisticsDAO;
+import com.revature.repository.UserDAO;
 
 @Service
 public class GameStatisticsService {
 
 	private GameStatisticsDAO gameStatRepo;
+	private UserDAO userRepo;
 	
 	@Autowired
-	public GameStatisticsService(GameStatisticsDAO gameStatRepo) {
+	public GameStatisticsService(GameStatisticsDAO gameStatRepo, UserDAO userRepo) {
 		this.gameStatRepo = gameStatRepo;
+		this.userRepo = userRepo;
 	}
 	
 	public List<GameStatistics> findByUser(int id) {
-		return gameStatRepo.findByUser(id);
+		User u = userRepo.getById(id);
+		return gameStatRepo.findByUser(u);
 	}
 	
 	public void saveOrUpdate(GameStatistics gameStat) {
@@ -34,7 +39,7 @@ public class GameStatisticsService {
 		return gameStatRepo.findByGameName(gameName);
 	}
 	
-	public int getNumberOfWins(int userID, String gameName) {
-		return gameStatRepo.findNumberOfWinsByUserIDAndGameName(userID, gameName);
+	public int getNumberOfWins(User user, String gameName) {
+		return gameStatRepo.findNumberOfWinsByUserIDAndGameName(user, gameName);
 	}
 }
