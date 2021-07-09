@@ -94,6 +94,11 @@ public class GameStatisticsServiceTests {
 			stats.setTimeCompleted(new Time(10));
 			repo.save(stats);
 		}
+		GameStatistics stats = new GameStatistics();
+		stats.setUser(user);
+		stats.setPoints(20);
+		stats.setWon(true);
+		stats.setGameName("war");
 		
 		assertEquals(4, repo.findNumberOfWinsByUserIDAndGameName(user, "war"));
 	}
