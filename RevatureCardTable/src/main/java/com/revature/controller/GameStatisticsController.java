@@ -21,7 +21,7 @@ public class GameStatisticsController {
 		this.statService = statService;
 	}
 	
-	@GetMapping
+	@GetMapping("/find-all")
 	public List<GameStatistics> getAllStatistics() {
 		return statService.getAll();
 	}
