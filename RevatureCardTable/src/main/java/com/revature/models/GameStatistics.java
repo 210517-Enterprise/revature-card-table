@@ -43,7 +43,7 @@ public class GameStatistics {
 	private Date datePlayed;
 	
 	@Column(name="time_completed", nullable=false)
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="hh:mm a")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="hh:mm:ss a")
 	private Time timeCompleted;
 	
 	@Column(name="game_name", nullable=false)
