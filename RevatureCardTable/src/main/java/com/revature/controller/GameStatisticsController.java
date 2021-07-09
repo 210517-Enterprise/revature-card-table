@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.revature.models.GameStatistics;
 import com.revature.service.GameStatisticsService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/leaderboard")
 public class GameStatisticsController {
 	private GameStatisticsService statService;
@@ -48,7 +50,7 @@ public class GameStatisticsController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Integer> delete(@PathVariable int id) {
-		statService.deleteById(id);
+		//statService.deleteById(id);
 		return new ResponseEntity<>(id, HttpStatus.OK);
 	}
 }
