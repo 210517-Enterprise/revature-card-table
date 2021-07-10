@@ -38,7 +38,7 @@ public class GameStatisticsController {
 		return ResponseEntity.ok(statService.findByUserId(id));
 	}
 	
-	@GetMapping("/{gameName}")
+	@GetMapping("/game/{gameName}")
 	public ResponseEntity<List<GameStatistics>> getStatsByGameName(@PathVariable String gameName) {
 		return ResponseEntity.ok(statService.findByGameName(gameName));
 	}
