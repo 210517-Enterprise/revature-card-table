@@ -5,11 +5,11 @@ import BootstrapNavbar from "./Component/BootstrapNavbar";
 
 export default function App() {
   const [loggedIn, updateLogin] = useState(false);
-  
+
   return (
     <div className="App">
-      <BootstrapNavbar isLoggedIn={true} />
-      <AppRouter isLoggedIn={true} />
+      <BootstrapNavbar isLoggedIn={false} />
+      <AppRouter isLoggedIn={false} />
     </div>
   );
 }
