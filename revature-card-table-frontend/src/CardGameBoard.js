@@ -1,14 +1,18 @@
 import React from "react";
 import { createDeckAndDraw, redrawCardFromDeck } from "./api";
-import ButtonsTab from './ButtonsTab';
-import { CardLayout } from './Layout.components';
+import ButtonsTab from "./ButtonsTab";
+import { CardLayout } from "./Layout.components";
+import compareValues from "./utils";
 
 class CardGameBoard extends React.Component {
   state = {
     cardImageUrl: null,
     cardValue: null,
+    //up | down
     deckId: null,
+    result: null,
   };
+
   componentDidMount = async () => {
     const { deck_id, value, image } = await createDeckAndDraw();
     this.setState({
@@ -18,24 +22,24 @@ class CardGameBoard extends React.Component {
     });
   };
 
-  // onButtonClick = async ({ target: { name: bet } }) => {
-  //   this.setState({
-  //     cardImageUrl: null
-  //       })
-  //   const { deckId, cardValue } = this.state;
-  //   const { value, image } = await redrawCardFromDeck({ deckId });
-  //   const result = compareValues({
-  //     previousCardValue: cardValue,
-  //     currentCardValue: value,
-  //     bet
-  //   });
+  onButtonClick = async ({ target: { name: bet } }) => {
+    this.setState({
+      cardImageUrl: null,
+    });
+    const { deckId, cardValue } = this.state;
+    const { value, image } = await redrawCardFromDeck({ deckId });
+    const result = compareValues({
+      previousCardValue: cardValue,
+      currentCardValue: value,
+      bet,
+    });
 
-  //   this.setState({
-  //     result,
-  //     cardValue: value,
-  //     cardImageUrl: image
-  //   });
-  // };
+    this.setState({
+      result,
+      cardValue: value,
+      cardImageUrl: image,
+    });
+  };
 
   render() {
     const { cardImageUrl, result } = this.state;
@@ -45,8 +49,8 @@ class CardGameBoard extends React.Component {
     return (
       <CardLayout>
         <img src={cardImageUrl} />
-        {/* <ButtonsTab onButtonClick={this.onButtonClick} />
-        {result && <h2>{`You, my dear friend ${result}`}</h2>} */}
+        <ButtonsTab onButtonClick={this.onButtonClick} />
+        {result && <h2>{`You, my dear friend ${result}`}</h2>}
       </CardLayout>
     );
   }

@@ -21,14 +21,14 @@ const createDeckAndDraw = async () => {
 };
 
 const redrawCardFromDeck = async ({ deckId }) => {
-    const { data } = await api.get(`${deckId}/draw/`, {
-      params: {
-        count: 1
-      }
-    });
-    const { deck_id, cards } = data;
-    const { value, image } = data.cards[0];
-    return { deck_id: deckId, value, image };
-  };
-  
-  export { createDeckAndDraw, redrawCardFromDeck };
+  const { data } = await api.get(`${deckId}/draw/`, {
+    params: {
+      count: 1,
+    },
+  });
+  const { deck_id, cards } = data;
+  const { value, image } = data.cards[0];
+  return { deck_id: deckId, value, image };
+};
+
+export { createDeckAndDraw, redrawCardFromDeck };

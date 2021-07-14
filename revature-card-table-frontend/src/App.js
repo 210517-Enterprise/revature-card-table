@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Layout, Header } from './Layout.components';
-import CardGameBoard from './CardGameBoard';
-import './App.css';
+import { Layout, Header } from "./Layout.components";
+import CardGameBoard from "./CardGameBoard";
+import "./App.css";
 
 class App extends Component {
   render() {
