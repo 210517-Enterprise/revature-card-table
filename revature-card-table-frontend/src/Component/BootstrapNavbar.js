@@ -1,42 +1,48 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import {LinkContainer} from 'react-router-bootstrap';
 
-class BootstrapNavbar extends React.Component {
-  render() {
-    return (
-      <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" fixed="top">
-        <Container fluid>
-          <Navbar.Brand href="#home">Revature Card Table</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#login">Login</Nav.Link>
+export default function BootstrapNavbar({isLoggedIn}) {
+  return (
+    <Navbar style={{position: "sticky"}} collapseOnSelect expand="xl" bg="dark" variant="dark" fixed="top">
+      <Container fluid>
+        <LinkContainer to="/">
+          <Navbar.Brand>Revature Card Table</Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            {!isLoggedIn && (
+            <LinkContainer to="/login">
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer>)}
+            {!isLoggedIn && (
+            <LinkContainer to="/register">
               <Nav.Link href="#register">Register</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    );
-  }
+            </LinkContainer>
+            )}
+            {isLoggedIn && (
+            <NavDropdown title="Games" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">War</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Go Fish
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                52 Card Pickup
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Etc.
+              </NavDropdown.Item>
+            </NavDropdown>
+            )}
+          </Nav>
+          <Nav>
+            {isLoggedIn && (<Nav.Link href="#deets">My Account</Nav.Link>)}
+            {isLoggedIn && (<Nav.Link eventKey={2} href="#memes">Logout</Nav.Link>)}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
-
-export default BootstrapNavbar;
