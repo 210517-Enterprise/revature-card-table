@@ -8,8 +8,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <BootstrapNavbar isLoggedIn={false} />
-      <AppRouter isLoggedIn={false} />
+      <BootstrapNavbar isLoggedIn={loggedIn} />
+      <AppRouter isLoggedIn={loggedIn} />
     </div>
   );
 }
