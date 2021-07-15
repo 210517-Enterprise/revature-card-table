@@ -42,7 +42,7 @@ export default function BootstrapNavbar({ isLoggedIn }) {
               </NavDropdown>
             )}
           </Nav>
-          <Nav>
+          <Nav className="ml-auto">
             {isLoggedIn && <Nav.Link href="#deets">My Account</Nav.Link>}
             {isLoggedIn && (
               <Nav.Link eventKey={2} href="#memes">
