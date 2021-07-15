@@ -32,12 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-			.antMatchers("/users").authenticated()
+			.antMatchers("/**").authenticated()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()
 				.usernameParameter("username")
-				.defaultSuccessUrl("/users")
+				.defaultSuccessUrl("/")
 				.permitAll();
 	}
 }
