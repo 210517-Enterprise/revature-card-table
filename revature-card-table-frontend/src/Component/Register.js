@@ -13,9 +13,7 @@ export default function Register() {
         axios.post("http://localhost:8080/revature-card-table/users/register", JSON.stringify(newUser), {headers})
         .then(response => console.log(response))
         .catch(error => {
-            console.log(error);
-            console.log(newUser);
-            console.log(JSON.stringify(newUser));
+            alert(error.response.data);
         })
     });
 
