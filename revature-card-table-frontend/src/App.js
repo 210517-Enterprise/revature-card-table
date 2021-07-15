@@ -6,14 +6,15 @@ import BootstrapNavbar from "./Component/BootstrapNavbar";
 export default function App() {
   const [token, setToken] = useState(
     {username: "",
+    id: "",
     isLoggedIn: false
     });
 
     console.log(token);
   return (
     <div className="App">
-      <BootstrapNavbar isLoggedIn={token.isLoggedIn} />
-      <AppRouter isLoggedIn={token.isLoggedIn} setToken={setToken} />
+      <AppRouter isLoggedIn={true} setToken={setToken} />
+      <BootstrapNavbar isLoggedIn={true} />
     </div>
   );
 }

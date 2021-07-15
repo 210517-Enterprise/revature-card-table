@@ -26,6 +26,7 @@ export default function LoginDisplay({setToken}) {
             updateResponseUser(response.data);
             setToken({
                 username: `${user.username}`,
+                id: `${response.data.user_id}`,
                 isLoggedIn: true
             });
             history.push("/");
