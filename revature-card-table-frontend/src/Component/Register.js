@@ -12,7 +12,7 @@ export default function Register() {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
-
+  
   const onSubmit = (newUser) => {
     axios
       .post(
@@ -22,9 +22,7 @@ export default function Register() {
       )
       .then((response) => console.log(response))
       .catch((error) => {
-        console.log(error);
-        console.log(newUser);
-        console.log(JSON.stringify(newUser));
+        alert(error.response.data);
       });
   };
 
