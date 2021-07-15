@@ -1,29 +1,15 @@
-import React, { Component } from "react";
-import { Layout, Header } from "./Layout.components";
-import BootstrapNavbar from "./Component/BootstrapNavbar";
-import {Router, Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.css";
-import Leaderboard from "./Component/Leaderboard";
-import Home from './Component/Home';
-import Login from './Component/Login';
-import Register from './Component/Register';
-import {useState} from 'react';
-
+import AppRouter from "./Component/AppRouter";
+import BootstrapNavbar from "./Component/BootstrapNavbar";
 
 export default function App() {
   const [loggedIn, updateLogin] = useState(false);
 
-    return (
-      <div className="App">
-        <BootstrapNavbar isLoggedIn={false}/>
-        <Switch>
-          <Route path='/' exact><Home isLoggedIn={false}/></Route>
-          <Route path='/login' exact component={Login}></Route>
-          <Route path='/register' exact component={Register}></Route>
-          
-          {/* {loggedIn && (<Route path='/war' exact component={War}></Route>)} */}
-        </Switch>
-      </div>
-    );
+  return (
+    <div className="App">
+      <BootstrapNavbar isLoggedIn={false} />
+      <AppRouter isLoggedIn={false} />
+    </div>
+  );
 }
-
