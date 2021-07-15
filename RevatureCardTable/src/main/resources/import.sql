@@ -8,6 +8,8 @@ insert into users (first_name, last_name, pwd, username) values ('Skipp', 'Wrank
 insert into users (first_name, last_name, pwd, username) values ('Ettie', 'Eager', 'zwGC5H9iEK', 'eeager7');
 insert into users (first_name, last_name, pwd, username) values ('Halley', 'Thams', '4Cwn4Pd', 'hthams8');
 insert into users (first_name, last_name, pwd, username) values ('Granger', 'Le Guin', 'AmkrUSPik', 'gleguin9');
+insert into users (first_name, last_name, pwd, username) values ('John', 'Doe', 'password', 'vince');
+
 
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/07/2021', 'gofish', 32, '11:03:44 AM', false, 4);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/12/2021', 'gofish', 92, '2:41:56 AM', true, 9);
