@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory} from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
@@ -12,6 +13,7 @@ export default function Register() {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
+  const history = useHistory();
   
   const onSubmit = (newUser) => {
     axios
@@ -20,7 +22,11 @@ export default function Register() {
         JSON.stringify(newUser),
         { headers }
       )
-      .then((response) => console.log(response))
+      .then((response) => {
+          console.log(response);
+          history.push("/");
+          alert("Register Successful! Please login.");
+      })
       .catch((error) => {
         alert(error.response.data);
       });
