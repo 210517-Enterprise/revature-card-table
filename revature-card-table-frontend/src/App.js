@@ -8,13 +8,8 @@ export default function App() {
 
   return (
     <div className="App">
-<<<<<<< Updated upstream
       <BootstrapNavbar isLoggedIn={loggedIn} />
       <AppRouter isLoggedIn={loggedIn} />
-=======
-      <AppRouter isLoggedIn={true} />
-      <BootstrapNavbar isLoggedIn={true} />
->>>>>>> Stashed changes
     </div>
   );
 }
