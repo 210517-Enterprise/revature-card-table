@@ -2,13 +2,15 @@ import { useState } from "react"
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useHistory} from "react-router-dom";
 
-export default function LoginDisplay() {
+export default function LoginDisplay({setToken}) {
     const { register, handleSubmit } = useForm();
     
     const [username, updateUsername] = useState("");
     const [password, updatePassword] = useState("");
     const [responseUser, updateResponseUser] = useState(null);
+    const history = useHistory();
 
     const onSubmit = (user) => {
         updateUsername(user.username);
@@ -22,6 +24,11 @@ export default function LoginDisplay() {
         .then(response => {
             console.log(response);
             updateResponseUser(response.data);
+            setToken({
+                username: `${user.username}`,
+                isLoggedIn: true
+            });
+            history.push("/");
         })
         .catch(error => {
             console.log(error);

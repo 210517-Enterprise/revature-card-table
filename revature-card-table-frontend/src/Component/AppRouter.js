@@ -3,14 +3,16 @@ import Home from "./Home";
 import LoginDisplay from "./LoginDisplay";
 import Register from "./Register";
 
-export default function AppRouter({ isLoggedIn }) {
+export default function AppRouter({ isLoggedIn, setToken }) {
   return (
     <>
       <Switch>
         <Route path="/" exact>
           <Home isLoggedIn={isLoggedIn} />
         </Route>
-        <Route path="/login" exact component={LoginDisplay}></Route>
+        <Route path="/login" exact>
+          <LoginDisplay setToken={setToken}/>
+        </Route>
         <Route path="/register" exact component={Register}></Route>
         <Route path="/war" exact component={War}></Route>
 
