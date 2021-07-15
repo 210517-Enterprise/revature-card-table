@@ -30,7 +30,9 @@ export default function BootstrapNavbar({ isLoggedIn }) {
             )}
             {isLoggedIn && (
               <NavDropdown title="Games" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">War</NavDropdown.Item>
+                <LinkContainer to="/war">
+                  <NavDropdown.Item>War</NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Item href="#action/3.2">Go Fish</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
                   52 Card Pickup

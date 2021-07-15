@@ -12,9 +12,14 @@ export default function AppRouter({ isLoggedIn }) {
         </Route>
         <Route path="/login" exact component={LoginDisplay}></Route>
         <Route path="/register" exact component={Register}></Route>
+        <Route path="/war" exact component={War}></Route>
 
         {/* {loggedIn && (<Route path='/war' exact component={War}></Route>)} */}
       </Switch>
     </>
   );
+}
+
+const War = () => {
+  return <h1>This is War</h1>
 }
