@@ -97,6 +97,8 @@ export default function Home({ isLoggedIn }) {
       </div>
     </>
   ) : (
-    <h1>Home Page Not Logged In!</h1>
+    <div id="homepage" class="container-fluid">
+      <h1>Home Page Not Logged In!</h1>
+    </div>
   );
 }

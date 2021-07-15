@@ -1,16 +1,4 @@
-#homepage {
-  padding-top: 100px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow:auto;
-  background-color: #35654d;
-  color: whitesmoke;
-  background-image: url(https://www.transparenttextures.com/patterns/black-felt.png);
-  background-repeat: repeat;
-}
+
 
 h1 {
   font-family: Stencil Std, fantasy;
