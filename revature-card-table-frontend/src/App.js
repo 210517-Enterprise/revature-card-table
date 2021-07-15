@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="App">
       <BootstrapNavbar isLoggedIn={loggedIn} />
-      <AppRouter isLoggedIn={loggedIn} />
+      <AppRouter isLoggedIn={loggedIn} updateLogin={updateLogin} />
     </div>
   );
 }
