@@ -13,8 +13,8 @@ export default function App() {
     console.log(token);
   return (
     <div className="App">
-      <AppRouter isLoggedIn={true} setToken={setToken} />
-      <BootstrapNavbar isLoggedIn={true} />
+      <AppRouter isLoggedIn={token.isLoggedIn} setToken={setToken} />
+      <BootstrapNavbar isLoggedIn={token.isLoggedIn} />
     </div>
   );
 }
