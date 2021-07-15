@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useHistory} from "react-router-dom";
 
-export default function LoginDisplay({updateLogin}) {
+export default function LoginDisplay({setToken}) {
     const { register, handleSubmit } = useForm();
     
     const [username, updateUsername] = useState("");
@@ -24,7 +24,10 @@ export default function LoginDisplay({updateLogin}) {
         .then(response => {
             console.log(response);
             updateResponseUser(response.data);
-            updateLogin(true);
+            setToken({
+                username: `${user.username}`,
+                isLoggedIn: true
+            });
             history.push("/");
         })
         .catch(error => {

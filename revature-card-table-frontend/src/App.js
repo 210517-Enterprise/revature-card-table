@@ -4,12 +4,16 @@ import AppRouter from "./Component/AppRouter";
 import BootstrapNavbar from "./Component/BootstrapNavbar";
 
 export default function App() {
-  const [loggedIn, updateLogin] = useState(false);
+  const [token, setToken] = useState(
+    {username: "",
+    isLoggedIn: false
+    });
 
+    console.log(token);
   return (
     <div className="App">
-      <BootstrapNavbar isLoggedIn={loggedIn} />
-      <AppRouter isLoggedIn={loggedIn} updateLogin={updateLogin} />
+      <BootstrapNavbar isLoggedIn={token.isLoggedIn} />
+      <AppRouter isLoggedIn={token.isLoggedIn} setToken={setToken} />
     </div>
   );
 }
