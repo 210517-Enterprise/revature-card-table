@@ -4,6 +4,7 @@ import Home from "./Home";
 import LoginDisplay from "./LoginDisplay";
 import MyAccount from "./MyAccount";
 import Register from "./Register";
+import Speed from "./Speed";
 import War from "./War";
 
 export default function AppRouter({ isLoggedIn, setToken, token }) {
@@ -18,6 +19,7 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
         </Route>
         <Route path="/register" exact component={Register}></Route>
         <Route path="/war" exact component={War}></Route>
+        <Route path="/speed/" exact component={Speed}></Route>
         <Route path="/my-account" exact>
           <MyAccount token={token} />
         </Route>
