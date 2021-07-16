@@ -49,7 +49,9 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
                 <LinkContainer to="/war">
                   <NavDropdown.Item>War</NavDropdown.Item>
                 </LinkContainer>
-                <NavDropdown.Item href="#action/3.2">Go Fish</NavDropdown.Item>
+                <LinkContainer to="/speed">
+                  <NavDropdown.Item>Speed</NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Item href="#action/3.3">
                   52 Card Pickup
                 </NavDropdown.Item>
