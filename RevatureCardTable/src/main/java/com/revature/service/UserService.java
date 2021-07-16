@@ -30,6 +30,10 @@ public class UserService implements UserDetailsService{
 		return null;
 	}
 	
+	public User update(User user) {
+		return udao.save(user);
+	}
+	
 	public User register(User user) {
 		return udao.save(user);
 	}
@@ -50,6 +54,10 @@ public class UserService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = udao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Failed to find username: " + username));
 		return new CustomUserDetails(user);
+	}
+	
+	public User findByUsername(String username) throws UsernameNotFoundException {
+		return udao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Failed to find username: " + username));
 	}
 	
 

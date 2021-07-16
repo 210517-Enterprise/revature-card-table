@@ -46,4 +46,8 @@ public class GameStatisticsService {
 	public void deleteById(int id) {
 		gameStatRepo.deleteById(id);
 	}
+	
+	public List<GameStatistics> findAllOrderByPoints(){
+		return gameStatRepo.findAllByOrderByPointsDesc();
+	}
 }

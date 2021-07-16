@@ -1,5 +1,11 @@
-
-
 h1 {
   font-family: Stencil Std, fantasy;
+  background: rgba(40,44,52,0.8);
+  padding: 0.5em;
+  border-radius: 20px;
+}
+.custom-back {
+  background: rgba(40,44,52,0.8);
+  padding: 2em;
+  border-radius: 20px;
 }

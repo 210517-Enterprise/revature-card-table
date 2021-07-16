@@ -28,8 +28,8 @@ public class UserController {
 	private UserService userv;
 	
 	@GetMapping("/{username}")
-	public ResponseEntity<UserDetails> findByUsername(@PathVariable("username") String username){
-		return ResponseEntity.ok(userv.loadUserByUsername(username));
+	public ResponseEntity<User> findByUsername(@PathVariable("username") String username){
+		return ResponseEntity.ok(userv.findByUsername(username));
 	}
 	
 	@GetMapping("/login")
@@ -51,6 +51,11 @@ public class UserController {
 	public ResponseEntity<User> add(@RequestBody User user){
 		User persistedUser = userv.register(user);
 		return ResponseEntity.ok(persistedUser);
+	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<User> update(@RequestBody User user){
+		return ResponseEntity.ok(userv.update(user));
 	}
 	
 	@ExceptionHandler(SQLException.class)
