@@ -1,23 +1,31 @@
 import WarDisplay from "./WarDisplay";
-import {useState} from "react";
 import React from "react";
+import api from "axios";
+
+import {useState, useEffect} from "react";
 
 export default function War() {
-    const [input, updateInput] = useState(null);
-    const inputReference = React.createRef();
+    const [input, updateInput] = useState(0);
     
+    let currentDeckID = "bmda6kdteg02";
+
+    const [data, updateData] = useState(null);
+    useEffect(
+        async () => {
+            await api.get(`https://deckofcardsapi.com/api/deck/${currentDeckID}/draw/?count=2`)
+                .then((response) => updateData(response.data));
+        },[input]
+    );
+        
+        
+    
+    
+
+   
     return (
         <>
-            <input
-                id="text-bar"
-                type="text"
-                placehodler="Please Enter deckID"
-                ref={inputReference}></input>
-            <button onClick={() => updateInput(inputReference.current.value)}>Submit</button>
-            <WarDisplay deckID = {input} />
-            
-
-            
+            <button onClick = {() => updateInput(input + 1)}>WAR!!!!!!!</button>
+            <WarDisplay data = {data} />
         </>
     )
 }
