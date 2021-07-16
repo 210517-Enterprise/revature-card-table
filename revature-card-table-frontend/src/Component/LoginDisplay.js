@@ -7,6 +7,7 @@ import "../CSS/LoginDisplay.css"
 
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
+  const { registerUN, handleForgotPwd} = useForm();
   const history = useHistory();
 
   const onSubmit = (user) => {
@@ -44,6 +45,18 @@ export default function LoginDisplay({ setToken }) {
       });
   };
 
+  const updateToken = (user) => {
+    console.log("updating token w " + user.username);
+    setToken({
+      username: `${user.username}`,
+      id: "",
+      first_name: "",
+      last_name: "",
+      isLoggedIn: false
+    })
+
+    history.push("/forgot-password");
+  }
   return (
     <>
       <div id="page-layout" class="container-xxl">
@@ -66,7 +79,7 @@ export default function LoginDisplay({ setToken }) {
                   id="password"
                   type="password"
                   placeholder="Enter password"
-                  {...register("password", { required: true })}
+                  {...register("password", { required: false })}
                 />
               </Form.Group>
 
@@ -79,7 +92,7 @@ export default function LoginDisplay({ setToken }) {
                 Login
               </Button>
               <p className="forgot-password text-right">
-                    <a href="#">Forgot Password?</a>
+                    <a href="/forgot-password" onClick={handleSubmit(updateToken)}>Forgot Password?</a>
                 </p>
             </Form>
           </div>

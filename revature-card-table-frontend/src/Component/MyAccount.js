@@ -46,7 +46,9 @@ export default function MyAccount({token}){
                 "username": token.username,
                 "password": data.newPwd,
                 "firstName": token.first_name,
-                "lastName": token.last_name
+                "lastName": token.last_name,
+                "securityQuestion": response.data.securityQuestion,
+                "securityAnswer": response.data.securityAnswer
             }
 
             console.log("correct pwd");
