@@ -7,6 +7,8 @@ export default function App() {
   const [token, setToken] = useState(
     {username: "",
     id: "",
+    first_name: "",
+    last_name: "",
     isLoggedIn: false
     });
 

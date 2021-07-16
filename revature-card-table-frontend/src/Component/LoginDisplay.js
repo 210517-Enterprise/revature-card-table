@@ -32,6 +32,8 @@ export default function LoginDisplay({setToken}) {
                 setToken({
                     username: `${user.username}`,
                     id: `${response.data.user_id}`,
+                    first_name: `${response.data.firstName}`,
+                    last_name: `${response.data.lastName}`,
                     isLoggedIn: true
                 });
                 history.push("/");
