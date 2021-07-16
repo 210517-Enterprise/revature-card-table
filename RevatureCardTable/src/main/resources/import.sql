@@ -9,6 +9,7 @@ insert into users (first_name, last_name, pwd, username) values ('Ettie', 'Eager
 insert into users (first_name, last_name, pwd, username) values ('Halley', 'Thams', '4Cwn4Pd', 'hthams8');
 insert into users (first_name, last_name, pwd, username) values ('Granger', 'Le Guin', 'AmkrUSPik', 'gleguin9');
 insert into users (first_name, last_name, pwd, username) values ('John', 'Doe', 'password', 'vince');
+insert into users (first_name, last_name, pwd, username) values ('Tester', 'Tester', 'test', 'test');
 
 
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/07/2021', 'gofish', 32, '11:03:44 AM', false, 4);
@@ -21,3 +22,7 @@ insert into leaderboard (date_played, game_name, points, time_completed, won, us
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('12/16/2020', 'speed', 13, '5:58:43 AM', true, 7);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('10/27/2020', 'speed', 38, '12:32:23 AM', false, 10);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('08/11/2020', '52 card pickup', 24, '3:20:37 AM', false, 9);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('08/11/2020', '52 card pickup', 23, '3:20:37 AM', false, 12);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/19/2021', 'war', 10, '4:54:45 AM', false, 12);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/07/2021', 'gofish', 31, '11:03:44 AM', false, 12);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/10/2021', 'war', 49, '12:16:22 AM', true, 12);
