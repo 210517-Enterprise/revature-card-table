@@ -56,5 +56,9 @@ public class UserService implements UserDetailsService{
 		return new CustomUserDetails(user);
 	}
 	
+	public User findByUsername(String username) throws UsernameNotFoundException {
+		return udao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Failed to find username: " + username));
+	}
+	
 
 }

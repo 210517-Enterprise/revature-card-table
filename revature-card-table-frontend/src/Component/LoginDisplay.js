@@ -13,6 +13,7 @@ import Diamonds from "../Images/diamonds1.png";
 
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
+  const { registerUN, handleForgotPwd} = useForm();
   const history = useHistory();
 
   const onSubmit = (user) => {
@@ -51,11 +52,26 @@ export default function LoginDisplay({ setToken }) {
       });
   };
 
+<<<<<<< HEAD
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
   };
 
+=======
+  const updateToken = (user) => {
+    console.log("updating token w " + user.username);
+    setToken({
+      username: `${user.username}`,
+      id: "",
+      first_name: "",
+      last_name: "",
+      isLoggedIn: false
+    })
+
+    history.push("/forgot-password");
+  }
+>>>>>>> 1236aafc9a596d8424586fde3c51a0155cf927bf
   return (
     <>
       <div id="page-layout" class="row h-100" padding-top="10em">
@@ -89,6 +105,7 @@ export default function LoginDisplay({ setToken }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD
             <p id="error"></p>
             <motion.button
               className="btn btn-primary btn-block"
@@ -151,6 +168,31 @@ export default function LoginDisplay({ setToken }) {
             // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
           ></motion.img>
         </motion.div>
+=======
+              <Form.Group>
+                <h5>Password</h5>
+                <Form.Control
+                  id="password"
+                  type="password"
+                  placeholder="Enter password"
+                  {...register("password", { required: false })}
+                />
+              </Form.Group>
+
+              <p id="error"></p>
+              <Button
+                className="btn btn-primary btn-block"
+                type="submit"
+                onClick={handleSubmit(onSubmit)}
+              >
+                Login
+              </Button>
+              <p className="forgot-password text-right">
+                    <a href="/forgot-password" onClick={handleSubmit(updateToken)}>Forgot Password?</a>
+                </p>
+            </Form>
+          </div>
+>>>>>>> 1236aafc9a596d8424586fde3c51a0155cf927bf
       </div>
     </>
   );
