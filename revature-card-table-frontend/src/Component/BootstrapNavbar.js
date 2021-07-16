@@ -3,9 +3,19 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function BootstrapNavbar({ isLoggedIn, setToken }) {
+
+  function logOut() {
+    setToken({
+      username: ``,
+      id: ``,
+      isLoggedIn: false,
+    });
+  }
+
   return (
     <Navbar
       style={{ position: "sticky" }}
+      fixed="top"
       collapseOnSelect
       expand="sm"
       bg="dark"
@@ -52,7 +62,7 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
             )}
             {isLoggedIn && (
               <LinkContainer to="/">
-                <Nav.Link>Logout</Nav.Link>
+                <Nav.Link onSelect={logOut}>Logout</Nav.Link>
               </LinkContainer>
             )}
           </Nav>
@@ -62,10 +72,3 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
   );
 }
 
-function logOut({setToken}) {
-  setToken({
-    username: ``,
-    id: ``,
-    isLoggedIn: false,
-  });
-}
