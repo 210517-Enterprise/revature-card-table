@@ -3,6 +3,7 @@ import Home from "./Home";
 import LoginDisplay from "./LoginDisplay";
 import MyAccount from "./MyAccount";
 import Register from "./Register";
+import War from "./War";
 
 export default function AppRouter({ isLoggedIn, setToken, token }) {
   return (
@@ -26,6 +27,4 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
   );
 }
 
-const War = () => {
-  return <h1>This is War</h1>
-}
+

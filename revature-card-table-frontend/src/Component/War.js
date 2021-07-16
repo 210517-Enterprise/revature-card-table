@@ -1,41 +1,31 @@
+import WarDisplay from "./WarDisplay";
+import React from "react";
 import api from "axios";
 
-function Player(name, currentDeckID, turnsWon) {//pl1/2, deck_id API, turnsWon, isTurn
-    this.name = name;
-    this.currentDeckID = currentDeckID;
-    this.turnsWon = turnsWon;
-    this.isTurn = isTurn;
-}
+import {useState, useEffect} from "react";
 
-var playerCard;
-var botCard;
+export default function War() {
+    const [input, updateInput] = useState(0);
+    
+    let currentDeckID = "bmda6kdteg02";
 
-var player1 = new Player(Nick, "", 0);
-//make 2 players, one will be the user, and the other will be the the computer playing againts you
-function War(user) {
-
-    //populat the users deck
-    player1.currentDeckID = "1q3l0xtqr385";
-
-    //pull the top card from the deck
-    const DrawTopCard = async({deckID}) => {
-        const{data} = await api.get(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`);
+    const [data, updateData] = useState(null);
+    useEffect(
+        async () => {
+            await api.get(`https://deckofcardsapi.com/api/deck/${currentDeckID}/draw/?count=2`)
+                .then((response) => updateData(response.data));
+        },[input]
+    );
         
-    }
-        //display that card on the screen
+        
+    
+    
 
-        //
-
-
+   
+    return (
+        <>
+            <button onClick = {() => updateInput(input + 1)}>WAR!!!!!!!</button>
+            <WarDisplay data = {data} />
+        </>
+    )
 }
-
-const redrawCardFromDeck = async ({ deckId }) => {
-    const { data } = await api.get(`${deckId}/draw/`, {
-      params: {
-        count: 1,
-      },
-    });
-    const { deck_id, cards } = data;
-    const { value, image } = data.cards[0];
-    return { deck_id: deckId, value, image };
-  };
