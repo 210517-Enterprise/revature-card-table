@@ -53,6 +53,11 @@ public class UserController {
 		return ResponseEntity.ok(persistedUser);
 	}
 	
+	@PostMapping("/update")
+	public ResponseEntity<User> update(@RequestBody User user){
+		return ResponseEntity.ok(userv.update(user));
+	}
+	
 	@ExceptionHandler(SQLException.class)
 	public ResponseEntity<String> handlePSQLException(SQLException exception) {
 		return ResponseEntity
