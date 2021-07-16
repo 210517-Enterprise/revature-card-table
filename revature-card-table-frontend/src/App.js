@@ -9,11 +9,7 @@ export default function App() {
     id: "",
     first_name: "",
     last_name: "",
-<<<<<<< HEAD
     isLoggedIn:  false
-=======
-    isLoggedIn: false
->>>>>>> 1236aafc9a596d8424586fde3c51a0155cf927bf
     });
 
     console.log(token);

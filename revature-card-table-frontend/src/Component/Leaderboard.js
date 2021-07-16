@@ -4,7 +4,7 @@ export default function Leaderboard() {
   const [gamestats, updateGamestats] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/revature-card-table/leaderboard/find-all")
+    fetch("http://localhost:8080/revature-card-table/leaderboard/find-all-by-points")
       .then((response) => response.json())
       .then(updateGamestats);
     console.log(gamestats);
