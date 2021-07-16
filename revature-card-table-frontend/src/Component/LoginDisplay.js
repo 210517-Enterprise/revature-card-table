@@ -18,7 +18,8 @@ export default function LoginDisplay({ setToken }) {
         if (response.data.user_id === undefined) {
           console.log("Failure");
           let error_p = document.getElementById("error");
-          error_p.innerText = "Username or password are incorrect";
+          error_p.innerText = "Authentication Error - Check your Username and Password";
+          error_p.style.color = "#ff968f";
 
           let usr_input = document.getElementById("username");
           usr_input.value = "";
@@ -45,24 +46,23 @@ export default function LoginDisplay({ setToken }) {
 
   return (
     <>
-      <div id="homepage" class="container-xxl">
+      <div id="page-layout" class="container-xxl">
         <div class="row">
-          <div class="col-sm-6  mx-auto">
+          <div class="col-lg-6  mx-auto">
             <Form>
-              <Form.Group className="form-group">
-                <h3>Log In</h3>
-                <label>Username</label>
+              <Form.Group>
+                <h2>Log In</h2>
+                <h5>Username</h5>
                 <Form.Control
                   id="username"
-                  width="150px"
                   type="text"
                   placeholder="Enter username"
                   {...register("username", { required: true })}
                 />
               </Form.Group>
 
-              <Form.Group className="form-group">
-                <label>Password</label>
+              <Form.Group>
+                <h5>Password</h5>
                 <Form.Control
                   id="password"
                   type="password"
@@ -80,7 +80,7 @@ export default function LoginDisplay({ setToken }) {
                 Login
               </Button>
               <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
+                    <a href="#">Forgot Password?</a>
                 </p>
             </Form>
           </div>

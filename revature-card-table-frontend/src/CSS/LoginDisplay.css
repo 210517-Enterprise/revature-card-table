@@ -8,7 +8,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,label,span {
+h1,h2,h3,h4,h5,h6,label,span,button {
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;
 }
@@ -33,6 +33,13 @@ body, html, .App, #root, .auth-wrapper {
 
 form {
   background: rgba(40,44,52,0.8);
-  padding: 1em;
+  padding: 2em;
   border-radius: 20px;
+  margin: 0 auto;
+  width: 65%;
 }
+
+h5 {
+  text-align: left;
+}
+
