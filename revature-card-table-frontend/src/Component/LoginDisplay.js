@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { render } from "@testing-library/react";
+import "../CSS/LoginDisplay.css"
 
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
@@ -18,7 +18,8 @@ export default function LoginDisplay({ setToken }) {
         if (response.data.user_id === undefined) {
           console.log("Failure");
           let error_p = document.getElementById("error");
-          error_p.innerText = "Username or password are incorrect";
+          error_p.innerText = "Authentication Error - Check your Username and Password";
+          error_p.style.color = "#ff968f";
 
           let usr_input = document.getElementById("username");
           usr_input.value = "";
@@ -31,6 +32,8 @@ export default function LoginDisplay({ setToken }) {
           setToken({
             username: `${user.username}`,
             id: `${response.data.user_id}`,
+            first_name: `${response.data.firstName}`,
+            last_name: `${response.data.lastName}`,
             isLoggedIn: true,
           });
           history.push("/");
@@ -43,37 +46,43 @@ export default function LoginDisplay({ setToken }) {
 
   return (
     <>
-      <div id="homepage" class="container-fluid">
-        <Form>
-          <Form.Group>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              id="username"
-              type="text"
-              placeholder="Enter your username"
-              {...register("username", { required: true })}
-            />
-          </Form.Group>
+      <div id="page-layout" class="container-xxl">
+          <div class="col-xl-6  mx-auto">
+            <Form>
+              <Form.Group>
+                <h2>Log In</h2>
+                <h5>Username</h5>
+                <Form.Control
+                  id="username"
+                  type="text"
+                  placeholder="Enter username"
+                  {...register("username", { required: true })}
+                />
+              </Form.Group>
 
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              id="password"
-              type="password"
-              placeholder="Enter your password"
-              {...register("password", { required: true })}
-            />
-          </Form.Group>
+              <Form.Group>
+                <h5>Password</h5>
+                <Form.Control
+                  id="password"
+                  type="password"
+                  placeholder="Enter password"
+                  {...register("password", { required: true })}
+                />
+              </Form.Group>
 
-          <p id="error"></p>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Login
-          </Button>
-        </Form>
+              <p id="error"></p>
+              <Button
+                className="btn btn-primary btn-block"
+                type="submit"
+                onClick={handleSubmit(onSubmit)}
+              >
+                Login
+              </Button>
+              <p className="forgot-password text-right">
+                    <a href="#">Forgot Password?</a>
+                </p>
+            </Form>
+          </div>
       </div>
     </>
   );

@@ -30,6 +30,10 @@ public class UserService implements UserDetailsService{
 		return null;
 	}
 	
+	public User update(User user) {
+		return udao.save(user);
+	}
+	
 	public User register(User user) {
 		return udao.save(user);
 	}

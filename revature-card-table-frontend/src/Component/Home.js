@@ -1,13 +1,62 @@
 import "../CSS/Home.css";
+import { Carousel } from "react-bootstrap";
 
-export default function Home({ isLoggedIn }) {
+export default function Home({ isLoggedIn, token }) {
   return isLoggedIn ? (
     <>
-      <div id="homepage" class="container-fluid">
-        <main class="px-3">
-          <h1>Welcome to the Revature Card Room</h1>
+      <div id="page-layout" class="container-fluid">
+        <main>
+          <h1>Welcome Back to the Revature Card Room, {token.first_name}</h1>
           <br />
-          <p class="lead">
+          <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.pinimg.com/originals/4a/34/62/4a3462185ec34cf3d5fcc8565b52d6f2.gif"
+                width = "800"
+                height = "500"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://j.gifs.com/VmYDyv@large.gif?download=false"
+                width = "800"
+                height = "500"
+                alt="Second slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://images.squarespace-cdn.com/content/v1/54b9401be4b095413a52aaa8/1594424847613-8TZTK14DLRH38T1QLRM4/FlipGIF_CROP.gif?format=1500w"
+                width = "800"
+                height = "500"
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          <p class="custom-back">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum
             velit euismod in pellentesque massa placerat duis ultricies lacus.
@@ -97,7 +146,7 @@ export default function Home({ isLoggedIn }) {
       </div>
     </>
   ) : (
-    <div id="homepage" class="container-fluid">
+    <div id="page-layout" class="container-fluid">
       <h1>Home Page Not Logged In!</h1>
     </div>
   );
