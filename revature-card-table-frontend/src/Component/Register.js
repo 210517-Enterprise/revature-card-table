@@ -59,71 +59,63 @@ export default function Register() {
   return (
     <>
       <div id="page-layout" class="container-xxl">
-        <div>
-          <div class="col-xl-6  mx-auto">
-            <Form>
-              <Form.Group>
-                <h2>Create Account</h2>
-                <h5>Username</h5>
-                <Form.Control
-                  id="username"
-                  type="text"
-                  placeholder="Enter username"
-                  {...register("username", { required: true })}
-                />
-              </Form.Group>
+        <br />
+        <div class="col-xl-6  mx-auto">
+          <Form>
+            <Form.Group>
+              <h2>Create Account</h2>
+              <h5>Username</h5>
+              <Form.Control
+                id="username"
+                type="text"
+                placeholder="Enter username"
+                {...register("username", { required: true })}
+              />
+            </Form.Group>
 
-              <Form.Group>
-                <h5>Password</h5>
-                <Form.Control
-                  id="password"
-                  type="password"
-                  placeholder="Enter password"
-                  {...register("password", { required: true })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <h5>First Name</h5>
-                <Form.Control
-                  id="firstName"
-                  type="text"
-                  placeholder="Enter first name"
-                  {...register("firstName", { required: true })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <h5>Last Name</h5>
-                <Form.Control
-                  id="lastName"
-                  type="test"
-                  placeholder="Enter last name"
-                  required = "true"
-                  {...register("lastName", { required: true })}
-                />
-              </Form.Group>
+            <Form.Group>
+              <h5>Password</h5>
+              <Form.Control
+                id="password"
+                type="password"
+                placeholder="Enter password"
+                {...register("password", { required: true })}
+              />
+            </Form.Group>
+            <Form.Group>
+              <h5>First Name</h5>
+              <Form.Control
+                id="firstName"
+                type="text"
+                placeholder="Enter first name"
+                {...register("firstName", { required: true })}
+              />
+            </Form.Group>
+            <Form.Group>
+              <h5>Last Name</h5>
+              <Form.Control
+                id="lastName"
+                type="test"
+                placeholder="Enter last name"
+                required="true"
+                {...register("lastName", { required: true })}
+              />
+            </Form.Group>
 
-              <p id="error"></p>
-              <Button
-                className="btn btn-primary btn-block"
-                type="submit"
-                onClick={handleSubmit(onSubmit)}
-              >
-                Create Account
-              </Button>
-              <p className="forgot-password text-right">
-                    Already have an account? <a href="/login">Log In</a>
-                </p>
-            </Form>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-{/*             
+            <p id="error"></p>
+            <Button
+              className="btn btn-primary btn-block"
+              type="submit"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Create Account
+            </Button>
+            <p className="forgot-password text-right">
+              Already have an account? <a href="/login">Log In</a>
+            </p>
+          </Form>
+
+          {/*             
             <form
               onSubmit={handleSubmit(onSubmit)}
               onKeyDown={(e) => checkKeyDown(e)}
@@ -165,7 +157,6 @@ export default function Register() {
               <br />
               <input type="submit" />
             </form> */}
-          </div>
         </div>
       </div>
     </>

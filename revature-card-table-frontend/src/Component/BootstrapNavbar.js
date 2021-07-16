@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import "../CSS/NavBar.css"
 
 export default function BootstrapNavbar({ isLoggedIn, setToken }) {
   function logOut() {
@@ -29,18 +30,20 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            <NavDropdown title="Rules" id="collasible-nav-dropdown">
+              <LinkContainer to="/war">
+                <NavDropdown.Item>War</NavDropdown.Item>
+              </LinkContainer>
+              <NavDropdown.Item href="#action/3.2">Go Fish</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                52 Card Pickup
+              </NavDropdown.Item>
+            </NavDropdown>
             {!isLoggedIn && (
               <LinkContainer to="/register">
                 <Nav.Link href="#register">Register</Nav.Link>
               </LinkContainer>
             )}
-
-            {!isLoggedIn && (
-              <LinkContainer to="/login">
-                <Nav.Link>Login</Nav.Link>
-              </LinkContainer>
-            )}
-
             {isLoggedIn && (
               <NavDropdown title="Games" id="collasible-nav-dropdown">
                 <LinkContainer to="/war">
@@ -59,6 +62,12 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
             {isLoggedIn && (
               <LinkContainer to="/my-account">
                 <Nav.Link>My Account</Nav.Link>
+              </LinkContainer>
+            )}
+
+            {!isLoggedIn && (
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
               </LinkContainer>
             )}
             {isLoggedIn && (

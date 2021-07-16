@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+.custom-navbar {
+  background-color: #1d1d35;
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.dropdown-menu.show{
+  border-top-color: #63afd3;
+  border-top-width: 0.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.dropdown-item {
+  font-weight: 500;
+}

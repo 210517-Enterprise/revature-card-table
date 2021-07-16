@@ -47,13 +47,12 @@
   bottom: 0;
   right: 0;
   overflow:auto;
-  background-color: #35654d;
+  background-color: black;
   color: whitesmoke;
-  /* background-image: url(https://www.transparenttextures.com/patterns/black-felt.png); */
-  background-image: url(https://cdn3.vectorstock.com/i/1000x1000/68/92/casino-poker-background-green-colors-seamless-vector-5846892.jpg);
+  background-image: url("/src/r-bkg-v10.png");
+  background-size: 10em;
   background-repeat: repeat;
 }
 
-.custom-navbar {
-  background-color: rgba(40,44,52);
-}
+
+
