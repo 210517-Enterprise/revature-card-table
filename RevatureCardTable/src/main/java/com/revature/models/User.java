@@ -39,6 +39,12 @@ public class User {
 	@Column(name="last_name", nullable=false)
 	private String lastName;
 	
+	@Column(name="security_question", nullable=false)
+	private String securityQuestion;
+	
+	@Column(name="security_answer", nullable=false)
+	private String securityAnswer;
+	
 	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
 	private List<GameStatistics> gameStats;
 
