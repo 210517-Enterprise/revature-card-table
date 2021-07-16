@@ -101,6 +101,28 @@ export default function Register() {
                 {...register("lastName", { required: true })}
               />
             </Form.Group>
+            
+            <Form.Group>
+              <h5>Security Question</h5>
+              <Form.Control as="select" {...register("securityQuestion", { required: true })}>
+                <option value="What were the last four digits of your childhood telephone number?">What were the last four digits of your childhood telephone number?</option>
+                <option value="In what town or city was your first full time job?">In what town or city was your first full time job?</option>
+                <option value="What is the name of your favorite childhood friend?">What is the name of your favorite childhood friend?</option>
+                <option value="hat was the name of your first stuffed animal?">What was the name of your first stuffed animal?</option>
+              </Form.Control> 
+            </Form.Group>
+            
+
+            <Form.Group>
+              <h5>Answer for Security Quetsion</h5>
+              <Form.Control
+                id="securityAnswer"
+                type="test"
+                placeholder="Answer"
+                required="true"
+                {...register("securityAnswer", { required: true })}
+              />
+            </Form.Group>
 
             <p id="error"></p>
             <Button
@@ -114,6 +136,7 @@ export default function Register() {
               Already have an account? <a href="/login">Log In</a>
             </p>
           </Form>
+
 
           {/*             
             <form
