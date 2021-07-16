@@ -32,18 +32,20 @@ export default function Leaderboard() {
           </thead>
           <tbody>
             {gamestats.map((gamestat) => {
-              return (
-                <tr>
-                  <td>{gamestat.id}</td>
-                  <td>{gamestat.gameName}</td>
-                  <td>{gamestat.user.username}</td>
-                  <td>{gamestat.user.firstName}</td>
-                  <td>{gamestat.user.lastName}</td>
-                  <td>{gamestat.points}</td>
-                  <td>{gamestat.datePlayed}</td>
-                  <td>{gamestat.timeCompleted}</td>
-                </tr>
-              );
+              if(gamestat.won){
+                return (
+                  <tr>
+                    <td>{gamestat.id}</td>
+                    <td>{gamestat.gameName}</td>
+                    <td>{gamestat.user.username}</td>
+                    <td>{gamestat.user.firstName}</td>
+                    <td>{gamestat.user.lastName}</td>
+                    <td>{gamestat.points}</td>
+                    <td>{gamestat.datePlayed}</td>
+                    <td>{gamestat.timeCompleted}</td>
+                  </tr>
+                );
+              }
             })}
           </tbody>
         </table>
