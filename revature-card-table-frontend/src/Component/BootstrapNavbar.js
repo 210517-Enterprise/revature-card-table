@@ -6,6 +6,7 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
   return (
     <Navbar
       style={{ position: "sticky" }}
+      fixed="top"
       collapseOnSelect
       expand="sm"
       bg="dark"
