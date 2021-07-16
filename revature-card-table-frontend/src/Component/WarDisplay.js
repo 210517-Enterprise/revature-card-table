@@ -4,18 +4,17 @@
 export default function War({data}) {
    
     let winner = "";
-    let playerScore = 0;
-    let computerScore = 0;
+  
 
     //make a call to draw 2 cards, first card is user, second card is cpu
     
     
-    if(data.cards[0].value> data.cards[1].value){
+    if(data.cards[0].value > data.cards[1].value){
         winner = "Player!"
-        playerScore += 1;
+        //playerWins += 1;
     } else{
         winner = "Computer!"
-        computerScore += 1;
+        //computerWins += 1;
     }   
     
    
@@ -30,8 +29,8 @@ export default function War({data}) {
             <h2>{data.remaining}</h2>
             <ul>
                 <li>Round Winner: {winner}</li>
-                <li>Player Score: {playerScore}</li>
-                <li>Computer Score: {computerScore}</li>
+                <li>Player Score: </li>
+                <li>Computer Score: </li>
             </ul>
 
             <h1>{data.cards[1].value}</h1>
