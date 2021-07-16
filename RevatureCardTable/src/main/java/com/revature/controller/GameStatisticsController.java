@@ -33,6 +33,11 @@ public class GameStatisticsController {
 		return ResponseEntity.ok(statService.getAll());
 	}
 	
+	@GetMapping("/find-all-by-points")
+	public ResponseEntity<List<GameStatistics>> getAllByPoints() {
+		return ResponseEntity.ok(statService.findAllOrderByPoints());
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<List<GameStatistics>> getStatsByID(@PathVariable int id) {
 		return ResponseEntity.ok(statService.findByUserId(id));

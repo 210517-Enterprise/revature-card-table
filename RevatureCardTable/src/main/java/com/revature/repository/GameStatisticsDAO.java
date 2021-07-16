@@ -19,4 +19,6 @@ public interface GameStatisticsDAO extends JpaRepository<GameStatistics, Integer
 	
 	@Query("SELECT g FROM GameStatistics g WHERE g.user = :user")
 	List<GameStatistics> findByUser(@Param("user") User user);
+	
+	List<GameStatistics> findAllByOrderByPointsDesc();
 }

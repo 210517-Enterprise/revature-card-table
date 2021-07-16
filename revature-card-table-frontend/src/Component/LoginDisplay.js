@@ -10,12 +10,10 @@ import Spades from "../Images/spades1.png";
 import Hearts from "../Images/hearts1.png";
 import Clubs from "../Images/clubs1.png";
 import Diamonds from "../Images/diamonds1.png";
-
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
   const { registerUN, handleForgotPwd} = useForm();
   const history = useHistory();
-
   const onSubmit = (user) => {
     axios
       .get(
@@ -28,11 +26,9 @@ export default function LoginDisplay({ setToken }) {
           error_p.innerText =
             "Authentication Error - Check your Username and Password";
           error_p.style.color = "#ff968f";
-
           let usr_input = document.getElementById("username");
           usr_input.value = "";
           usr_input.style.backgroundColor = "#ff968f";
-
           let pwd_input = document.getElementById("password");
           pwd_input.value = "";
           pwd_input.style.backgroundColor = "#ff968f";
@@ -51,12 +47,18 @@ export default function LoginDisplay({ setToken }) {
         console.log("Failure to login user", error);
       });
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ec08a851b21fbc33b2e8a1a45336157e5995dee
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ec08a851b21fbc33b2e8a1a45336157e5995dee
   const updateToken = (user) => {
     console.log("updating token w " + user.username);
     setToken({
@@ -66,7 +68,6 @@ export default function LoginDisplay({ setToken }) {
       last_name: "",
       isLoggedIn: false
     })
-
     history.push("/forgot-password");
   }
   return (
@@ -91,7 +92,6 @@ export default function LoginDisplay({ setToken }) {
                 {...register("username", { required: true })}
               />
             </Form.Group>
-
             <Form.Group>
               <h5>Password</h5>
               <Form.Control
@@ -101,7 +101,6 @@ export default function LoginDisplay({ setToken }) {
                 {...register("password", { required: false })}
               />
             </Form.Group>
-
             <p id="error"></p>
             <motion.button
               className="btn btn-primary btn-block"
@@ -116,7 +115,6 @@ export default function LoginDisplay({ setToken }) {
             </p>
           </Form>
         </motion.div>
-
         <motion.div
           class="col-md-7 my-auto"
           initial={{ opacity: 0 }}
