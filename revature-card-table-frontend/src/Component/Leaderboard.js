@@ -11,39 +11,43 @@ export default function Leaderboard() {
   }, []);
 
   return gamestats === null ? (
-    <h1>Error: no stats</h1>
+    <div id="homepage" class="container-fluid">
+      <h1>Error: no stats</h1>
+    </div>
   ) : (
     <>
-      <table>
-        <thead>
-          <tr>
-            <td>Game ID</td>
-            <td>Game</td>
-            <td>User Username</td>
-            <td>User First Name</td>
-            <td>User Last Name</td>
-            <td>Points</td>
-            <td>Date</td>
-            <td>Game Length</td>
-          </tr>
-        </thead>
-        <tbody>
-          {gamestats.map((gamestat) => {
-            return (
-              <tr>
-                <td>{gamestat.id}</td>
-                <td>{gamestat.gameName}</td>
-                <td>{gamestat.user.username}</td>
-                <td>{gamestat.user.firstName}</td>
-                <td>{gamestat.user.lastName}</td>
-                <td>{gamestat.points}</td>
-                <td>{gamestat.datePlayed}</td>
-                <td>{gamestat.timeCompleted}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div id="homepage" class="container-fluid">
+        <table>
+          <thead>
+            <tr>
+              <td>Game ID</td>
+              <td>Game</td>
+              <td>User Username</td>
+              <td>User First Name</td>
+              <td>User Last Name</td>
+              <td>Points</td>
+              <td>Date</td>
+              <td>Game Length</td>
+            </tr>
+          </thead>
+          <tbody>
+            {gamestats.map((gamestat) => {
+              return (
+                <tr>
+                  <td>{gamestat.id}</td>
+                  <td>{gamestat.gameName}</td>
+                  <td>{gamestat.user.username}</td>
+                  <td>{gamestat.user.firstName}</td>
+                  <td>{gamestat.user.lastName}</td>
+                  <td>{gamestat.points}</td>
+                  <td>{gamestat.datePlayed}</td>
+                  <td>{gamestat.timeCompleted}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

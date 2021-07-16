@@ -2,10 +2,20 @@ import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-export default function BootstrapNavbar({ isLoggedIn }) {
+export default function BootstrapNavbar({ isLoggedIn, setToken }) {
+
+  function logOut() {
+    setToken({
+      username: ``,
+      id: ``,
+      isLoggedIn: false,
+    });
+  }
+
   return (
     <Navbar
       style={{ position: "sticky" }}
+      fixed="top"
       collapseOnSelect
       expand="sm"
       bg="dark"
@@ -13,7 +23,9 @@ export default function BootstrapNavbar({ isLoggedIn }) {
     >
       <Container fluid>
         <LinkContainer to="/">
-          <Navbar.Brand><img src = "/Picture1.png" width="150"/></Navbar.Brand>
+          <Navbar.Brand>
+            <img src="/Picture1.png" width="150" />
+          </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -38,16 +50,20 @@ export default function BootstrapNavbar({ isLoggedIn }) {
                   52 Card Pickup
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Etc.</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Rules</NavDropdown.Item>
               </NavDropdown>
             )}
           </Nav>
-          <Nav>
-            {isLoggedIn && <Nav.Link href="#deets">My Account</Nav.Link>}
+          <Nav className="ml-auto">
             {isLoggedIn && (
-              <Nav.Link eventKey={2} href="#memes">
-                Logout
-              </Nav.Link>
+              <LinkContainer to="/my-account">
+                <Nav.Link>My Account</Nav.Link>
+              </LinkContainer>
+            )}
+            {isLoggedIn && (
+              <LinkContainer to="/">
+                <Nav.Link onSelect={logOut}>Logout</Nav.Link>
+              </LinkContainer>
             )}
           </Nav>
         </Navbar.Collapse>
@@ -55,3 +71,4 @@ export default function BootstrapNavbar({ isLoggedIn }) {
     </Navbar>
   );
 }
+
