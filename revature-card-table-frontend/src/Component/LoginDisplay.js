@@ -47,10 +47,18 @@ export default function LoginDisplay({ setToken }) {
         console.log("Failure to login user", error);
       });
   };
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5ec08a851b21fbc33b2e8a1a45336157e5995dee
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
   };
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5ec08a851b21fbc33b2e8a1a45336157e5995dee
   const updateToken = (user) => {
     console.log("updating token w " + user.username);
     setToken({
