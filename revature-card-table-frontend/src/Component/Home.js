@@ -4,10 +4,10 @@ export default function Home({ isLoggedIn }) {
   return isLoggedIn ? (
     <>
       <div id="homepage" class="container-fluid">
-        <main class="px-3">
+        <main >
           <h1>Welcome to the Revature Card Room</h1>
           <br />
-          <p class="lead">
+          <p class = "custom-back">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum
             velit euismod in pellentesque massa placerat duis ultricies lacus.

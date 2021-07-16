@@ -14,11 +14,11 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
 
   return (
     <Navbar
+      className="custom-navbar"
       style={{ position: "sticky" }}
       fixed="top"
       collapseOnSelect
       expand="sm"
-      bg="dark"
       variant="dark"
     >
       <Container fluid>
