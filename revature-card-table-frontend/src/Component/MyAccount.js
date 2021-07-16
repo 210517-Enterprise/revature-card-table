@@ -51,7 +51,6 @@ export default function MyAccount({token}){
                 "securityAnswer": response.data.securityAnswer
             }
 
-            console.log("correct pwd");
 
             axios.post(`http://localhost:8080/revature-card-table/users/update`, 
             JSON.stringify(user), { headers })
