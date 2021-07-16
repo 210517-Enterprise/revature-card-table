@@ -59,8 +59,8 @@ export default function Register() {
   return (
     <>
       <div id="page-layout" class="container-xxl">
-        <div class="row">
-          <div class="col-lg-6  mx-auto">
+        <div>
+          <div class="col-xl-6  mx-auto">
             <Form>
               <Form.Group>
                 <h2>Create Account</h2>

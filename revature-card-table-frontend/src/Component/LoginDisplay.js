@@ -47,8 +47,7 @@ export default function LoginDisplay({ setToken }) {
   return (
     <>
       <div id="page-layout" class="container-xxl">
-        <div class="row">
-          <div class="col-lg-6  mx-auto">
+          <div class="col-xl-6  mx-auto">
             <Form>
               <Form.Group>
                 <h2>Log In</h2>
@@ -84,7 +83,6 @@ export default function LoginDisplay({ setToken }) {
                 </p>
             </Form>
           </div>
-        </div>
       </div>
     </>
   );

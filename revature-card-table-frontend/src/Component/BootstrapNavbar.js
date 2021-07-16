@@ -3,7 +3,6 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function BootstrapNavbar({ isLoggedIn, setToken }) {
-
   function logOut() {
     setToken({
       username: ``,
@@ -31,15 +30,17 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {!isLoggedIn && (
-              <LinkContainer to="/login">
-                <Nav.Link>Login</Nav.Link>
-              </LinkContainer>
-            )}
-            {!isLoggedIn && (
               <LinkContainer to="/register">
                 <Nav.Link href="#register">Register</Nav.Link>
               </LinkContainer>
             )}
+
+            {!isLoggedIn && (
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
+            )}
+
             {isLoggedIn && (
               <NavDropdown title="Games" id="collasible-nav-dropdown">
                 <LinkContainer to="/war">
@@ -71,4 +72,3 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
     </Navbar>
   );
 }
-
