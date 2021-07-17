@@ -100,8 +100,8 @@ export default function LoginDisplay({ setToken }) {
   };
   return (
     <>
-      <div id="page-layout" class="row h-100" padding-top="10em">
-        <br />
+      <div id="page-layout" class="container-xxl">
+        <br /> <br />
         <motion.div
           class="col-lg-6 mx-auto"
           variants={fadeLeft}
@@ -150,7 +150,6 @@ export default function LoginDisplay({ setToken }) {
             </p>
           </Form>
         </motion.div>
-
         {/* <motion.div
           class="col-md-7 my-auto"
           initial={{ opacity: 0 }}

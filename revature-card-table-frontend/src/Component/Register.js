@@ -102,7 +102,7 @@ export default function Register() {
   return (
     <>
       <div id="page-layout" class="container-xxl">
-        <br />
+        <br /> <br />
         <motion.div
           class="col-xl-6  mx-auto"
           variants={fadeLeft}
