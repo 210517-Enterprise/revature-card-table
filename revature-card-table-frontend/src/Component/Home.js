@@ -146,8 +146,11 @@ export default function Home({ isLoggedIn, token }) {
       </div>
     </>
   ) : (
-    <div id="page-layout" class="container-fluid">
-      <h1>Home Page Not Logged In!</h1>
-    </div>
+    <>
+      <div id="page-layout" class="container-fluid">
+        <h1>Revature Card Room</h1>
+        
+      </div>
+    </>
   );
 }
