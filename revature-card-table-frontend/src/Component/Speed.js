@@ -164,29 +164,29 @@ export default function Speed() {
     }, [centerDeck])
 
     const computerMove = () => {
-        console.log("COMPUTER IS MOVING!!!!")
-        for (let i = 0; i < 5; i++) {
-            let computerCard = computerDeck[i];
+        console.log("COMPUTER IS MOVING!!!!");
+        let idx = 0;
+        for (let computerCard of computerDeck) {
             let value = parseValue(computerCard);
             let replaced = false;
 
             for (let j = 0; j < 2; j++) {
                 let centerCard = centerDeck[j];
-                let valCurrCard = parseValue(centerCard);
-                console.log("Comparing with: " + valCurrCard);
-    
+                let valCenterCard = parseValue(centerCard);
+                console.log("Comparing with: " + valCenterCard);
+
                 let up;
                 let down;
                     
-                if (valCurrCard === 14) {
+                if (valCenterCard === 14) {
                     up = 2;
                     down = 13;
-                } else if (valCurrCard === 2) {
+                } else if (valCenterCard === 2) {
                     up = 3;
                     down = 14;
                 } else {
-                    up = valCurrCard+1;
-                    down = valCurrCard-1;
+                    up = valCenterCard+1;
+                    down = valCenterCard-1;
                 }
                 if ((value === up) || (value === down)) {
                     replaceAndDrawComputer(computerCard, centerCard);
@@ -194,21 +194,69 @@ export default function Speed() {
                     break;
                 }
             }
-
+            
             if (replaced) {
                 console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
                 break;
             }
 
-            if (i === 4) {
+            idx++;
+            if (idx >= computerDeck.length-1 || idx > 4) {
                 console.log("Computer has no more moves!");
-                setNoComputerMoves(!noComputerMoves);
+                setNoComputerMoves(true);
                 break;
             }
         }
 
-        console.log("COMPUTER IS DONE MOVING!!!!");
+        console.log("COMPUTER IS DONE MOVING!!!");
     }
+
+    // const computerMove = () => {
+    //     console.log("COMPUTER IS MOVING!!!!")
+    //     for (let i = 0; i < 5; i++) {
+    //         let computerCard = computerDeck[i];
+    //         let value = parseValue(computerCard);
+    //         let replaced = false;
+
+    //         for (let j = 0; j < 2; j++) {
+    //             let centerCard = centerDeck[j];
+    //             let valCurrCard = parseValue(centerCard);
+    //             console.log("Comparing with: " + valCurrCard);
+    
+    //             let up;
+    //             let down;
+                    
+    //             if (valCurrCard === 14) {
+    //                 up = 2;
+    //                 down = 13;
+    //             } else if (valCurrCard === 2) {
+    //                 up = 3;
+    //                 down = 14;
+    //             } else {
+    //                 up = valCurrCard+1;
+    //                 down = valCurrCard-1;
+    //             }
+    //             if ((value === up) || (value === down)) {
+    //                 replaceAndDrawComputer(computerCard, centerCard);
+    //                 replaced = true;
+    //                 break;
+    //             }
+    //         }
+
+    //         if (replaced) {
+    //             console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
+    //             break;
+    //         }
+
+    //         if (i === 4) {
+    //             console.log("Computer has no more moves!");
+    //             setNoComputerMoves(!noComputerMoves);
+    //             break;
+    //         }
+    //     }
+
+    //     console.log("COMPUTER IS DONE MOVING!!!!");
+    // }
 
     // const computerMove = async () => {
     //     console.log("COMPUTER IS MOVING!!!!")
