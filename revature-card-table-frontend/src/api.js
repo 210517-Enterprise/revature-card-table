@@ -64,23 +64,19 @@ const drawCardsFromPile = async (deckId, pileName, count) => {
   return {cards, images, pileName, deckId};
 };
 
-const startMatchingGame = async () => {
-  const cardsRequest = await api.get("/new/shuffle/", {
-      params: {
-        cards: "AS,AD,2D,2C,3S,3C,4H,4S,5D,5C,6S,6H,7H,7C,8D,8S,9H,9D,0C,0S,JH,JC,QH,QS,KD,KC"
-      }});
   
-  console.log(cardsRequest);
+  //console.log(cardsRequest);
 
-  const drawCardsRequest = await api.get(`/${cardsRequest.data.deck_id}/draw`,{
-    params: {
-      count: cardsRequest.data.remaining
-    }
-  })
+  // const drawCardsRequest = await api.get(`/${cardsRequest.data.deck_id}/draw`,{
+  //   params: {
+  //     count: cardsRequest.data.remaining
+  //   }
+  // });
 
-  let startCards = drawCardsRequest.data.cards;
-  return { startCards };
-}
+  // console.log(cardsRequest.data);
+  // let startCards = cardsRequest.data;
+  // return { cardsRequest };
+
 
 const createDeckAndDraw = async () => {
   const { data } = await api.get("new/shuffle/", {
@@ -109,4 +105,4 @@ const redrawCardFromDeck = async ({ deckId }) => {
   return { deck_id: deckId, value, image };
 };
 
-export { drawCardsFromPile, startSpeed, createDeckAndDraw, redrawCardFromDeck, startMatchingGame };
+export { drawCardsFromPile, startSpeed, createDeckAndDraw, redrawCardFromDeck, };
