@@ -1,0 +1,85 @@
+@mixin fan($count, $angle) {
+  @for $i from 1 through $count {
+    div:nth-child(#{$i}) {
+      transform: translate(-50%, -50%) rotate(-$angle/2 + $angle/($count+1) * $i);
+    } 
+  }
+}
+
+.computer {
+  background-size: cover;
+  height: 250px;
+  width: 180px;
+  border-radius: 5px;
+  position: absolute;
+  //box-shadow: 0 0 30px transparentize(black, 0.8);
+  left: 50%;
+  top: 50%;
+
+  transform-origin: center 180%;
+}
+
+.test {
+  background-size: cover;
+  height: 250px;
+  width: 180px;
+  border-radius: 5px;
+  position: absolute;
+  //box-shadow: 0 0 30px transparentize(black, 0.8);
+  left: 50%;
+  top: 50%;
+
+  transform-origin: center 180%;
+
+  &:hover {
+    height: 278px;
+    width: 200px;
+  }
+}
+
+
+
+.test2 {
+  background-size: cover;
+  height: 278px;
+  width: 200px;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: 0 0 30px transparentize(red, 0.6);
+  left: 50%;
+  top: 50%;
+
+
+
+  transform-origin: center 180%;
+}
+
+.hand {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  @include fan(5, 90deg);
+}
+
+.computerHand {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  @include fan(5, 90deg);
+}
+
+.middleDeck {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.middle {
+  background-size: cover;
+  padding-left: 100px;
+  height: 278px;
+  width: 200px;
+  border-radius: 10px;
+}

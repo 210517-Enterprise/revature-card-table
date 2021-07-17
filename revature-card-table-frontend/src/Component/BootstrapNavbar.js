@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import "../CSS/NavBar.css"
+import "../CSS/NavBar.css";
 
-export default function BootstrapNavbar({ isLoggedIn, setToken }) {
+export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
   function logOut() {
     setToken({
       username: ``,
@@ -24,24 +24,21 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
       <Container fluid>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src="/Picture1.png" width="150" />
+            <img src="/Picture1.png" width="200" />
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="Rules" id="collasible-nav-dropdown">
-              <LinkContainer to="/war">
-                <NavDropdown.Item>War</NavDropdown.Item>
-              </LinkContainer>
-              <NavDropdown.Item href="#action/3.2">Go Fish</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                52 Card Pickup
-              </NavDropdown.Item>
-            </NavDropdown>
+            <LinkContainer to="/rules">
+              <Nav.Link href="">Rules</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/leaderboard">
+              <Nav.Link>Leaderboard</Nav.Link>
+            </LinkContainer>
             {!isLoggedIn && (
               <LinkContainer to="/register">
-                <Nav.Link href="#register">Register</Nav.Link>
+                <Nav.Link>Register</Nav.Link>
               </LinkContainer>
             )}
             {isLoggedIn && (
@@ -62,6 +59,11 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
           </Nav>
           <Nav className="ml-auto">
             {isLoggedIn && (
+              <Nav.Link eventKey="disabled" disabled>
+                Welcome Back, {token.first_name}!    
+              </Nav.Link>
+            )}
+            {isLoggedIn && (
               <LinkContainer to="/my-account">
                 <Nav.Link>My Account</Nav.Link>
               </LinkContainer>
@@ -72,6 +74,7 @@ export default function BootstrapNavbar({ isLoggedIn, setToken }) {
                 <Nav.Link>Login</Nav.Link>
               </LinkContainer>
             )}
+
             {isLoggedIn && (
               <LinkContainer to="/">
                 <Nav.Link onSelect={logOut}>Logout</Nav.Link>
