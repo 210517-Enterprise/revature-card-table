@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+.custom-navbar {
+  background-color: #1d1d35;
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+  height: 60px;
+}
+
+.dropdown-menu.show{
+  border-top-color: #63afd3;
+  border-top-width: 0.6em;
+  border-top-left-radius: 0.6em;
+  border-top-right-radius: 0.6em;
+}
+
+.dropdown-item {
+  font-weight: 500;
+}
+
+.custom-navbar > LinkContainer > a:hover {
+  background-color: pink;
+}

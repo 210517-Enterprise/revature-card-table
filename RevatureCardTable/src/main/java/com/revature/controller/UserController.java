@@ -28,8 +28,8 @@ public class UserController {
 	private UserService userv;
 	
 	@GetMapping("/{username}")
-	public ResponseEntity<UserDetails> findByUsername(@PathVariable("username") String username){
-		return ResponseEntity.ok(userv.loadUserByUsername(username));
+	public ResponseEntity<User> findByUsername(@PathVariable("username") String username){
+		return ResponseEntity.ok(userv.findByUsername(username));
 	}
 	
 	@GetMapping("/login")
