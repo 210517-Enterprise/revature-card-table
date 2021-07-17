@@ -66,12 +66,13 @@ export default function LoginDisplay({ setToken }) {
     <>
       <div id="page-layout" class="row h-100" padding-top="10em">
         <motion.div
-          class="col-md-5 my-auto"
+          class="col-lg-6 mx-auto"
           variants={fadeLeft}
           initial="hidden"
           animate="visible"
           transition={{ duration: 1 }}
         >
+          <br/>
           <Form>
             <Form.Group>
               <h2>Log In</h2>
@@ -95,7 +96,7 @@ export default function LoginDisplay({ setToken }) {
             </Form.Group>
             <p id="error"></p>
             <motion.button
-              className="btn btn-primary btn-block"
+              className="custom-btn"
               type="submit"
               onClick={handleSubmit(onSubmit)}
               whileHover={{ scale: 1.05 }}
@@ -107,7 +108,7 @@ export default function LoginDisplay({ setToken }) {
             </p>
           </Form>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           class="col-md-7 my-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -153,7 +154,7 @@ export default function LoginDisplay({ setToken }) {
             dragMomentum={false}
             // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
           ></motion.img>
-        </motion.div>
+        </motion.div> */}
       </div>
     </>
   );
