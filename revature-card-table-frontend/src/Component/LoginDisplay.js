@@ -96,7 +96,7 @@ export default function LoginDisplay({ setToken }) {
             </Form.Group>
             <p id="error"></p>
             <motion.button
-              className="btn btn-primary btn-block"
+              className="custom-btn"
               type="submit"
               onClick={handleSubmit(onSubmit)}
               whileHover={{ scale: 1.05 }}
