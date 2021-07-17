@@ -6,12 +6,8 @@ import LoginDisplay from "./LoginDisplay";
 import MatchingGame from "./MatchingGame";
 import MyAccount from "./MyAccount";
 import Register from "./Register";
-<<<<<<< HEAD
-import War from "./War.js";
-=======
 import Speed from "./Speed";
 import War from "./War";
->>>>>>> 76ead4beebda30b13e6c53cc06e549e4e1baf74b
 
 export default function AppRouter({ isLoggedIn, setToken, token }) {
   return (
