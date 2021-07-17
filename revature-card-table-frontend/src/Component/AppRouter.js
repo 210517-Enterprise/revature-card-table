@@ -3,6 +3,7 @@ import ForgotPassword from "./ForgotPassword";
 import Home from "./Home";
 import Leaderboard from "./Leaderboard";
 import LoginDisplay from "./LoginDisplay";
+import MatchingGame from "./MatchingGame";
 import MyAccount from "./MyAccount";
 import Register from "./Register";
 import Speed from "./Speed";
@@ -30,6 +31,10 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
 
         <Route path="/leaderboard" exact>
           <Leaderboard />
+        </Route>
+
+        <Route path="/matching-game" exact>
+          <MatchingGame />
         </Route>
 
         {/* {loggedIn && (<Route path='/war' exact component={War}></Route>)} */}
