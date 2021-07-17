@@ -48,6 +48,22 @@ export default function War() {
     updateWarGoing(!isWarGoing);
   }
 
+  function assessString() {
+
+    updateString(<div className="PlayerCard">
+      <h2>Player Card Remaining {playerDeck.length} | Player Score: {playerScore}</h2>
+      <img src={playerDeck[0].image}></img>
+      <div>
+          <h2>Round Winner: {currentWinner}</h2>
+      </div>
+      <div className="AICard">
+        <h2>AI Card r: {AiDeck.length} | AI Score: {aiScore}</h2>
+        <img src={AiDeck[0].image}></img>
+      </div> 
+      </div>
+      )
+  }
+
   //method iterates turn upwards, then assess cards
   function fight() {
       
@@ -65,18 +81,6 @@ export default function War() {
       updateWinner("AI Wins!");
       updateAiScore(aiScore + 1);
 
-      updateString(<div className="PlayerCard">
-      <h2>Player Card Remaining {playerDeck.length} | Player Score: {playerScore}</h2>
-      <img src={playerDeck[0].image}></img>
-      <div>
-          <h2>Round Winner: {currentWinner}</h2>
-      </div>
-      <div className="AICard">
-        <h2>AI Card r: {AiDeck.length} | AI Score: {aiScore}</h2>
-        <img src={AiDeck[0].image}></img>
-      </div> 
-      </div>
-      )
       
     } else if (playerDeck[0].value > AiDeck[0].value) {
 
@@ -92,19 +96,7 @@ export default function War() {
       updateWinner("Player Wins!");
       updatePlayerScore(playerScore + 1)
 
-      updateString(<div className="PlayerCard">
-      <h2>Player Card Remaining {playerDeck.length} | Player Score: {playerScore}</h2>
-      <img src={playerDeck[0].image}></img>
-      <div>
-          <h2>Round Winner: {currentWinner}</h2>
-      </div>
-      <div className="AICard">
-        <h2>AI Card r: {AiDeck.length} | AI Score: {aiScore}</h2>
-        <img src={AiDeck[0].image}></img>
-      </div> 
-      </div>
-      )
-
+    
     } else  {
 
       AiDeck.shift(0);
@@ -112,23 +104,14 @@ export default function War() {
 
       updateWinner("DRAW! Both Cards lost!");
 
-      updateString(<div className="PlayerCard">
-      <h2>Player Card Remaining {playerDeck.length} | Player Score: {playerScore}</h2>
-      <img src={playerDeck[0].image}></img>
-      <div>
-          <h2>Round Winner: {currentWinner}</h2>
-      </div>
-      <div className="AICard">
-        <h2>AI Card r: {AiDeck.length} | AI Score: {aiScore}</h2>
-        <img src={AiDeck[0].image}></img>
-      </div> 
-      </div>
-      )
+      
     }
     nextTurn(turn + 1);
     
     console.log(turn);
   }
+
+
 
   return string === null ? (
     <>
