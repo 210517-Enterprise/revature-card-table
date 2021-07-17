@@ -16,9 +16,9 @@ export default function Speed() {
     const [centerDeck, setCenterDeck] = useState([]);
     const [gameStatus, setGameStatus] = useState(false);
     const [chosen, setChosen] = useState();
-    const [computerMoving, setComputerMoving] = useState(false);
+    //const [computerMoving, setComputerMoving] = useState(false);
 
-
+    const computerIsMoving = useRef(false);
     const globalIdx = useRef(-2);
 
     //let globalIdx = -2;
@@ -103,7 +103,10 @@ export default function Speed() {
         
         setPlayerDeck(playerCopy);
 
-        globalIdx.current = -1;
+        //WHEN YOU MOVE THEN COMPUTER SHOULD RESTART!!
+        computerIsMoving.current = false;
+        // globalIdx.current = -1;
+        // computerIsMoving.current = false;
 
         setCenterDeck(centerCopy);
     }
@@ -143,25 +146,28 @@ export default function Speed() {
         }
     }, [playerDeck, gameStatus])
 
-    const timer = ms => new Promise(res => setTimeout(res, ms));
+    // const timer = ms => new Promise(res => setTimeout(res, ms));
 
-    const computerMove = async () => {
+    //WHEN GAME STARTS, COMPUTER STARTS MOVING
+    useEffect(() => {
+        console.log("HELLO");
+        setNoComputerMoves(false);
+        //IF GAME IS ONGOING THEN MOVE
+        if (gameStatus) {
+            //SET TIMEOUT, START MOVING AFTER 2 SECONDS
+            let timerFunc = setTimeout(() => {
+                computerMove();
+            }, 2000);
+            //CANCEL TIMEOUT EVERYTIME CENTERDECK WILL CHANGE
+            return () => clearTimeout(timerFunc);
+        }
+    }, [centerDeck])
+
+    const computerMove = () => {
         console.log("COMPUTER IS MOVING!!!!")
-        globalIdx.current = 0;
         for (let i = 0; i < 5; i++) {
             let computerCard = computerDeck[i];
             let value = parseValue(computerCard);
-
-            console.log("Value is: " + value + ". Waiting 1 seconds.");
-            await timer(2000);
-
-            //If center changed exit
-            if (globalIdx.current == -1) {
-                console.log("Center changed");
-                break;
-            }
-
-            console.log("Checking cards");
             let replaced = false;
 
             for (let j = 0; j < 2; j++) {
@@ -183,12 +189,6 @@ export default function Speed() {
                     down = valCurrCard-1;
                 }
                 if ((value === up) || (value === down)) {
-                    //If center changed exit
-                    if (globalIdx.current == -1) {
-                        console.log("Center changed2");
-                        break;
-                    }
-
                     replaceAndDrawComputer(computerCard, centerCard);
                     replaced = true;
                     break;
@@ -197,43 +197,112 @@ export default function Speed() {
 
             if (replaced) {
                 console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
-                globalIdx.current = -1;
                 break;
             }
 
-            if (i == 4) {
+            if (i === 4) {
                 console.log("Computer has no more moves!");
-                globalIdx.current = -1;
                 setNoComputerMoves(!noComputerMoves);
                 break;
             }
-
-            //If center changed exit
-            if (globalIdx.current == -1) {
-                console.log("Center changed3");
-                break;
-            }
         }
-    };
+
+        console.log("COMPUTER IS DONE MOVING!!!!");
+    }
+
+    // const computerMove = async () => {
+    //     console.log("COMPUTER IS MOVING!!!!")
+    //     globalIdx.current = 0;
+    //     for (let i = 0; i < 5; i++) {
+    //         let computerCard = computerDeck[i];
+    //         let value = parseValue(computerCard);
+
+    //         console.log("Value is: " + value + ". Waiting 1 seconds.");
+    //         await timer(2000);
+
+    //         //If center changed exit
+    //         if (globalIdx.current === -1) {
+    //             console.log("Center changed");
+    //             break;
+    //         }
+
+    //         console.log("Checking cards");
+    //         let replaced = false;
+
+    //         for (let j = 0; j < 2; j++) {
+    //             let centerCard = centerDeck[j];
+    //             let valCurrCard = parseValue(centerCard);
+    //             console.log("Comparing with: " + valCurrCard);
     
-    //When game state changes, computer starts moving
-    useEffect (async () => {
-        console.log("HELLO");
-        console.log(globalIdx);
-        if (gameStatus) {
-            //First run
-            if (globalIdx.current === -2) {
-                computerMove();
-            } else if (globalIdx.current === -1) {
-                //Player has moved
-                console.log("WAITING 5 SECONDS");
-                await timer (5000);
-                if (globalIdx.current !== 0) {
-                    computerMove();
-                }
-            }
-        } 
-    }, [centerDeck])
+    //             let up;
+    //             let down;
+                    
+    //             if (valCurrCard === 14) {
+    //                 up = 2;
+    //                 down = 13;
+    //             } else if (valCurrCard === 2) {
+    //                 up = 3;
+    //                 down = 14;
+    //             } else {
+    //                 up = valCurrCard+1;
+    //                 down = valCurrCard-1;
+    //             }
+    //             if ((value === up) || (value === down)) {
+    //                 //If center changed exit
+    //                 if (globalIdx.current === -1) {
+    //                     console.log("Center changed2");
+    //                     break;
+    //                 }
+
+    //                 replaceAndDrawComputer(computerCard, centerCard);
+    //                 replaced = true;
+    //                 break;
+    //             }
+    //         }
+
+    //         if (replaced) {
+    //             console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
+    //             globalIdx.current = -1;
+    //             break;
+    //         }
+
+    //         if (i === 4) {
+    //             console.log("Computer has no more moves!");
+    //             globalIdx.current = -1;
+    //             setNoComputerMoves(!noComputerMoves);
+    //             break;
+    //         }
+
+    //         //If center changed exit
+    //         if (globalIdx.current === -1) {
+    //             console.log("Center changed3");
+    //             break;
+    //         }
+    //     }
+    //     computerIsMoving.current = false;
+    //     console.log("Computer is done moving");
+    // };
+    
+    // //When game state changes, computer starts moving
+    // useEffect (() => {
+    //     console.log("HELLO");
+    //     console.log(computerIsMoving.current);
+    //     console.log(globalIdx);
+    //     if (gameStatus) {
+    //         //First run
+    //         if (globalIdx.current === -2) {
+    //             computerIsMoving.current = true;
+    //             computerMove();
+    //         } else if (globalIdx.current === -1) {
+    //             //Player has moved
+    //             if (!computerIsMoving.current) {
+    //                 console.log("Computer is moving Again");
+    //                 computerIsMoving.current = true;
+    //                 computerMove();
+    //             }
+    //         }
+    //     } 
+    // }, [centerDeck, computerIsMoving])
 
     useEffect(() => {
         console.log(noPlayerMoves);
