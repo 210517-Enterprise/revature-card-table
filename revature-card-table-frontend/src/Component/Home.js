@@ -1,7 +1,14 @@
 import "../CSS/Home.css";
 import { Carousel } from "react-bootstrap";
+import { motion } from "framer-motion";
+import Test from "../Images/1.png";
 
 export default function Home({ isLoggedIn, token }) {
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return isLoggedIn ? (
     <>
       <div id="page-layout" class="container-fluid">
@@ -13,8 +20,8 @@ export default function Home({ isLoggedIn, token }) {
               <img
                 className="d-block w-100"
                 src="https://i.pinimg.com/originals/4a/34/62/4a3462185ec34cf3d5fcc8565b52d6f2.gif"
-                width = "800"
-                height = "500"
+                width="800"
+                height="500"
                 alt="First slide"
               />
               <Carousel.Caption>
@@ -28,8 +35,8 @@ export default function Home({ isLoggedIn, token }) {
               <img
                 className="d-block w-100"
                 src="https://j.gifs.com/VmYDyv@large.gif?download=false"
-                width = "800"
-                height = "500"
+                width="800"
+                height="500"
                 alt="Second slide"
               />
 
@@ -42,8 +49,8 @@ export default function Home({ isLoggedIn, token }) {
               <img
                 className="d-block w-100"
                 src="https://images.squarespace-cdn.com/content/v1/54b9401be4b095413a52aaa8/1594424847613-8TZTK14DLRH38T1QLRM4/FlipGIF_CROP.gif?format=1500w"
-                width = "800"
-                height = "500"
+                width="800"
+                height="500"
                 alt="Third slide"
               />
 
@@ -146,8 +153,17 @@ export default function Home({ isLoggedIn, token }) {
       </div>
     </>
   ) : (
-    <div id="page-layout" class="container-fluid">
-      <h1>Home Page Not Logged In!</h1>
-    </div>
+    <>
+      <div id="page-layout" class="container-xxl" >
+        <motion.img
+          src={Test}
+          variants={fadeLeft}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1 }}
+        ></motion.img>
+        
+      </div>
+    </>
   );
 }

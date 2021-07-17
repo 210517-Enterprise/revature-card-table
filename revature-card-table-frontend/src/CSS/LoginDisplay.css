@@ -5,6 +5,7 @@ body {
   display: flex;
   font-weight: 400;
   font-family: "Fira Sans", sans-serif;
+
 }
 
 h1,
@@ -75,4 +76,5 @@ h5 {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
+  font-family: "Fira Sans", sans-serif;
 }

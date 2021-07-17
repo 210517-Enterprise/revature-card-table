@@ -9,14 +9,14 @@ export default function App() {
     id: "",
     first_name: "",
     last_name: "",
-    isLoggedIn:  false
+    isLoggedIn:  true
     });
 
     console.log(token);
   return (
     <div className="App">
       <AppRouter isLoggedIn={token.isLoggedIn} setToken={setToken} token={token} />
-      <BootstrapNavbar isLoggedIn={token.isLoggedIn} setToken={setToken}/>
+      <BootstrapNavbar isLoggedIn={token.isLoggedIn} setToken={setToken} token={token}/>
     </div>
   );
 }

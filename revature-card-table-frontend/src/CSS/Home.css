@@ -1,11 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
 h1 {
-  font-family: Stencil Std, fantasy;
-  background: rgba(40,44,52,0.8);
-  padding: 0.5em;
+  font-family: "Fira Sans", sans-serif;
+  background: rgba(40, 44, 52, 0.9);
+  padding: 0.25em;
   border-radius: 20px;
+  color: #9cb0a4;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: left;
+  font-size: 200px;
 }
+
 .custom-back {
-  background: rgba(40,44,52,0.8);
+  background: rgba(40, 44, 52, 0.9);
   padding: 2em;
   border-radius: 20px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.center-of-screen {
+  height: 400px;
+  width: 800px;
+  background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+img {
+  max-width: 80%;
+  height: auto;
+  width: auto\9; /* ie8 */
+  padding: 0.5em;
 }
