@@ -22,43 +22,53 @@ export default function ForgotPassword({ username }){
 
     const onSubmit = (data) => {
 
-        if(data.pwd !== data.confirmPwd){
-            let errorP = document.getElementById("error");
-            errorP.innerText = "Passwords do not match";
-            
-            let pwdBox = document.getElementById("pwd");
-            pwdBox.style.backgroundColor = "#ff968f";
-
-            let cPwdBox = document.getElementById("confirmPwd");
-            cPwdBox.value = "";
-            cPwdBox.style.backgroundColor = "#ff968f";
-        }
+        
 
         console.log(`Typed ${data.answer} and actually is ${user.securityAnswer}`)
-            if(data.answer !== user.securityAnswer){
+        if(data.answer !== user.securityAnswer){
+            let errorP = document.getElementById("error");
+            errorP.innerText = "Incorrect answer to your security question";
+
+            let answerBox = document.getElementById("answer");
+            answerBox.value = "";
+            answerBox.style.backgroundColor = "#ff968f";
+
+            if(data.pwd !== data.confirmPwd){
                 let errorP = document.getElementById("error");
-                errorP.innerText = "Incorrect answer to your security question";
+                errorP.innerText = "Passwords do not match";
+                
+                let pwdBox = document.getElementById("pwd");
+                pwdBox.style.backgroundColor = "#ff968f";
+    
+                let cPwdBox = document.getElementById("confirmPwd");
+                cPwdBox.value = "";
+                cPwdBox.style.backgroundColor = "#ff968f";
+            }
+        }
+        else{
 
-                let answerBox = document.getElementById("answer");
-                answerBox.value = "";
-                answerBox.style.backgroundColor = "#ff968f";
+            let updatedUser = {
+                "user_id": user.user_id,
+                "username": user.username,
+                "password": data.pwd,
+                "firstName": user.firstName,
+                "lastName": user.lastName,
+                "securityQuestion": user.securityQuestion,
+                "securityAnswer": user.securityAnswer
+            }
+    
+            console.log(updatedUser);
+    
+            axios.post(`http://localhost:8080/revature-card-table/users/update`,
+            JSON.stringify(updatedUser), { headers }).then((response)=>{
+                console.log(response);
+                history.push("/login");
+            });
+
         }
 
-        let updatedUser = {
-            "user_id": user.user_id,
-            "username": user.username,
-            "password": data.pwd,
-            "firstName": user.firstName,
-            "lastName": user.lastName,
-            "securityQuestion": user.securityQuestion,
-            "securityAnswer": user.securityAnswer
-        }
-
-        console.log(updatedUser);
-
-        axios.post(`http://localhost:8080/revature-card-table/users/update`,
-        JSON.stringify(updatedUser), { headers }).then((response)=>console.log(response));
-        history.push("/login");
+        
+        
 
     }
 
