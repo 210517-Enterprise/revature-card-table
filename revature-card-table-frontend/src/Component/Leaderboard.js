@@ -11,12 +11,13 @@ export default function Leaderboard() {
   }, []);
 
   return gamestats === null ? (
-    <div id="homepage" class="container-fluid">
+    
+    <div id="page-layout" class="container-fluid">
       <h1>Error: no stats</h1>
     </div>
   ) : (
     <>
-      <div id="homepage" class="container-fluid">
+      <div id="page-layout" class="container-fluid">
         <h2>War Leaderboard</h2>
         <table>
           <thead>
@@ -48,9 +49,7 @@ export default function Leaderboard() {
             })}
           </tbody>
         </table>
-      </div>
-
-      <div id="homepage" class="container-fluid">
+      
         <h2>Speed Leaderboard</h2>
         <table>
           <thead>
@@ -82,9 +81,7 @@ export default function Leaderboard() {
             })}
           </tbody>
         </table>
-      </div>
-
-      <div id="homepage" class="container-fluid">
+     
         <h2>Matching Game Leaderboard</h2>
         <table>
           <thead>
