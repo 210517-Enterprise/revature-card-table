@@ -31,4 +31,10 @@ const redrawCardFromDeck = async ({ deckId }) => {
   return { deck_id: deckId, value, image };
 };
 
+
+  
+
+
+
+
 export { createDeckAndDraw, redrawCardFromDeck };

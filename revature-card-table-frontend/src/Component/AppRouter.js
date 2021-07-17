@@ -3,7 +3,7 @@ import Home from "./Home";
 import LoginDisplay from "./LoginDisplay";
 import MyAccount from "./MyAccount";
 import Register from "./Register";
-import War from "./War";
+import War from "./War.js";
 
 export default function AppRouter({ isLoggedIn, setToken, token }) {
   return (
