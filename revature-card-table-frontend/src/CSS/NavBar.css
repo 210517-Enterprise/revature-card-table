@@ -4,16 +4,19 @@
   background-color: #1d1d35;
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;
-  height: 60px;
+  height: 80px;
   font-variant: small-caps;
-  font-size: x-large;
+  font-size: large;
 }
 
 .dropdown-menu.show{
   border-top-color: #63afd3;
-  border-top-width: 0.6em;
+  border-top-width: 1.15em;
   border-top-left-radius: 0.6em;
   border-top-right-radius: 0.6em;
+  border-bottom-left-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+  background-color:rgba(255,255,255,.95)
 }
 
 .dropdown-item {
@@ -23,4 +26,12 @@
 
 .custom-navbar > LinkContainer > a:hover {
   background-color: pink;
+}
+
+#responsive-navbar-nav.navbar-collapse.collapse.show {
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+  background-color:rgba(29,29,53,.95)
 }

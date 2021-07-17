@@ -24,7 +24,7 @@ export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
       <Container fluid>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src="/Picture1.png" width="200" />
+            <img className="nav-bar-img" src="/Picture1.png" style={{width:"175px"}} />
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
