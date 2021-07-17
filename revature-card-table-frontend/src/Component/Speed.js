@@ -1,10 +1,10 @@
 import {drawCardsFromPile, startSpeed} from "../api.js";
 import {useEffect, useState, useRef} from "react";
+import "../CSS/Speed.css"
 
-
-const Card = ({card, active, image, onClick}) => {
+const Card = ({card, active1, image, onClick}) => {
     return (
-        <div onClick={onClick} className={active ? "card active" : "card"}>
+        <div onClick={onClick} className={active1 ? "card active" : "card"}>
             <img id={card.code} src={image} alt="card" onClick={() => console.log(card.value)}/>
         </div>
     )

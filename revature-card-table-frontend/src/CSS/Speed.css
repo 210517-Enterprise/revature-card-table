@@ -1,0 +1,26 @@
+.card {
+  cursor: default;
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.active1 {
+  height: 150px;
+  width: 150px;
+}
+
+.playerHand {
+  display: flex;
+  padding-top: 100px;
+}
+
+.middleDeck {
+  display: flex;
+  padding-top: 100px;
+}
+
+.computerHand {
+  display: flex;
+  padding-top: 100px;
+}
