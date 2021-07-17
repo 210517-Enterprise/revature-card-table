@@ -1,14 +1,7 @@
-import {drawCardsFromPile, startSpeed} from "../api.js";
-import {useEffect, useState, useRef} from "react";
-import "../CSS/Speed.css"
-
-const Card = ({card, active1, image, onClick}) => {
-    return (
-        <div onClick={onClick} className={active1 ? "card active" : "card"}>
-            <img id={card.code} src={image} alt="card" onClick={() => console.log(card.value)}/>
-        </div>
-    )
-}
+import { startSpeed } from "../api.js";
+import { useEffect, useState, useRef } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import "../CSS/Speed.scss"
 
 export default function Speed() {
     const [playerDeck, setPlayerDeck] = useState([]);
@@ -21,10 +14,9 @@ export default function Speed() {
     const computerIsMoving = useRef(false);
     const globalIdx = useRef(-2);
 
-    //let globalIdx = -2;
 
     const startGame = async () => {
-        const {playerDeck: d1, computerDeck: d2, middleDeck: d3} = await startSpeed();
+        const { playerDeck: d1, computerDeck: d2, middleDeck: d3 } = await startSpeed();
         //Set card arrays
         setPlayerDeck(d1.piles.playerDeck.cards);
         setComputerDeck(d2.piles.computerDeck.cards);
@@ -74,10 +66,10 @@ export default function Speed() {
             up = 3;
             down = 14;
         } else {
-            up = valCurrCard+1;
-            down = valCurrCard-1;
+            up = valCurrCard + 1;
+            down = valCurrCard - 1;
         }
-        
+
         if ((valChosen === up) || (valChosen === down)) {
             replaceAndDraw(currCard);
         }
@@ -100,13 +92,11 @@ export default function Speed() {
         playerCopy.splice(idxChosen, 1);
 
         //Change state
-        
+
         setPlayerDeck(playerCopy);
 
         //WHEN YOU MOVE THEN COMPUTER SHOULD RESTART!!
         computerIsMoving.current = false;
-        // globalIdx.current = -1;
-        // computerIsMoving.current = false;
 
         setCenterDeck(centerCopy);
     }
@@ -135,7 +125,7 @@ export default function Speed() {
     const [noPlayerMoves, setNoPlayerMoves] = useState(false);
     const [noComputerMoves, setNoComputerMoves] = useState(false);
 
-    
+
 
     useEffect(() => {
         if (gameStatus && playerDeck.length === 0) {
@@ -145,8 +135,6 @@ export default function Speed() {
             setGameStatus(false);
         }
     }, [playerDeck, gameStatus])
-
-    // const timer = ms => new Promise(res => setTimeout(res, ms));
 
     //WHEN GAME STARTS, COMPUTER STARTS MOVING
     useEffect(() => {
@@ -177,7 +165,7 @@ export default function Speed() {
 
                 let up;
                 let down;
-                    
+
                 if (valCenterCard === 14) {
                     up = 2;
                     down = 13;
@@ -185,8 +173,8 @@ export default function Speed() {
                     up = 3;
                     down = 14;
                 } else {
-                    up = valCenterCard+1;
-                    down = valCenterCard-1;
+                    up = valCenterCard + 1;
+                    down = valCenterCard - 1;
                 }
                 if ((value === up) || (value === down)) {
                     replaceAndDrawComputer(computerCard, centerCard);
@@ -194,14 +182,14 @@ export default function Speed() {
                     break;
                 }
             }
-            
+
             if (replaced) {
                 console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
                 break;
             }
 
             idx++;
-            if (idx >= computerDeck.length-1 || idx > 4) {
+            if (idx >= computerDeck.length - 1 || idx > 4) {
                 console.log("Computer has no more moves!");
                 setNoComputerMoves(true);
                 break;
@@ -211,147 +199,6 @@ export default function Speed() {
         console.log("COMPUTER IS DONE MOVING!!!");
     }
 
-    // const computerMove = () => {
-    //     console.log("COMPUTER IS MOVING!!!!")
-    //     for (let i = 0; i < 5; i++) {
-    //         let computerCard = computerDeck[i];
-    //         let value = parseValue(computerCard);
-    //         let replaced = false;
-
-    //         for (let j = 0; j < 2; j++) {
-    //             let centerCard = centerDeck[j];
-    //             let valCurrCard = parseValue(centerCard);
-    //             console.log("Comparing with: " + valCurrCard);
-    
-    //             let up;
-    //             let down;
-                    
-    //             if (valCurrCard === 14) {
-    //                 up = 2;
-    //                 down = 13;
-    //             } else if (valCurrCard === 2) {
-    //                 up = 3;
-    //                 down = 14;
-    //             } else {
-    //                 up = valCurrCard+1;
-    //                 down = valCurrCard-1;
-    //             }
-    //             if ((value === up) || (value === down)) {
-    //                 replaceAndDrawComputer(computerCard, centerCard);
-    //                 replaced = true;
-    //                 break;
-    //             }
-    //         }
-
-    //         if (replaced) {
-    //             console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
-    //             break;
-    //         }
-
-    //         if (i === 4) {
-    //             console.log("Computer has no more moves!");
-    //             setNoComputerMoves(!noComputerMoves);
-    //             break;
-    //         }
-    //     }
-
-    //     console.log("COMPUTER IS DONE MOVING!!!!");
-    // }
-
-    // const computerMove = async () => {
-    //     console.log("COMPUTER IS MOVING!!!!")
-    //     globalIdx.current = 0;
-    //     for (let i = 0; i < 5; i++) {
-    //         let computerCard = computerDeck[i];
-    //         let value = parseValue(computerCard);
-
-    //         console.log("Value is: " + value + ". Waiting 1 seconds.");
-    //         await timer(2000);
-
-    //         //If center changed exit
-    //         if (globalIdx.current === -1) {
-    //             console.log("Center changed");
-    //             break;
-    //         }
-
-    //         console.log("Checking cards");
-    //         let replaced = false;
-
-    //         for (let j = 0; j < 2; j++) {
-    //             let centerCard = centerDeck[j];
-    //             let valCurrCard = parseValue(centerCard);
-    //             console.log("Comparing with: " + valCurrCard);
-    
-    //             let up;
-    //             let down;
-                    
-    //             if (valCurrCard === 14) {
-    //                 up = 2;
-    //                 down = 13;
-    //             } else if (valCurrCard === 2) {
-    //                 up = 3;
-    //                 down = 14;
-    //             } else {
-    //                 up = valCurrCard+1;
-    //                 down = valCurrCard-1;
-    //             }
-    //             if ((value === up) || (value === down)) {
-    //                 //If center changed exit
-    //                 if (globalIdx.current === -1) {
-    //                     console.log("Center changed2");
-    //                     break;
-    //                 }
-
-    //                 replaceAndDrawComputer(computerCard, centerCard);
-    //                 replaced = true;
-    //                 break;
-    //             }
-    //         }
-
-    //         if (replaced) {
-    //             console.log("I HAVE BROKEN OUT BECAUSE I REPLACED");
-    //             globalIdx.current = -1;
-    //             break;
-    //         }
-
-    //         if (i === 4) {
-    //             console.log("Computer has no more moves!");
-    //             globalIdx.current = -1;
-    //             setNoComputerMoves(!noComputerMoves);
-    //             break;
-    //         }
-
-    //         //If center changed exit
-    //         if (globalIdx.current === -1) {
-    //             console.log("Center changed3");
-    //             break;
-    //         }
-    //     }
-    //     computerIsMoving.current = false;
-    //     console.log("Computer is done moving");
-    // };
-    
-    // //When game state changes, computer starts moving
-    // useEffect (() => {
-    //     console.log("HELLO");
-    //     console.log(computerIsMoving.current);
-    //     console.log(globalIdx);
-    //     if (gameStatus) {
-    //         //First run
-    //         if (globalIdx.current === -2) {
-    //             computerIsMoving.current = true;
-    //             computerMove();
-    //         } else if (globalIdx.current === -1) {
-    //             //Player has moved
-    //             if (!computerIsMoving.current) {
-    //                 console.log("Computer is moving Again");
-    //                 computerIsMoving.current = true;
-    //                 computerMove();
-    //             }
-    //         }
-    //     } 
-    // }, [centerDeck, computerIsMoving])
-
     useEffect(() => {
         console.log(noPlayerMoves);
         console.log(noComputerMoves);
@@ -360,38 +207,8 @@ export default function Speed() {
             noMoreMoves();
         }
     }, [noPlayerMoves, noComputerMoves])
-    
-
-    //Computer Logic
-    // useEffect(() => {
-    //     //setComputerMoving(true);
-    //     if (gameStatus) {
-    //         setComputerMoving(false);
-    //         console.log("Computer is moving");
-    //         computerMove(centerDeck);
-    //     }
-    // }, [gameStatus]);
-
-    // useEffect(async () => {
-    //     if (gameStatus && !computerMoving){
-    //         console.log("setcomputermoving to true");
-    //         setComputerMoving(true);
-    //         console.log(computerMoving);
-    //         console.log("Waiting 10 seconds");
-    //         await timer(10000);
-    //         setComputerMoving(false);
-    //     }
-    // }, [centerDeck])
-
-    // useEffect(() => {
-    //     if (gameStatus && computerMoving) {
-    //         console.log("test");
-    //         computerMove();
-    //     }
-    // }, [computerMoving])
 
     const toggle = (e) => {
-
         setNoPlayerMoves(!noPlayerMoves)
     }
 
@@ -405,128 +222,82 @@ export default function Speed() {
         setCenterDeck(centerCopy);
     }
 
-    return(
+    const handleClickCard = (card) => {
+        console.log("hello here");
+        setChosen(card);
+    }
+
+    return (
         <>
-            <button onClick={startGame}>Click Me</button>
-            <div className=""></div>
-            <button style={{backgroundColor: noPlayerMoves ? "#ff0000" : "#39D1B4"}} onClick={toggle}>No More Moves</button>
-            
-            <div className="computerHand">
-                
-                {computerDeck.length ? 
-                    <>
-                    {computerDeck.slice(0, 5).map((currCard, i) => {
-                        return <Card 
-                            key={i}
-                            card={currCard}
-                            //image="https://static.wikia.nocookie.net/hearthstone_gamepedia/images/1/1a/Card_back-Classic.png"
-                            image={currCard.image}
-                        />})}
-                        <p>Computer Cards remaining: {computerDeck.length}</p>
-                    </> : <h1>Loading</h1>}
-            </div>
 
-            <div> {noComputerMoves && <p>No more computer moves</p>}</div>
-            
-            <div className="middleDeck">
-                {centerDeck.length ? centerDeck.slice(0, 2).map((currCard, i) => {
-                    return <Card 
-                        key={i}
-                        card={currCard}
-                        image={currCard.image}
-                        onClick={() => compareValues(currCard)}
-                    />
-                }) : <h1>Loading</h1>}
-            </div>
+            {!gameStatus && <button onClick={startGame}>Click Me</button>}
 
-            
+            <Container className="vh-100 d-flex flex-column">
+                <Row className="h-50">
+                    {!!computerDeck.length && <>
+                        <Col>
+                            <div className="computerDeck">
+                                <img width="200" height="200" src="https://www.kindpng.com/picc/m/153-1537437_playing-card-back-png-transparent-png.png"></img>
+                                <p>Computer Cards remaining: {computerDeck.length}</p>
+                            </div>
+                        </Col>
+                        <Col xs={6}>
+                            <div className="computerHand">
+                                {computerDeck.slice(0, 5).map((currCard) => {
+                                    return <div className="computer" style={{ backgroundImage: `url("https://www.kindpng.com/picc/m/153-1537437_playing-card-back-png-transparent-png.png")` }}></div>
+                                })}
+                            </div>
+                        </Col>
+                    </>}
+                </Row>
 
-            <div className="playerHand">
-                
-                {playerDeck.length ? 
-                    <>
-                    {playerDeck.slice(0, 5).map((currCard, i) => {
-                        return <Card 
-                            key={i}
-                            card={currCard}
-                            active={currCard === chosen}
-                            image={currCard.image}
-                            onClick={() => setChosen(currCard)}
-                        />})}
-                        <p>Player Cards remaining: {playerDeck.length}</p>
-                    </> : <h1>Loading</h1>}
-            </div>
+                <Row className="h-25">
+                    {!!centerDeck.length && <>
+                        <Col className="d-flex justify-content-center">
+                            {centerDeck.slice(0,1).map((currCard) => {
+                                return <div className="middle" onClick={() => compareValues(currCard)} style={{ backgroundImage: `url("${currCard.image}")` }}></div>
+                            })}
+
+                        </Col>
+                        <Col className="d-flex justify-content-center">
+                            {noComputerMoves && <p>No more computer moves!</p>}
+                        </Col>
+                        <Col className="d-flex justify-content-center">
+                        {centerDeck.slice(1, 2).map((currCard) => {
+                                return <div className="middle" onClick={() => compareValues(currCard)} style={{ backgroundImage: `url("${currCard.image}")` }}></div>
+                            })}
+                        </Col>
+                    </>}
+                </Row>
+
+                <Row className="h-25">
+                    {!!playerDeck.length && <>
+
+                        <Col xs={6}>
+                            <div className="hand">
+                                {playerDeck.slice(0, 5).map((currCard) => {
+                                    return <div className={currCard === chosen ? "test2" : "test"} onClick={() => handleClickCard(currCard)} style={{ backgroundImage: `url("${currCard.image}")` }}></div>
+                                })}
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="playerDeck">
+                                <img width="200" height="200" src="https://www.kindpng.com/picc/m/153-1537437_playing-card-back-png-transparent-png.png"></img>
+                                <p>Player Cards remaining: {playerDeck.length}</p>
+                            </div>
+
+                        </Col>
+                    </>}
+                </Row>
+
+                <Row>
+                    <Col>
+                        {!!gameStatus && <button style={{ backgroundColor: noPlayerMoves ? "#ff0000" : "#39D1B4" }} onClick={toggle}>No More Moves</button>}
+                    </Col>
+                </Row>
+
+
+            </Container>
         </>
     );
-
-    // const [playerHand, setPlayerHand] = useState({
-    //     cards: [],
-    //     images: [],
-    //     pileName: "",
-    //     deckId: ""
-    // });
-
-    // const [leftDeck, setLeftDeck] = useState ({
-    //     cards: [],
-    //     images: [],
-    //     pileName: "",
-    //     deckId: ""
-    // })
-
-    // const[chosen, setChosen] = useState();
-    // const[leftCard, setLeftCard] = useState();
-
-    // const gameLogic = async () => {
-    //     const deck = await startSpeed();
-
-    //     const {cards, images, pileName, deckId} = await drawCardsFromPile(deck.deck_id, "playerHand", 5);
-    //     const {cards: lcards, images: limages, pileName:lpileName, deckId:ldeckId} = await drawCardsFromPile(deck.deck_id, "leftDeck", 6);
-
-    //     setPlayerHand({
-    //         cards: cards,
-    //         images: images,
-    //         pileName: pileName,
-    //         deckId: deckId
-    //     });
-
-    //     setLeftDeck({
-    //         cards: lcards,
-    //         images: limages,
-    //         pileName: lpileName,
-    //         deckId: ldeckId
-    //     });
-    // }
-
-    // useEffect(() => {
-    //     setLeftCard(leftDeck.cards[0]);
-    // }, [leftDeck])
-
-
-    // return(
-    //     <>
-    //         <button onClick={startGame}>Click Me</button>
-    //         <h1>This is deck id: {playerHand.deckId}</h1>
-    //         <div className="playerHand">
-    //             {playerHand.cards.length ? playerHand.cards.map((currCard, i) => {
-    //                 return <Card 
-    //                     key={i}
-    //                     card={currCard}
-    //                     active={currCard === chosen}
-    //                     image={currCard.image}
-    //                     onClick={() => setChosen(currCard)}
-    //                 />
-    //             }) : <h1>Loading</h1>}
-    //         </div>
-
-    //         <div className="leftDeck">
-    //             {leftCard ? <Card 
-    //                     card={leftCard}
-    //                     active=""
-    //                     image={leftCard.image} 
-    //                     onClick={() => compareValues(leftCard)}/>
-                        
-    //              : <h1>Loading</h1>}
-    //         </div>
-    //     </>
-    // );
 }
