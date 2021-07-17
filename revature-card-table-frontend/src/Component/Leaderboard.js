@@ -4,14 +4,15 @@ export default function Leaderboard() {
   const [gamestats, updateGamestats] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/revature-card-table/leaderboard/find-all-by-points")
+    fetch(
+      "http://localhost:8080/revature-card-table/leaderboard/find-all-by-points"
+    )
       .then((response) => response.json())
       .then(updateGamestats);
     console.log(gamestats);
   }, []);
 
   return gamestats === null ? (
-    
     <div id="page-layout" class="container-fluid">
       <h1>Error: no stats</h1>
     </div>
@@ -33,7 +34,7 @@ export default function Leaderboard() {
           </thead>
           <tbody>
             {gamestats.map((gamestat) => {
-              if(gamestat.won && gamestat.gameName === "war"){
+              if (gamestat.won && gamestat.gameName === "war") {
                 return (
                   <tr>
                     <td>{gamestat.id}</td>
@@ -49,7 +50,7 @@ export default function Leaderboard() {
             })}
           </tbody>
         </table>
-      
+
         <h2>Speed Leaderboard</h2>
         <table>
           <thead>
@@ -65,7 +66,7 @@ export default function Leaderboard() {
           </thead>
           <tbody>
             {gamestats.map((gamestat) => {
-              if(gamestat.won && gamestat.gameName === "speed"){
+              if (gamestat.won && gamestat.gameName === "speed") {
                 return (
                   <tr>
                     <td>{gamestat.id}</td>
@@ -81,7 +82,7 @@ export default function Leaderboard() {
             })}
           </tbody>
         </table>
-     
+
         <h2>Matching Game Leaderboard</h2>
         <table>
           <thead>
@@ -97,7 +98,7 @@ export default function Leaderboard() {
           </thead>
           <tbody>
             {gamestats.map((gamestat) => {
-              if(gamestat.won && gamestat.gameName === "matching-game"){
+              if (gamestat.won && gamestat.gameName === "matching-game") {
                 return (
                   <tr>
                     <td>{gamestat.id}</td>
@@ -114,7 +115,6 @@ export default function Leaderboard() {
           </tbody>
         </table>
       </div>
-
     </>
   );
 }

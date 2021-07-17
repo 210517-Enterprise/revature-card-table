@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className="App">
       <AppRouter isLoggedIn={token.isLoggedIn} setToken={setToken} token={token} />
-      <BootstrapNavbar isLoggedIn={token.isLoggedIn} setToken={setToken}/>
+      <BootstrapNavbar isLoggedIn={token.isLoggedIn} setToken={setToken} token={token}/>
     </div>
   );
 }
