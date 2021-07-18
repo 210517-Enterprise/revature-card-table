@@ -49,7 +49,9 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
         <Route path="/register" exact component={Register}></Route>
 
         <PrivateRoute path='/war' isLoggedIn={isLoggedIn}>
-          <Route path="/war" exact component={War}></Route>
+          <Route path="/war" exact >
+            <War token={token} />
+          </Route>
         </PrivateRoute>
 
 
