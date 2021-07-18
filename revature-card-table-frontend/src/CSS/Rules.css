@@ -1,0 +1,33 @@
+#rules{
+    background-color: #1d1d35;
+    padding: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border-radius: 1em;
+    width: 75%;
+    margin: auto;
+}
+
+h1, p {
+    font-weight: 500;
+    font-family: "Fira Sans", sans-serif;
+}
+
+ul {
+    color: gray;
+    font-weight: 250;
+    font-size: 6;
+}
+
+p{
+    color: orange;
+    font-weight: 700;
+}
+
+ol{
+    color: white;
+    font-size: 8;
+    font-weight: 500;
+    text-align: left;
+    vertical-align: middle;
+}
