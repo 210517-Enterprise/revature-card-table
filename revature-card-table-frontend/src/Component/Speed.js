@@ -2,8 +2,9 @@ import { startSpeed } from "../api.js";
 import { useEffect, useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/Speed.scss"
+import axios from "axios";
 
-export default function Speed() {
+export default function Speed({ username }) {
     const [playerDeck, setPlayerDeck] = useState([]);
     const [computerDeck, setComputerDeck] = useState([]);
     const [centerDeck, setCenterDeck] = useState([]);
@@ -125,16 +126,71 @@ export default function Speed() {
     const [noPlayerMoves, setNoPlayerMoves] = useState(false);
     const [noComputerMoves, setNoComputerMoves] = useState(false);
 
+    Date.prototype.today = function() {
+        return (((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) + "/" + ((this.getDate() < 10)?"0":"") + this.getDate() +"/" + this.getFullYear();
+    }
 
+    Date.prototype.timeNow = function () {
+        return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+   }
 
-    useEffect(() => {
-        if (gameStatus && playerDeck.length === 0) {
-            //Push to leaderboard
-            //push leaderboard info here with axios
-            alert("You've won!");
+//     Date.prototype.timeNow = function () {
+//         let hours = this.getHours();
+//         let minutes = this.getMinutes();
+//         let seconds = this.getSeconds();
+//         let amOrPm = hours >= 12 ? 'PM' : 'AM';
+//         hours = hours % 12;
+//         hours = hours ? hours : 12; //hour 0 = 12
+//         minutes = minutes < 10 ? '0'+minutes : minutes;
+//         seconds = seconds < 10 ? '0'+seconds : seconds;
+//         return hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
+//    }
+
+    useEffect(async () => {
+        //Push to leaderboard
+        if (gameStatus && ((playerDeck.length === 0) || (computerDeck.length === 0))) {
             setGameStatus(false);
-        }
-    }, [playerDeck, gameStatus])
+            let userWin;
+            let pointsWon;
+
+            if (playerDeck.length === 0) {
+                alert("You've won! :)");
+                userWin = true;
+                pointsWon = 100;
+            } else if (computerDeck.length === 0) {
+                alert("You've lost! :(");
+                userWin = false;
+                pointsWon = 0;
+            }
+
+            let date = new Date();
+            let todaysDate = date.today();
+            let timeNow = date.timeNow();
+
+            const userFromDB = await axios.get(`http://localhost:8080/revature-card-table/users/${username}`);
+
+            const gamestats = {
+                user: userFromDB.data,
+                points: pointsWon,
+                won: userWin,
+                datePlayed: todaysDate,
+                timeCompleted: timeNow,
+                gameName: "speed"
+            }
+
+            const headers = {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            };
+
+            axios.post("http://localhost:8080/revature-card-table/leaderboard/create",
+                JSON.stringify(gamestats),
+                { headers }
+            ).then((response) => {
+                console.log(response);
+            });
+        } 
+    }, [playerDeck, computerDeck, gameStatus])
 
     //WHEN GAME STARTS, COMPUTER STARTS MOVING
     useEffect(() => {
@@ -142,10 +198,10 @@ export default function Speed() {
         setNoComputerMoves(false);
         //IF GAME IS ONGOING THEN MOVE
         if (gameStatus) {
-            //SET TIMEOUT, START MOVING AFTER 2 SECONDS
+            //SET TIMEOUT, START MOVING AFTER 1.3 SECOND
             let timerFunc = setTimeout(() => {
                 computerMove();
-            }, 2000);
+            }, 1300);
             //CANCEL TIMEOUT EVERYTIME CENTERDECK WILL CHANGE
             return () => clearTimeout(timerFunc);
         }
@@ -254,7 +310,7 @@ export default function Speed() {
                 <Row className="h-25">
                     {!!centerDeck.length && <>
                         <Col className="d-flex justify-content-center">
-                            {centerDeck.slice(0,1).map((currCard) => {
+                            {centerDeck.slice(0, 1).map((currCard) => {
                                 return <div className="middle" onClick={() => compareValues(currCard)} style={{ backgroundImage: `url("${currCard.image}")` }}></div>
                             })}
 
@@ -263,7 +319,7 @@ export default function Speed() {
                             {noComputerMoves && <p>No more computer moves!</p>}
                         </Col>
                         <Col className="d-flex justify-content-center">
-                        {centerDeck.slice(1, 2).map((currCard) => {
+                            {centerDeck.slice(1, 2).map((currCard) => {
                                 return <div className="middle" onClick={() => compareValues(currCard)} style={{ backgroundImage: `url("${currCard.image}")` }}></div>
                             })}
                         </Col>

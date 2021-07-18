@@ -22,7 +22,9 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
         </Route>
         <Route path="/register" exact component={Register}></Route>
         <Route path="/war" exact component={War}></Route>
-        <Route path="/speed/" exact component={Speed}></Route>
+        <Route path="/speed/" exact>
+          <Speed username={token.username} />
+        </Route>
         <Route path="/my-account" exact>
           <MyAccount token={token} />
         </Route>
