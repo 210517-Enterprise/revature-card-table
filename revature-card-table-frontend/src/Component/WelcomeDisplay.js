@@ -109,7 +109,7 @@ export default function WelcomeDisplay() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverEnd={handleFlip}
+                onHoverStart={handleFlip}
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>

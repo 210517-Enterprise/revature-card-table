@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/Speed.scss"
 import axios from "axios";
-
+import cardBack from "../Images/cardBack.png"
 export default function Speed({ username }) {
     const [playerDeck, setPlayerDeck] = useState([]);
     const [computerDeck, setComputerDeck] = useState([]);
@@ -293,7 +293,7 @@ export default function Speed({ username }) {
                     {!!computerDeck.length && <>
                         <Col>
                             <div className="computerDeck">
-                                <img width="200" height="200" src="https://www.kindpng.com/picc/m/153-1537437_playing-card-back-png-transparent-png.png"></img>
+                            <img src={cardBack} style={{width:170, height:235.5, margin:"auto"}}></img>
                                 <p>Computer Cards remaining: {computerDeck.length}</p>
                             </div>
                         </Col>
@@ -338,7 +338,7 @@ export default function Speed({ username }) {
                         </Col>
                         <Col>
                             <div className="playerDeck">
-                                <img width="200" height="200" src="https://www.kindpng.com/picc/m/153-1537437_playing-card-back-png-transparent-png.png"></img>
+                            <img src={cardBack} style={{width:170, height:235.5, margin:"auto"}}></img>
                                 <p>Player Cards remaining: {playerDeck.length}</p>
                             </div>
 
