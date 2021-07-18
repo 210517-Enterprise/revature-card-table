@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/Speed.scss";
 import axios from "axios";
 import cardBack from "../Images/cardBack.png";
+import { motion } from "framer-motion";
 export default function Speed({ username }) {
   const [playerDeck, setPlayerDeck] = useState([]);
   const [computerDeck, setComputerDeck] = useState([]);
@@ -308,11 +309,34 @@ export default function Speed({ username }) {
     setChosen(card);
   };
 
+  const fadeIn = {
+    hidden: { opacity: 0, x: 0 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <>
-      <div id="page-layout" class="container-fluid">
-        {!gameStatus && <button onClick={startGame}>Click Me</button>}
-        <div id="game-area">
+      <div id="page-layout" class="container-fluid" style={{paddingTop:"80px"}}>
+        {!gameStatus && (
+          <motion.button
+            variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 1 }}
+            class="speed-btn"
+            whileHover={{ scale: 1.05 }}
+            onClick={startGame}
+          >
+            START SPEED
+          </motion.button>
+        )}
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1 }}
+          id="game-area"
+        >
           <Container className="vh-100 d-flex flex-column">
             <Row className="h-50">
               {!!computerDeck.length && (
@@ -350,6 +374,8 @@ export default function Speed({ username }) {
                           onClick={() => compareValues(currCard)}
                           style={{
                             backgroundImage: `url("${currCard.image}")`,
+                            height: "235.5px",
+                            width: "169.5px",
                           }}
                         ></div>
                       );
@@ -357,9 +383,7 @@ export default function Speed({ username }) {
                   </Col>
                   <Col className="d-flex justify-content-center">
                     {noComputerMoves && (
-                      <p id="display-cards-remaining">
-                        | No More Computer Moves! |
-                      </p>
+                      <p id="display-info">Computer Out Of Moves!</p>
                     )}
                   </Col>
                   <Col className="d-flex justify-content-center">
@@ -370,6 +394,8 @@ export default function Speed({ username }) {
                           onClick={() => compareValues(currCard)}
                           style={{
                             backgroundImage: `url("${currCard.image}")`,
+                            height: "235.5px",
+                            width: "169.5px",
                           }}
                         ></div>
                       );
@@ -407,27 +433,26 @@ export default function Speed({ username }) {
                         | Player Cards Remaining: {playerDeck.length} |
                       </p>
                     </div>
+                    {!!gameStatus && (
+                      <motion.button
+                      whileHover={{ scale: 1.05 }}
+                        className="speed-btn"
+                        style={{
+                          backgroundColor: noPlayerMoves
+                            ? "#ff0000"
+                            : "#39D1B4",
+                        }}
+                        onClick={toggle}
+                      >
+                        No More Moves
+                      </motion.button>
+                    )}
                   </Col>
                 </>
               )}
             </Row>
-
-            <Row>
-              <Col>
-                {!!gameStatus && (
-                  <button
-                    style={{
-                      backgroundColor: noPlayerMoves ? "#ff0000" : "#39D1B4",
-                    }}
-                    onClick={toggle}
-                  >
-                    No More Moves
-                  </button>
-                )}
-              </Col>
-            </Row>
           </Container>
-        </div>
+        </motion.div>
       </div>
     </>
   );

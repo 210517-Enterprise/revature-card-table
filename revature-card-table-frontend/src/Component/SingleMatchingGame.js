@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CardBack from "../Images/design2.png"
+import "../CSS/MatchingGame.css"
 import TransparentCard from "../Images/TransparentCard.png"
 
 export default function SingleMatchingGame({ token }){
@@ -161,11 +162,12 @@ export default function SingleMatchingGame({ token }){
     function removeCards(){
         let empty = document.createElement("img");
         empty.src=TransparentCard;
-        empty.height="110";
-        empty.width="90";
         empty.id = "emptyImg";
 
         let card1 = document.getElementById(usersCards[0].cardID);
+
+        empty.width = card1.width;
+        empty.height = card1.height;
         let data1 = document.getElementById(`data${usersCards[0].cardID}`);
 
         data1.replaceChild(empty, card1);
@@ -178,52 +180,59 @@ export default function SingleMatchingGame({ token }){
 
     return (
         <>
+            <div id="page-layout" class="container-fluid">
+                <div id="game-area">
+                    <div class="card-table-div">
 
-            <div>
+                        <table cellSpacing="0">
+                            <tr>
+                                <td id="data0"><img id="0" onClick={flip} src={CardBack} width/></td>
+                                <td id="data1"><img id="1" onClick={flip} src={CardBack} /></td>
+                                <td id="data2"><img id="2" onClick={flip} src={CardBack} /></td>
+                                <td id="data3"><img id="3" onClick={flip} src={CardBack} /></td>
+                                <td id="data4"><img id="4" onClick={flip} src={CardBack} /></td>
+                                <td id="data5"><img id="5" onClick={flip} src={CardBack} /></td>
+                                <td id="data6"><img id="6" onClick={flip} src={CardBack} /></td>
+                            </tr>
+                            <tr>
+                                <td id="data7"><img id="7" onClick={flip} src={CardBack} /></td>
+                                <td id="data8"><img id="8" onClick={flip} src={CardBack} /></td>
+                                <td id="data9"><img id="9" onClick={flip} src={CardBack} /></td>
+                                <td id="data10"><img id="10" onClick={flip} src={CardBack} /></td>
+                                <td id="data11"><img id="11" onClick={flip} src={CardBack} /></td>
+                                <td id="data12"><img id="12" onClick={flip} src={CardBack} /></td>
+                                <td id="data13"><img id="13" onClick={flip} src={CardBack} /></td>
+                            </tr>
+                            <tr>
+                                <td id="data14"><img id="14" onClick={flip} src={CardBack} /></td>
+                                <td id="data15"><img id="15" onClick={flip} src={CardBack} /></td>
+                                <td id="data16"><img id="16" onClick={flip} src={CardBack} /></td>
+                                <td id="data17"><img id="17" onClick={flip} src={CardBack} /></td>
+                                <td id="data18"><img id="18" onClick={flip} src={CardBack} /></td>
+                                <td id="data19"><img id="19" onClick={flip} src={CardBack} /></td>
+                                <td id="data20"><img id="20" onClick={flip} src={CardBack} /></td>
+                            </tr>
+                            <tr>
+                                <td id="data21"><img id="21" onClick={flip} src={CardBack} /></td>
+                                <td id="data22"><img id="22" onClick={flip} src={CardBack} /></td>
+                                <td id="data23"><img id="23" onClick={flip} src={CardBack} /></td>
+                                <td id="data24"><img id="24" onClick={flip} src={CardBack} /></td>
+                                <td id="data25"><img id="25" onClick={flip} src={CardBack} /></td>
+                                <td id="data26"><img id="26" onClick={flip} src={CardBack} /></td>
+                                <td id="data27"><img id="27" onClick={flip} src={CardBack} /></td>
+                            </tr>
+                        </table>
+                    </div>
 
-                <table cellSpacing="0">
-                    <tr>
-                        <td id="data0"><img id="0" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data1"><img id="1" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data2"><img id="2" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data3"><img id="3" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data4"><img id="4" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data5"><img id="5" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data6"><img id="6" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                    </tr>
-                    <tr>
-                        <td id="data7"><img id="7" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data8"><img id="8" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data9"><img id="9" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data10"><img id="10" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data11"><img id="11" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data12"><img id="12" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data13"><img id="13" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                    </tr>
-                    <tr>
-                        <td id="data14"><img id="14" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data15"><img id="15" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data16"><img id="16" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data17"><img id="17" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data18"><img id="18" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data19"><img id="19" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data20"><img id="20" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                    </tr>
-                    <tr>
-                        <td id="data21"><img id="21" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data22"><img id="22" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data23"><img id="23" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data24"><img id="24" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data25"><img id="25" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data26"><img id="26" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                        <td id="data27"><img id="27" onClick={flip} src={CardBack} width="110" height="130" /></td>
-                    </tr>
-                </table>
-            </div>
+                    <br/>
+                    
+                    <div class="user-view-div">
+                        <h3>Total Matches Tried: {userMoves}</h3>
+                        <h3 id="userPlayResult"></h3>
+                    </div>
 
-            <div>
-                <h3>Total Matches Tried: {userMoves}</h3>
-                <h3 id="userPlayResult"></h3>
+                </div>
+
             </div>
 
         </>
