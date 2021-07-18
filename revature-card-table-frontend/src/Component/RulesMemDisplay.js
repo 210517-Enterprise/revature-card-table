@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import "../CSS/Home.css";
-import Welcome1 from "../Images/Login/Login1.png";
-import Welcome2 from "../Images/Login/Login2.png"
-import Welcome3 from "../Images/Login/Login3.png"
-import Welcome4 from "../Images/Login/Login4.png"
-import Welcome5 from "../Images/Login/Login5.png"
-import Welcome6 from "../Images/Login/Login6.png"
-import Welcome7 from "../Images/Login/Login7.png"
-import Welcome8 from "../Images/Login/Login8.png"
-import Welcome9 from "../Images/Login/Login9.png"
-import Welcome10 from "../Images/Login/Login10.png"
-import Welcome11 from "../Images/Login/Login11.png"
-import Welcome12 from "../Images/Login/Login12.png"
+import Welcome1 from "../Images/RulesMem/Rmem (1).png";
+import Welcome2 from "../Images/RulesMem/Rmem (2).png";
+import Welcome3 from "../Images/RulesMem/Rmem (3).png";
+import Welcome4 from "../Images/RulesMem/Rmem (4).png";
+import Welcome5 from "../Images/RulesMem/Rmem (5).png";
+import Welcome6 from "../Images/RulesMem/Rmem (6).png";
+import Welcome7 from "../Images/RulesMem/Rmem (7).png";
+import Welcome8 from "../Images/RulesMem/Rmem (8).png";
+import Welcome9 from "../Images/RulesMem/Rmem (9).png";
+import Welcome10 from "../Images/RulesMem/Rmem (10).png";
+import Welcome11 from "../Images/RulesMem/Rmem (11).png";
+import Welcome12 from "../Images/RulesMem/Rmem (12).png";
 import CardBack from "../Images/cardBack.png";
 
-export default function WelcomeDisplay1() {
+export default function RulesMemDisplay() {
   const fadeDir = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
@@ -99,7 +99,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip}
+   
                 onClick={handleAllFlip}
               ></motion.img>
               <motion.img
@@ -108,7 +108,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip}
+   
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -121,7 +121,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip2}
+
                 onClick={handleAllFlip}
               ></motion.img>
 
@@ -131,7 +131,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip2}
+           
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -144,7 +144,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip3}
+        
                 onClick={handleAllFlip}
               ></motion.img>
               <motion.img
@@ -153,7 +153,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip3}
+             
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -306,7 +306,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip10}
+          
                 onClick={handleAllFlip}
               ></motion.img>
               <motion.img
@@ -315,7 +315,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip10}
+            
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -328,7 +328,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip11}
+               
                 onClick={handleAllFlip}
               ></motion.img>
 
@@ -338,7 +338,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip11}
+            
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -355,7 +355,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip12}
+            
                 onClick={handleAllFlip}
               ></motion.img>
               <motion.img
@@ -364,7 +364,7 @@ export default function WelcomeDisplay1() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverStart={handleFlip12}
+
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>

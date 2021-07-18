@@ -17,14 +17,13 @@ import Welcome12 from "../Images/Welcome/Welcome12.png";
 import CardBack from "../Images/cardBack.png";
 
 export default function WelcomeDisplay() {
-
-  const fadeLeft = {
+  const fadeDir = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
   };
   const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    hidden: { opacity: 0},
+    visible: { opacity: 1},
   };
   const [isFlipped, setIsFlipped] = useState(false);
   const handleFlip = () => {
@@ -96,7 +95,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
               <motion.img
                 src={Welcome1}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -118,7 +117,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
               <motion.img
                 src={Welcome2}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -141,7 +140,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped3} flipDirection="horizontal">
               <motion.img
                 src={Welcome3}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -163,7 +162,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">
               <motion.img
                 src={Welcome4}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -176,7 +175,7 @@ export default function WelcomeDisplay() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverEnd={handleFlip4}
+                onHoverStart={handleFlip4}
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -185,7 +184,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped5} flipDirection="horizontal">
               <motion.img
                 src={Welcome5}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -212,7 +211,7 @@ export default function WelcomeDisplay() {
             >
               <motion.img
                 src={Welcome6}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -236,7 +235,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped7} flipDirection="horizontal">
               <motion.img
                 src={Welcome7}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -249,7 +248,7 @@ export default function WelcomeDisplay() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverEnd={handleFlip7}
+                onHoverStart={handleFlip7}
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -258,7 +257,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped8} flipDirection="horizontal">
               <motion.img
                 src={Welcome8}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -281,7 +280,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped9} flipDirection="horizontal">
               <motion.img
                 src={Welcome9}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -303,7 +302,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped10} flipDirection="horizontal">
               <motion.img
                 src={Welcome10}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -316,7 +315,7 @@ export default function WelcomeDisplay() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                onHoverEnd={handleFlip10}
+                onHoverStart={handleFlip10}
                 onClick={handleAllFlip}
               ></motion.img>
             </ReactCardFlip>
@@ -325,7 +324,7 @@ export default function WelcomeDisplay() {
             <ReactCardFlip isFlipped={isFlipped11} flipDirection="horizontal">
               <motion.img
                 src={Welcome11}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
@@ -352,7 +351,7 @@ export default function WelcomeDisplay() {
             >
               <motion.img
                 src={Welcome12}
-                variants={fadeIn}
+                variants={fadeDir}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}

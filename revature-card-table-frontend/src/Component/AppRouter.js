@@ -11,8 +11,7 @@ import War from "./War";
 import SingleMatchingGame from "./SingleMatchingGame";
 import { cloneElement, Children } from 'react';
 import Pickup from "./Pickup";
-
-import ConcentrationRules from "./ConcentrationRules";
+import Rules from "./Rules";
 
 const PrivateRoute = ({ children, isLoggedIn, ...rest }) =>
   <Route
@@ -81,8 +80,8 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
           <Leaderboard />
         </Route>
 
-        <Route path="/concentration-rules">
-          <ConcentrationRules />
+        <Route path="/rules">
+          <Rules />
         </Route>
 
         <PrivateRoute path='/matching-game' isLoggedIn={isLoggedIn} >

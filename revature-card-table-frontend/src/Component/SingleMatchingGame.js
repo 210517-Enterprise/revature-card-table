@@ -206,7 +206,7 @@ export default function SingleMatchingGame({ token }){
                                     <Button onClick={GoHome}>Home</Button> */}
                                 </Alert>
 
-                                <h3 id="userPlayResult">~~~~~~~~~~Concentration~~~~~~~~~~</h3>
+                                <h3 id="userPlayResult">~~~~~~~~~~Memory Match~~~~~~~~~~</h3>
 
                                 <table cellSpacing="0">
                                     <tr>
@@ -252,44 +252,44 @@ export default function SingleMatchingGame({ token }){
                             <>
                             <div class="card-table-div">
 
-                                <h3 id="userPlayResult">~~~~~~~~~~Concentration~~~~~~~~~~</h3>
+                                <h3 id="userPlayResult">~~~~~~~~~~Memory Match~~~~~~~~~~</h3>
 
                                 <table cellSpacing="0">
                                     <tr>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data0"><img id="0" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data1"><img id="1" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data2"><img id="2" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data3"><img id="3" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data4"><img id="4" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data5"><img id="5" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data6"><img id="6" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data0"><img id="0" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data1"><img id="1" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data2"><img id="2" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data3"><img id="3" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data4"><img id="4" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data5"><img id="5" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data6"><img id="6" onClick={flip} src={CardBack} /></motion.td>
                                     </tr>
                                     <tr>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data7"><img id="7" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data8"><img id="8" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data9"><img id="9" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data10"><img id="10" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data11"><img id="11" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data12"><img id="12" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data13"><img id="13" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data7"><img id="7" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data8"><img id="8" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data9"><img id="9" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data10"><img id="10" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data11"><img id="11" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data12"><img id="12" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data13"><img id="13" onClick={flip} src={CardBack} /></motion.td>
                                     </tr>
                                     <tr>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data14"><img id="14" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data15"><img id="15" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data16"><img id="16" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data17"><img id="17" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data18"><img id="18" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data19"><img id="19" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data20"><img id="20" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data14"><img id="14" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data15"><img id="15" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data16"><img id="16" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data17"><img id="17" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data18"><img id="18" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data19"><img id="19" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data20"><img id="20" onClick={flip} src={CardBack} /></motion.td>
                                     </tr>
                                     <tr>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data21"><img id="21" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data22"><img id="22" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data23"><img id="23" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data24"><img id="24" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data25"><img id="25" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data26"><img id="26" onClick={flip} src={CardBack} /></motion.td>
-                                        <motion.td whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.9 }} id="data27"><img id="27" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data21"><img id="21" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data22"><img id="22" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data23"><img id="23" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data24"><img id="24" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data25"><img id="25" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data26"><img id="26" onClick={flip} src={CardBack} /></motion.td>
+                                        <motion.td whileHover={{ scale: 1.1 }}  whileTap={{ scale: 0.9 }} id="data27"><img id="27" onClick={flip} src={CardBack} /></motion.td>
                                     </tr>
                                 </table>
                             </div>
