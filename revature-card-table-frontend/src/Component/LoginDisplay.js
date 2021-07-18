@@ -1,15 +1,9 @@
-import { useForm } from "react-hook-form";
-import { Form } from "react-bootstrap";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-//import { render } from "@testing-library/react";
-import "../CSS/LoginDisplay.css";
 import { motion } from "framer-motion";
-// import styled from "styled-components";
-// import Spades from "../Images/spades1.png";
-// import Hearts from "../Images/hearts1.png";
-// import Clubs from "../Images/clubs1.png";
-// import Diamonds from "../Images/diamonds1.png";
+import { Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import "../CSS/LoginDisplay.css";
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
@@ -150,53 +144,6 @@ export default function LoginDisplay({ setToken }) {
             </p>
           </Form>
         </motion.div>
-        {/* <motion.div
-          class="col-md-7 my-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.75,
-          }}
-        >
-          <motion.img
-            src={Spades}
-            width="300"
-            class="rotateimg90"
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            whileHover={{ scale: 1.1 }}
-            dragElastic={0.2}
-            dragMomentum={false}
-            // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
-          ></motion.img>
-          <motion.img
-            src={Hearts}
-            width="300"
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            whileHover={{ scale: 1.1 }}
-            dragMomentum={false}
-            // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
-          ></motion.img>
-          <motion.img
-            src={Clubs}
-            width="300"
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            whileHover={{ scale: 1.1 }}
-            dragMomentum={false}
-            // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
-          ></motion.img>
-          <motion.img
-            src={Diamonds}
-            height="300"
-            whileTap={{ scale: 0.9 }}
-            drag={true}
-            whileHover={{ scale: 1.1 }}
-            dragMomentum={false}
-            // dragConstraints={{left:-100, right: 100, top: 100, bottom:-100}}
-          ></motion.img>
-        </motion.div> */}
       </div>
     </>
   );
