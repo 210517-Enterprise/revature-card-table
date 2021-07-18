@@ -229,7 +229,7 @@ export default function Speed() {
 
     return (
         <>
-
+            <div id="page-layout" class="container-fluid">
             {!gameStatus && <button onClick={startGame}>Click Me</button>}
 
             <Container className="vh-100 d-flex flex-column">
@@ -298,6 +298,7 @@ export default function Speed() {
 
 
             </Container>
+            </div>
         </>
     );
 }

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import { Carousel, Tab } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 import "../CSS/Home.css";
-import Test from "../Images/1.png";
+import Leaderboard from "./Leaderboard";
 import Welcome1 from "../Images/Welcome1.png";
 import Welcome2 from "../Images/Welcome2.png";
 import Welcome3 from "../Images/Welcome3.png";
@@ -19,6 +19,20 @@ import Welcome12 from "../Images/Welcome12.png";
 import CardBack from "../Images/cardBack.png"
 
 export default function Home({ isLoggedIn, token }) {
+  const [gamestats, updateGamestats] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "http://localhost:8080/revature-card-table/leaderboard/find-all-by-points"
+    )
+      .then((response) => response.json())
+      .then(updateGamestats);
+    console.log(gamestats);
+  }, []);
+
+
+
+
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
@@ -389,6 +403,10 @@ export default function Home({ isLoggedIn, token }) {
           </tr>
         </table>
       </div>
+      <div>
+      <Leaderboard/>
+      </div>
+      
     </>
   );
 }

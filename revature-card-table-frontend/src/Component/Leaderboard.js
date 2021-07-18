@@ -14,7 +14,7 @@ export default function Leaderboard() {
 
   return gamestats === null ? (
     <div id="page-layout" class="container-fluid">
-      <h1>Error: no stats</h1>
+      <h1>Loading Stats...</h1>
     </div>
   ) : (
     <>
