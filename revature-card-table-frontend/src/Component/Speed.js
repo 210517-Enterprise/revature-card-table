@@ -223,7 +223,7 @@ export default function Speed({ username }) {
     console.log("HELLO");
     setNoComputerMoves(false);
     //IF GAME IS ONGOING THEN MOVE
-    if (gameStatus) {
+    if (gameStatus && playerDeck.length !== 0) {
       //SET TIMEOUT, START MOVING AFTER 1.3 SECOND
       let timerFunc = setTimeout(() => {
         computerMove();
