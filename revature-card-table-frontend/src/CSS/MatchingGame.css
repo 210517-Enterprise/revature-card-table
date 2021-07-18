@@ -22,4 +22,13 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0.5em;
     border-radius: 1em;
 }
+
+#alert{
+  font-weight: 500;
+  font-family: "Fira Sans", sans-serif;
+  text-align: center;
+  padding: 1.0em;
+  border-radius: 1em;
+  font-size: large;
+}
   
