@@ -46,6 +46,14 @@ export default function LoginDisplay({ setToken }) {
               isLoggedIn: true,
             });
 
+            sessionStorage.setItem('user', JSON.stringify({
+              username: `${user.username}`,
+              id: `${response.data.user_id}`,
+              first_name: `${response.data.firstName}`,
+              last_name: `${response.data.lastName}`,
+              isLoggedIn: true,
+            }))
+
             if (location.state) {
               history.push({
                 pathname: location.state.from.pathname
