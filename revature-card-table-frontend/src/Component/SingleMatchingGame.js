@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 export default function SingleMatchingGame({ token }){
     const [ userMoves, updateUserMoves ] = useState(0);
     const [ cards, updateCards ] = useState(null);
-    const [ matches, updateMatches ] = useState(13);
+    const [ matches, updateMatches ] = useState(0);
     const [gameOver, updateGameOver ] = useState(false);
     const history = useHistory();
 
