@@ -1,9 +1,10 @@
+//Author: Nick Gianino
 import { useState, useEffect } from "react";
 import "../CSS/War.css";
 
 import axios from "axios";
 
-const Card = ({ code, image }) => {
+const Card = ({ image }) => {
   return (
     <div>
       <img id={Card.code} src={image} alt="card"></img>

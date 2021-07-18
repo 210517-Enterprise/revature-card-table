@@ -10,6 +10,8 @@ import Speed from "./Speed";
 import War from "./War";
 import SingleMatchingGame from "./SingleMatchingGame";
 import { cloneElement, Children } from 'react';
+import Pickup from "./Pickup";
+
 
 const PrivateRoute = ({ children, isLoggedIn, ...rest }) =>
   <Route
@@ -54,6 +56,7 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
           </Route>
         </PrivateRoute>
 
+        <Route path="/pickup" exact component={Pickup}></Route>
 
         {/* <PrivateRoute isLoggedIn={isLoggedIn} path="/speed" render={() => <Speed username={token.username} />} /> */}
 

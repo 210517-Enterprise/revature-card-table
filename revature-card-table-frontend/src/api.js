@@ -105,4 +105,16 @@ const redrawCardFromDeck = async ({ deckId }) => {
   return { deck_id: deckId, value, image };
 };
 
-export { drawCardsFromPile, startSpeed, createDeckAndDraw, redrawCardFromDeck, };
+ 
+
+const getPickupCards = async () => {
+    const data = await axios.get("https://deckofcardsapi.com/api/deck/new/draw/?count=52")
+    console.log("in getpikcupcards")
+    console.log(data)
+    return data.data;
+} 
+    
+    
+
+
+export { drawCardsFromPile, startSpeed, createDeckAndDraw, redrawCardFromDeck, getPickupCards };
