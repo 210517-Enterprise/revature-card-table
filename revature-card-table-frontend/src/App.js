@@ -12,6 +12,14 @@ export default function App() {
     isLoggedIn:  false
     });
 
+    if (sessionStorage.getItem('user')) {
+      const user = sessionStorage.getItem('user')
+      if (JSON.stringify(token) !== user) {
+        let parseUser = JSON.parse(user);
+        setToken(parseUser);
+      }
+    }
+
     console.log(token);
   return (
     <div className="App">

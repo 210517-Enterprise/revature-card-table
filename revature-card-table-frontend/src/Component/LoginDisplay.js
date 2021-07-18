@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 //import { render } from "@testing-library/react";
 import "../CSS/LoginDisplay.css";
 import { motion } from "framer-motion";
@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
+  const location = useLocation();
 
   const onSubmit = (user) => {
     if (user.username && user.password) {
@@ -44,7 +45,22 @@ export default function LoginDisplay({ setToken }) {
               last_name: `${response.data.lastName}`,
               isLoggedIn: true,
             });
-            history.push("/");
+
+            sessionStorage.setItem('user', JSON.stringify({
+              username: `${user.username}`,
+              id: `${response.data.user_id}`,
+              first_name: `${response.data.firstName}`,
+              last_name: `${response.data.lastName}`,
+              isLoggedIn: true,
+            }))
+
+            if (location.state) {
+              history.push({
+                pathname: location.state.from.pathname
+              })
+            } else {
+              history.push("/");
+            }
           }
         })
         .catch((error) => {
