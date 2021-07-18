@@ -8,6 +8,7 @@ import MyAccount from "./MyAccount";
 import Register from "./Register";
 import Speed from "./Speed";
 import War from "./War";
+import SingleMatchingGame from "./SingleMatchingGame";
 
 export default function AppRouter({ isLoggedIn, setToken, token }) {
   return (
@@ -34,7 +35,7 @@ export default function AppRouter({ isLoggedIn, setToken, token }) {
         </Route>
 
         <Route path="/matching-game" exact>
-          <MatchingGame />
+          <SingleMatchingGame token={token}/>
         </Route>
 
         {/* {loggedIn && (<Route path='/war' exact component={War}></Route>)} */}
