@@ -1,13 +1,9 @@
 import axios from "axios";
-<<<<<<< HEAD
 import { motion } from "framer-motion";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-=======
 import { useLocation, useHistory } from "react-router-dom";
 //import { render } from "@testing-library/react";
->>>>>>> ac03dca21c30a664d7fe9e727ff02551681947ca
 import "../CSS/LoginDisplay.css";
 export default function LoginDisplay({ setToken }) {
   const { register, handleSubmit } = useForm();
