@@ -52,7 +52,7 @@ export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
                   <NavDropdown.Item>Speed</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/matching-game">
-                  <NavDropdown.Item>Concentration</NavDropdown.Item>
+                  <NavDropdown.Item>Memory Match</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/rules">Rules</NavDropdown.Item>

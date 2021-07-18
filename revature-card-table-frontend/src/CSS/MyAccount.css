@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
+#account-area {
+  background-color: rgba(66,126,96,0.9);
+  border-radius: 3em;
+  width: 75%;
+  margin: auto;
+  padding: 1em;
+}
+
+.nav-item {
+  color:#dee4da;
+  font-family: "Fira Sans", sans-serif;
+}
+
+#userGameStatsDiv {
+  font-family: "Fira Sans", sans-serif;
+  font-size: larger;
+}
+
+.leader-td {
+  font-variant: small-caps;
+  font-size: x-large;
+  font-weight:600
+}
+
+.leader-table {
+ border-collapse: separate;
+ border-spacing: 15px 0px; 
+}
