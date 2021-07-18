@@ -50,7 +50,8 @@ public class GameStatisticsController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<GameStatistics> insert(@RequestBody GameStatistics gs) {
-		return ResponseEntity.ok(statService.saveOrUpdate(gs));
+		GameStatistics persistedStats = statService.saveOrUpdate(gs);
+		return ResponseEntity.ok(persistedStats);
 	}
 	
 	@DeleteMapping("/{id}")
