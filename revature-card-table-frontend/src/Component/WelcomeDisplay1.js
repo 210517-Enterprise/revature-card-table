@@ -90,7 +90,7 @@ export default function WelcomeDisplay1() {
   };
   return (
     <>
-      <table cellPadding="0" cell padding="0" margin="auto">
+      <table  id="card-table" cellPadding="0" cell padding="0" margin="auto">
         <tr>
           <td>
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
