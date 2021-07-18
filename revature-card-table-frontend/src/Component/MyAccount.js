@@ -16,6 +16,21 @@ export default function MyAccount({ token }) {
 
   const onSubmit = (data) => {
     console.log("in onsubmit");
+    if(!data.newPwd && !data.confirmPwd && !data.securityAnswer){
+      let errorP = document.getElementById("error");
+      errorP.innerText = "Please complete the form to ";
+
+      let newPwd_input = document.getElementById("newPwd");
+      newPwd_input.style.backgroundColor = "#ff968f";
+
+      let confirmPwd_input = document.getElementById("confirmPwd");
+      confirmPwd_input.value = "";
+      confirmPwd_input.style.backgroundColor = "#ff968f";
+
+      let pwd_input = document.getElementById("currPwd");
+      pwd_input.style.backgroundColor = "#ff968f";
+    }
+
     if (data.newPwd !== data.confirmPwd) {
       let errorP = document.getElementById("error");
       errorP.innerText = "New passwords do not match";
