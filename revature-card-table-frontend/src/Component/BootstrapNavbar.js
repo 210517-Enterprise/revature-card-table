@@ -8,8 +8,12 @@ export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
     setToken({
       username: ``,
       id: ``,
+      first_name: ``,
+      last_name: ``,
       isLoggedIn: false,
     });
+
+    sessionStorage.removeItem('user');
   }
 
   return (
