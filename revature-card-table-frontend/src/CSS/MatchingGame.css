@@ -1,9 +1,25 @@
 
-#game-area {
+  #table{
     background-color: rgba(66,126,96,0.9);
-    border-radius: 3em;
-    width: 75%;
-    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+    width: 85%;
     margin: auto;
   }
+
+.card-row{
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 500;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.user-view-div{
+    background-color: #1d1d35;
+    padding: 0.5em;
+    border-radius: 1em;
+}
   

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Alert, Button } from "react-bootstrap";
 import axios from "axios";
 import CardBack from "../Images/design2.png"
 import "../CSS/MatchingGame.css"
@@ -7,7 +8,7 @@ import TransparentCard from "../Images/TransparentCard.png"
 export default function SingleMatchingGame({ token }){
     const [ userMoves, updateUserMoves ] = useState(0);
     const [ cards, updateCards ] = useState(null);
-    const [ matches, updateMatches ] = useState(0);
+    const [ matches, updateMatches ] = useState(12);
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -80,28 +81,29 @@ export default function SingleMatchingGame({ token }){
 
         if(usersCards[0].card.value === usersCards[1].card.value){
             console.log("Matching these cards!")
-            document.getElementById("userPlayResult").innerText = "MATCH!";
+            document.getElementById("userPlayResult").innerText = "Match!";
 
             updateMatches(matches + 1);
             console.log(matches + " matches found");
 
             //add some animation to the cards...
             setTimeout(removeCards, 1000);
-            setTimeout(() => {document.getElementById("userPlayResult").innerText = " "}, 1000);
+            setTimeout(() => {document.getElementById("userPlayResult").innerText = "~~~~~~~~~~Concentration~~~~~~~~~~"}, 2000);
 
         }
         else{
             document.getElementById("userPlayResult").innerText = "Not a match...";
             console.log("Not matching these cards!")
 
-            setTimeout(resetCards, 1500);
-            setTimeout(() => {document.getElementById("userPlayResult").innerText = " "}, 1000);
+            setTimeout(resetCards, 1000);
+            setTimeout(() => {document.getElementById("userPlayResult").innerText = "~~~~~~~~~~Concentration~~~~~~~~~~"}, 2000);
         }
 
         console.log(cards);
         cardsFlipped = 0;
 
         if(matches === 13){
+            console.log("GAME OVER")
             let timeLapsedInMilliseconds = Date.now() - start;
             let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds/1000);
             let hours = Math.floor(timeLapsedInSecond/3600);
@@ -109,15 +111,19 @@ export default function SingleMatchingGame({ token }){
             let seconds = timeLapsedInSecond % 60;
 
             let timer = hours + ":" + minutes + ":" + seconds;
+
+            console.log(timer);
+            console.log(token);
             
 
-            window.alert(`Game completed in ${userMoves} moves`);
+            //window.alert(`Game completed in ${userMoves} moves`);
 
             axios.get(`http://localhost:8080/revature-card-table/users/${token.username}`)
             .then((response) => {
+                console.log(response)
                 let stats = {
                     "user": {
-                        "user_id": response.data.id,
+                        "user_id": token.id,
                         "username": token.username,
                         "password": response.data.password,
                         "firstName": token.first_name,
@@ -132,11 +138,13 @@ export default function SingleMatchingGame({ token }){
                     "gameName": "matching-game"
                 }
 
+                console.log(stats);
+
                 axios.post("http://localhost:8080/revature-card-table/leaderboard/create",
                 JSON.stringify(stats), { headers })
                 .then((response) => {
                     console.log(response);
-                    //history.push("/");
+                    GameOverAlert();
                   })
             })
 
@@ -165,9 +173,6 @@ export default function SingleMatchingGame({ token }){
         empty.id = "emptyImg";
 
         let card1 = document.getElementById(usersCards[0].cardID);
-
-        empty.width = card1.width;
-        empty.height = card1.height;
         let data1 = document.getElementById(`data${usersCards[0].cardID}`);
 
         data1.replaceChild(empty, card1);
@@ -181,12 +186,14 @@ export default function SingleMatchingGame({ token }){
     return (
         <>
             <div id="page-layout" class="container-fluid">
-                <div id="game-area">
+                <div id="table">
                     <div class="card-table-div">
+
+                        <h3 id="userPlayResult">~~~~~~~~~~Concentration~~~~~~~~~~</h3>
 
                         <table cellSpacing="0">
                             <tr>
-                                <td id="data0"><img id="0" onClick={flip} src={CardBack} width/></td>
+                                <td id="data0"><img id="0" onClick={flip} src={CardBack} /></td>
                                 <td id="data1"><img id="1" onClick={flip} src={CardBack} /></td>
                                 <td id="data2"><img id="2" onClick={flip} src={CardBack} /></td>
                                 <td id="data3"><img id="3" onClick={flip} src={CardBack} /></td>
@@ -225,10 +232,16 @@ export default function SingleMatchingGame({ token }){
                     </div>
 
                     <br/>
-                    
-                    <div class="user-view-div">
-                        <h3>Total Matches Tried: {userMoves}</h3>
-                        <h3 id="userPlayResult"></h3>
+
+                    <div class="user-view-div" style={{textAlign: "left"}}>
+                        <p>
+                            <strong>Number of Guesses: </strong> 
+                            {userMoves}
+                        </p>
+                        <p>
+                            <strong>Matches Made: </strong>
+                            {matches}
+                        </p>
                     </div>
 
                 </div>
@@ -238,3 +251,28 @@ export default function SingleMatchingGame({ token }){
         </>
     )
 }
+
+function GameOverAlert() {
+    const [show, setShow] = useState(true);
+  
+    return (
+      <>
+        <Alert show={show} variant="success">
+          <Alert.Heading>How's it going?!</Alert.Heading>
+          <p>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+            lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
+            fermentum.
+          </p>
+          <hr />
+          <div className="d-flex justify-content-end">
+            <Button onClick={() => setShow(false)} variant="outline-success">
+              Close me y'all!
+            </Button>
+          </div>
+        </Alert>
+  
+        {!show && <Button onClick={() => setShow(true)}>Show Alert</Button>}
+      </>
+    );
+  }
