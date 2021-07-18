@@ -1,9 +1,10 @@
-
   #table{
     background-color: rgba(66,126,96,0.9);
     padding: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
     border-radius: 1em;
-    width: 85%;
+    width: 50%;
     margin: auto;
   }
 
