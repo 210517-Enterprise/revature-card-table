@@ -9,7 +9,7 @@ export default function App() {
     id: "",
     first_name: "",
     last_name: "",
-    isLoggedIn:  true
+    isLoggedIn:  false
     });
 
     if (sessionStorage.getItem('user')) {

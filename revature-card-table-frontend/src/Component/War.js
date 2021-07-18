@@ -143,7 +143,49 @@ export default function War({ token }) {
           )
   }
     
-    function UpdateLeaderboard() {
+  function UpdateLeaderboardLoss() {
+
+    let timeLapsedInMilliseconds = Date.now() - start;
+              let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds/1000);
+              let hours = Math.floor(timeLapsedInSecond/3600);
+              let minutes = Math.floor(timeLapsedInSecond /60);
+              let seconds = timeLapsedInSecond % 60;
+  
+              let timer = hours + ":" + minutes + ":" + seconds;
+
+    axios.get(`http://localhost:8080/revature-card-table/users/${token.username}`)
+          .then((response) => {
+              console.log(response)
+              let stats = {
+                  "user": {
+                      "user_id": token.id,
+                      "username": token.username,
+                      "password": response.data.password,
+                      "firstName": token.first_name,
+                      "lastName": token.last_name,
+                      "securityQuestion": response.data.securityQuestion,
+                      "securityAnswer": response.data.securityAnswer
+                  },
+                  "points": 0,
+                  "won": false,
+                  "datePlayed": today,
+                  "timeCompleted": timer,
+                  "gameName": "War"
+              }
+
+              console.log(stats);
+
+              axios.post("http://localhost:8080/revature-card-table/leaderboard/create",
+              JSON.stringify(stats), { headers })
+              .then((response) => {
+                  console.log(response);
+                  
+                })
+          })
+  }
+
+
+    function UpdateLeaderboardWin() {
 
       let timeLapsedInMilliseconds = Date.now() - start;
                 let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds/1000);
@@ -169,7 +211,7 @@ export default function War({ token }) {
                     "points": 1,
                     "won": true,
                     "datePlayed": today,
-                    "timeCompleted": null,
+                    "timeCompleted": timer,
                     "gameName": "War"
                 }
 
@@ -192,15 +234,15 @@ export default function War({ token }) {
           <h2>WINNER IS: {gameWinner}</h2>
           </div>
           )
-        
+        UpdateLeaderboardLoss();
     }
-    else if(true) {
+    else if(AiDeck.length == 0) {
       setGameWinner("Player!")
       updateString(<div className="PlayerCard">
           <h2>WINNER IS: {gameWinner}</h2>
           </div>
           )
-       UpdateLeaderboard();
+       UpdateLeaderboardWin();
     } else {
       assessValue()
     }
