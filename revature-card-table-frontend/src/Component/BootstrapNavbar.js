@@ -24,21 +24,19 @@ export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
       <Container fluid>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src="/Picture1.png" width="200" />
+            <img
+              className="nav-bar-img"
+              src="/Picture1.png"
+              style={{ width: "175px" }}
+            />
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/rules">
-              <Nav.Link href="">Rules</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/leaderboard">
-              <Nav.Link>Leaderboard</Nav.Link>
-            </LinkContainer>
             {!isLoggedIn && (
-              <LinkContainer to="/register">
-                <Nav.Link>Register</Nav.Link>
+              <LinkContainer to="/rules">
+                <Nav.Link href="">Rules</Nav.Link>
               </LinkContainer>
             )}
             {isLoggedIn && (
@@ -49,20 +47,24 @@ export default function BootstrapNavbar({ isLoggedIn, setToken, token }) {
                 <LinkContainer to="/speed">
                   <NavDropdown.Item>Speed</NavDropdown.Item>
                 </LinkContainer>
-                <NavDropdown.Item href="#action/3.3">
-                  52 Card Pickup
-                </NavDropdown.Item>
+                <LinkContainer to="/concentration">
+                  <NavDropdown.Item>Concentration</NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Rules</NavDropdown.Item>
+                <NavDropdown.Item href="/rules">Rules</NavDropdown.Item>
               </NavDropdown>
             )}
+            <LinkContainer to="/leaderboard">
+              <Nav.Link>Leaderboard</Nav.Link>
+            </LinkContainer>
+            {!isLoggedIn && (
+              <LinkContainer to="/register">
+                <Nav.Link>Register</Nav.Link>
+              </LinkContainer>
+            )}
+            
           </Nav>
           <Nav className="ml-auto">
-            {isLoggedIn && (
-              <Nav.Link eventKey="disabled" disabled>
-                Welcome Back, {token.first_name}!    
-              </Nav.Link>
-            )}
             {isLoggedIn && (
               <LinkContainer to="/my-account">
                 <Nav.Link>My Account</Nav.Link>

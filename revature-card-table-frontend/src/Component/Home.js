@@ -1,169 +1,412 @@
-import "../CSS/Home.css";
-import { Carousel } from "react-bootstrap";
 import { motion } from "framer-motion";
-import Test from "../Images/1.png";
+import { useEffect,useState } from "react";
+import { Carousel, Tab } from "react-bootstrap";
+import ReactCardFlip from "react-card-flip";
+import "../CSS/Home.css";
+import Leaderboard from "./Leaderboard";
+import Welcome1 from "../Images/Welcome1.png";
+import Welcome2 from "../Images/Welcome2.png";
+import Welcome3 from "../Images/Welcome3.png";
+import Welcome4 from "../Images/Welcome4.png";
+import Welcome5 from "../Images/Welcome5.png";
+import Welcome6 from "../Images/Welcome6.png";
+import Welcome7 from "../Images/Welcome7.png";
+import Welcome8 from "../Images/Welcome8.png";
+import Welcome9 from "../Images/Welcome9.png";
+import Welcome10 from "../Images/Welcome10.png";
+import Welcome11 from "../Images/Welcome11.png";
+import Welcome12 from "../Images/Welcome12.png";
+import CardBack from "../Images/cardBack.png"
 
 export default function Home({ isLoggedIn, token }) {
+  const [gamestats, updateGamestats] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "http://localhost:8080/revature-card-table/leaderboard/find-all-by-points"
+    )
+      .then((response) => response.json())
+      .then(updateGamestats);
+    console.log(gamestats);
+  }, []);
+
+
+
+
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 },
   };
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+  const [isFlipped, setIsFlipped] = useState(false);
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+  const [isFlipped2, setIsFlipped2] = useState(false);
+  const handleFlip2 = () => {
+    setIsFlipped2(!isFlipped2);
+  };
+  const [isFlipped3, setIsFlipped3] = useState(false);
+  const handleFlip3 = () => {
+    setIsFlipped3(!isFlipped3);
+  };
+  const [isFlipped4, setIsFlipped4] = useState(false);
+  const handleFlip4 = () => {
+    setIsFlipped4(!isFlipped4);
+  };
+  const [isFlipped5, setIsFlipped5] = useState(false);
+  const handleFlip5 = () => {
+    setIsFlipped5(!isFlipped5);
+  };
+  const [isFlipped6, setIsFlipped6] = useState(false);
+  const handleFlip6 = () => {
+    setIsFlipped6(!isFlipped6);
+  };
+  const [isFlipped7, setIsFlipped7] = useState(false);
+  const handleFlip7 = () => {
+    setIsFlipped7(!isFlipped7);
+  };
+  const [isFlipped8, setIsFlipped8] = useState(false);
+  const handleFlip8 = () => {
+    setIsFlipped8(!isFlipped8);
+  };
+  const [isFlipped9, setIsFlipped9] = useState(false);
+  const handleFlip9 = () => {
+    setIsFlipped9(!isFlipped9);
+  };
+  const [isFlipped10, setIsFlipped10] = useState(false);
+  const handleFlip10 = () => {
+    setIsFlipped10(!isFlipped10);
+  };
+  const [isFlipped11, setIsFlipped11] = useState(false);
+  const handleFlip11 = () => {
+    setIsFlipped11(!isFlipped11);
+  };
+  const [isFlipped12, setIsFlipped12] = useState(false);
+  const handleFlip12 = () => {
+    setIsFlipped12(!isFlipped12);
+  };
+  const handleAllFlip = () => {
+    setIsFlipped(false);
+    setIsFlipped2(false);
+    setIsFlipped3(false);
+    setIsFlipped4(false);
+    setIsFlipped5(false);
+    setIsFlipped6(false);
+    setIsFlipped7(false);
+    setIsFlipped8(false);
+    setIsFlipped9(false);
+    setIsFlipped10(false);
+    setIsFlipped11(false);
+    setIsFlipped12(false);
+  };
 
-  return isLoggedIn ? (
+  return (
     <>
-      <div id="page-layout" class="container-fluid">
-        <main>
-          <h1>Welcome Back to the Revature Card Room, {token.first_name}</h1>
-          <br />
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://i.pinimg.com/originals/4a/34/62/4a3462185ec34cf3d5fcc8565b52d6f2.gif"
-                width="800"
-                height="500"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://j.gifs.com/VmYDyv@large.gif?download=false"
-                width="800"
-                height="500"
-                alt="Second slide"
-              />
+      <div id="page-layout" class="container-xxl">
+        <table cellPadding="0" cell padding="0" margin="auto">
+          <tr>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                <motion.img
+                
+                  src={Welcome1}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverEnd={handleFlip}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
+                <motion.img
+                  
+                  src={Welcome2}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip2}
+                  onClick={handleAllFlip}
+                ></motion.img>
 
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://images.squarespace-cdn.com/content/v1/54b9401be4b095413a52aaa8/1594424847613-8TZTK14DLRH38T1QLRM4/FlipGIF_CROP.gif?format=1500w"
-                width="800"
-                height="500"
-                alt="Third slide"
-              />
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip2}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped3} flipDirection="horizontal">
+                <motion.img
+                
+                  src={Welcome3}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip3}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip3}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">
+                <motion.img
+                
+                  src={Welcome4}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip4}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverEnd={handleFlip4}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped5} flipDirection="horizontal">
+                <motion.img
+                
+                  src={Welcome5}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip5}
+                  onClick={handleAllFlip}
+                ></motion.img>
 
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-          <p class="custom-back">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum
-            velit euismod in pellentesque massa placerat duis ultricies lacus.
-            Dictumst vestibulum rhoncus est pellentesque elit ullamcorper
-            dignissim cras. Et malesuada fames ac turpis egestas integer eget
-            aliquet. Vitae sapien pellentesque habitant morbi tristique
-            senectus. Ut porttitor leo a diam sollicitudin tempor id eu. In est
-            ante in nibh mauris cursus mattis molestie. Volutpat maecenas
-            volutpat blandit aliquam. Pharetra convallis posuere morbi leo urna.
-            Convallis a cras semper auctor neque vitae tempus quam pellentesque.
-            Sodales ut eu sem integer vitae justo eget magna fermentum.
-            Scelerisque eu ultrices vitae auctor eu augue ut. Volutpat blandit
-            aliquam etiam erat. Pharetra vel turpis nunc eget lorem dolor sed
-            viverra. Duis convallis convallis tellus id. Ultrices gravida dictum
-            fusce ut placerat orci nulla. Cursus metus aliquam eleifend mi in
-            nulla posuere sollicitudin. Mauris augue neque gravida in fermentum.
-            Sed enim ut sem viverra. Aenean euismod elementum nisi quis eleifend
-            quam adipiscing vitae. Etiam dignissim diam quis enim lobortis
-            scelerisque fermentum. Ut ornare lectus sit amet est placerat in
-            egestas. Ultricies mi quis hendrerit dolor magna eget. Lorem mollis
-            aliquam ut porttitor leo a diam sollicitudin. Sed risus pretium quam
-            vulputate dignissim suspendisse in est. Adipiscing elit duis
-            tristique sollicitudin nibh sit amet commodo nulla. Pellentesque nec
-            nam aliquam sem. Mi bibendum neque egestas congue quisque egestas
-            diam in. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum.
-            Dis parturient montes nascetur ridiculus mus mauris vitae ultricies
-            leo. Laoreet suspendisse interdum consectetur libero id faucibus.
-            Elementum sagittis vitae et leo duis. Pharetra et ultrices neque
-            ornare aenean. Et tortor consequat id porta nibh venenatis cras sed
-            felis. Vitae tortor condimentum lacinia quis vel. Ut eu sem integer
-            vitae. Id donec ultrices tincidunt arcu. Eget aliquet nibh praesent
-            tristique magna. Nisi lacus sed viverra tellus in hac habitasse.
-            Commodo ullamcorper a lacus vestibulum sed. Tortor condimentum
-            lacinia quis vel eros donec ac odio. Id interdum velit laoreet id
-            donec ultrices tincidunt arcu. Libero nunc consequat interdum
-            varius. Vel quam elementum pulvinar etiam non quam lacus
-            suspendisse. Enim neque volutpat ac tincidunt vitae semper quis
-            lectus nulla. Dolor sit amet consectetur adipiscing elit ut aliquam.
-            Volutpat blandit aliquam etiam erat velit scelerisque in dictum.
-            Malesuada nunc vel risus commodo viverra maecenas accumsan lacus.
-            Orci a scelerisque purus semper eget duis at. Ornare massa eget
-            egestas purus viverra. Neque sodales ut etiam sit amet nisl purus in
-            mollis. Amet cursus sit amet dictum sit. Lobortis elementum nibh
-            tellus molestie nunc non blandit. Non tellus orci ac auctor augue
-            mauris augue neque gravida. Aliquet nec ullamcorper sit amet risus
-            nullam. Eget lorem dolor sed viverra ipsum nunc aliquet. Nullam non
-            nisi est sit amet facilisis magna etiam tempor. Lacus luctus
-            accumsan tortor posuere ac ut consequat semper viverra. Mauris
-            rhoncus aenean vel elit scelerisque. Luctus venenatis lectus magna
-            fringilla urna porttitor. Et netus et malesuada fames ac turpis
-            egestas maecenas pharetra. Mi sit amet mauris commodo quis imperdiet
-            massa tincidunt. Nisl vel pretium lectus quam id leo in. Quam
-            elementum pulvinar etiam non quam lacus suspendisse faucibus. In
-            vitae turpis massa sed elementum tempus egestas sed. Dictum at
-            tempor commodo ullamcorper a lacus vestibulum sed arcu. Tortor id
-            aliquet lectus proin nibh. Facilisis magna etiam tempor orci. Sem
-            viverra aliquet eget sit amet. Vestibulum lectus mauris ultrices
-            eros. Morbi leo urna molestie at elementum. Nisi quis eleifend quam
-            adipiscing vitae proin sagittis nisl rhoncus. Tellus molestie nunc
-            non blandit massa enim nec dui nunc. Molestie nunc non blandit massa
-            enim nec. Nulla facilisi nullam vehicula ipsum a arcu. Tellus rutrum
-            tellus pellentesque eu.
-          </p>
-          <p class="lead">
-            <a
-              href="#"
-              class="btn btn-lg btn-secondary fw-bold border-black bg-black"
-            >
-              Learn more
-            </a>
-          </p>
-        </main>
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip5}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip
+                isFlipped={isFlipped6}
+                flipDirection="horizontal"
+                // containerStyle={{ width: "226px", height: "314", margin: "0" }}
+              >
+                <motion.img
+                
+                  src={Welcome6}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip6}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip6}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped7} flipDirection="horizontal">
+                <motion.img
+                
+                  src={Welcome7}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip7}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverEnd={handleFlip7}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped8} flipDirection="horizontal">
+                <motion.img
+                  src={Welcome8}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip8}
+                  onClick={handleAllFlip}
+                ></motion.img>
 
-        <footer class="mt-auto text-white-50">
-          <p>
-            Cover template for{" "}
-            <a href="https://getbootstrap.com/" class="text-white">
-              Bootstrap
-            </a>
-            , by{" "}
-            <a href="https://twitter.com/mdo" class="text-white">
-              @mdo
-            </a>
-            .
-          </p>
-        </footer>
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip8}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped9} flipDirection="horizontal">
+                <motion.img
+                  src={Welcome9}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip9}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip9}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped10} flipDirection="horizontal">
+                <motion.img
+                  src={Welcome10}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip10}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverEnd={handleFlip10}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip isFlipped={isFlipped11} flipDirection="horizontal">
+                <motion.img
+                  src={Welcome11}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip11}
+                  onClick={handleAllFlip}
+                ></motion.img>
+
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip11}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+            <td>
+              <ReactCardFlip
+                isFlipped={isFlipped12}
+                flipDirection="horizontal"
+                // containerStyle={{ width: "226px", height: "314", margin: "0" }}
+              >
+                <motion.img
+                  src={Welcome12}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip12}
+                  onClick={handleAllFlip}
+                ></motion.img>
+                <motion.img
+                  src={CardBack}
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  onHoverStart={handleFlip12}
+                  onClick={handleAllFlip}
+                ></motion.img>
+              </ReactCardFlip>
+            </td>
+          </tr>
+        </table>
       </div>
-    </>
-  ) : (
-    <>
-      <div id="page-layout" class="container-xxl" >
-        <motion.img
-          src={Test}
-          variants={fadeLeft}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 1 }}
-        ></motion.img>
-        
+      <div>
+      <Leaderboard/>
       </div>
+      
     </>
   );
 }
