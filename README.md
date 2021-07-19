@@ -34,6 +34,7 @@ Revature Card Table follows a client-server architecture made up of a Java Sprin
 * Play Go Fish
 * UI Improvements
 * Multi-Player Capability
+* Admin Users
 
 # User Stories
 * As a new user I want to regsiter a new account with Revature Card Table so that I can play card games.
