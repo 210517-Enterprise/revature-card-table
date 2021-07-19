@@ -50,6 +50,6 @@ Revature Card Table follows a client-server architecture made up of a Java Sprin
 
 # Usage
 - clone the git repo: `git clone https://github.com/210517-Enterprise/revature-card-table.git`
-- run the backend server: `mvn spring-boot:run`
-- run the front-end: `npm start`
+- run the backend server: `cd RevatureCardTable` --> `mvn spring-boot:run`
+- run the front-end: `cd revature-card-table-frontend` --> `npm start`
 - interact with the web application: `http://localhost:3000/`
