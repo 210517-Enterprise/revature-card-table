@@ -121,7 +121,7 @@ export default function War({ token }) {
           Player Card Remaining {playerDeck.length} | Player Score: 
           {playerScore}
         </h2>
-              <img src={playerDeck[0].image} style={{ width: "226px" }}></img>
+              <img src={playerDeck[0].image} style={{ width: "175px", margin:"auto"}}></img>
               
         <div>
                     
@@ -132,9 +132,9 @@ export default function War({ token }) {
         <div className="AICard">
                   
           <h2 className="return">
-            AI Card r: {AiDeck.length} | AI Score: {aiScore}
+            Computer Card Remaining: {AiDeck.length} | AI Score: {aiScore}
           </h2>
-                  <img src={AiDeck[0].image} style={{ width: "226px" }}></img>
+                  <img src={AiDeck[0].image} style={{ width: "175px", margin:"auto" }}></img>
                 
         </div>
                 
@@ -237,7 +237,6 @@ export default function War({ token }) {
       updateString(
         <div className="PlayerCard">
                 <h2>WINNER IS: {gameWinner}</h2>
-                
         </div>
       );
       UpdateLeaderboardLoss();
@@ -246,7 +245,6 @@ export default function War({ token }) {
       updateString(
         <div className="PlayerCard">
                 <h2>WINNER IS: {gameWinner}</h2>
-                
         </div>
       );
       UpdateLeaderboardWin();
@@ -294,6 +292,7 @@ export default function War({ token }) {
             <button id="war-button" onClick={startGame} className="return">
               Restart War
             </button>
+            <br/>
             <button id="war-button" onClick={fight} className="return">
               Battle Computer
             </button>
