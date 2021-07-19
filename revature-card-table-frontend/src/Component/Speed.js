@@ -16,6 +16,8 @@ export default function Speed({ username }) {
   const computerIsMoving = useRef(false);
   const globalIdx = useRef(-2);
 
+  let start = useRef();
+
   const startGame = async () => {
     const {
       playerDeck: d1,
@@ -30,6 +32,7 @@ export default function Speed({ username }) {
     setGameStatus(true);
 
     setCenterDeck(d3.piles.middleDeck.cards);
+    start.current = Date.now();
   };
 
   const parseValue = (card) => {
@@ -161,20 +164,26 @@ export default function Speed({ username }) {
       setGameStatus(false);
       let userWin;
       let pointsWon;
+      let timeLapsedInMilliseconds = Date.now() - start.current;
+      let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds / 1000);
+      let hours = Math.floor(timeLapsedInSecond / 3600);
+      let minutes = Math.floor(timeLapsedInSecond / 60);
+      let seconds = timeLapsedInSecond % 60;
+
+      let timer = hours + ":" + minutes + ":" + seconds;
 
       if (playerDeck.length === 0) {
-        alert("You've won! :)");
+        alert(`You've won in ${timer}! :)`);
         userWin = true;
         pointsWon = 100;
       } else if (computerDeck.length === 0) {
-        alert("You've lost! :(");
+        alert(`You've lost in ${timer}! :(`);
         userWin = false;
         pointsWon = 0;
       }
 
       let date = new Date();
       let todaysDate = date.today();
-      let time = "00:00:00 AM";
 
       const userFromDB = await axios.get(
         `http://localhost:8080/revature-card-table/users/${username}`
@@ -185,7 +194,7 @@ export default function Speed({ username }) {
         points: pointsWon,
         won: userWin,
         datePlayed: todaysDate,
-        timeCompleted: time,
+        timeCompleted: timer,
         gameName: "speed",
       };
 
@@ -304,7 +313,7 @@ export default function Speed({ username }) {
 
   return (
     <>
-      <div id="page-layout" class="container-fluid" style={{paddingTop:"80px"}}>
+      <div id="page-layout" class="container-fluid" style={{ paddingTop: "80px" }}>
         {!gameStatus && (
           <motion.button
             variants={fadeIn}
@@ -423,7 +432,7 @@ export default function Speed({ username }) {
                     </div>
                     {!!gameStatus && (
                       <motion.button
-                      whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.05 }}
                         className="speed-btn"
                         style={{
                           backgroundColor: noPlayerMoves
