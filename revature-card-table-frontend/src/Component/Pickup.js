@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Alert, Button } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import axios from "axios";
 import "../CSS/MatchingGame.css"
 import TransparentCard from "../Images/TransparentCard.png"
-import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Pickup({ token }){

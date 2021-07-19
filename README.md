@@ -2,7 +2,7 @@
 
 
 # Project Description
-Revature Card Table follows a client-server architecture made up of a Java SpringBoot application as the backend and a web application as the front end, while utilizing PostgreSQL hosted on an AWS RDS for data management. Using the DeckOfCards API, the program allows users to play War and Go Fish and view game stats and a leaderboard in their web browser.
+Revature Card Table follows a client-server architecture made up of a Java SpringBoot application as the backend and a web application as the front end, while utilizing PostgreSQL hosted on an AWS RDS for data management. Using the DeckOfCards API, the program allows users to play card games and view game stats and a leaderboard in their web browser.
 
 # Technologies Used
 - Spring Tool Suite

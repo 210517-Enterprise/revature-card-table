@@ -50,4 +50,12 @@ public class GameStatisticsService {
 	public List<GameStatistics> findAllOrderByPoints(){
 		return gameStatRepo.findAllByOrderByPointsDesc();
 	}
+	
+	public List<GameStatistics> findAllOrderByPointsAsc(){
+		return gameStatRepo.findAllByOrderByPointsAsc();
+	}
+	
+	public List<GameStatistics> findAllOrderByTime(){
+		return gameStatRepo.findAllByOrderByTimeCompletedAsc();
+	}
 }
