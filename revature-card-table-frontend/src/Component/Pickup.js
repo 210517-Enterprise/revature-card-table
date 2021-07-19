@@ -315,11 +315,11 @@ export default function SingleMatchingGame({ token }){
 
 const cardVariant = {
     hover: {
-        x: [0, -20, -40, -20, 0, 20, 40, 60, 40, 20, 0],
+        x: [1, -20, -40, -20, 0, 20, 40, 60, 40, 20, 0],
         y: [0, 20, 40, 60, 80, 60, 40, 20, 0, -20, -40, -20, 0],
         z:[0, 10, 20, 30, 20, 10, 0, -10, -20, -10, 0],
         transition: {
-            duration: 2.5,
+            duration: 1,
             yoyo: Infinity
         }
     }
@@ -327,11 +327,10 @@ const cardVariant = {
 
 const cardVariant2 = {
     hover: {
-        x: [0, 10, 20, 30, 20, 10, 0, -10, -20, -10, 0],
-        y: [0, -20, -40, -20, 0, 20, 40, 60, 40, 20, 0],
-        z: [0, 20, 40, 60, 80, 60, 40, 20, 0, -20, -40, -20, 0],
+        x: [60,60,-60,-60,60],
+        y: [0,-40,0,40,0],
         transition: {
-            duration: 2.5,
+            duration: 1,
             yoyo: Infinity
         }
     }
@@ -339,11 +338,10 @@ const cardVariant2 = {
 
 const cardVariant3 = {
     hover: {
-        z: [0, 10, 20, 30, 20, 10, 0, -10, -20, -10, 0],
-        x: [0, -20, -40, -20, 0, 20, 40, 60, 40, 20, 0],
-        y: [0, 20, 40, 60, 80, 60, 40, 20, 0, -20, -40, -20, 0],
+        x: [-60,-60,60,60,-60],
+        y: [0,40,0,-40,0],
         transition: {
-            duration: 2.5,
+            duration: 1,
             yoyo: Infinity
         }
     }
