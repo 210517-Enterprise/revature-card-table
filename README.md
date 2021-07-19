@@ -1,4 +1,4 @@
-![Picture1](https://user-images.githubusercontent.com/35478864/126089097-0bf0b41b-008b-425b-b446-6209eee2d14e.png)
+![BlackTextLogo](https://user-images.githubusercontent.com/35478864/126089270-c62d914a-c55a-4a18-8a89-c226bca790c6.png)
 
 
 # Project Description
