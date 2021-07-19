@@ -18,4 +18,8 @@ Spring Tool Suite, Spring Framework, Git/GitHub,Java 8, JUnit, Mockito, JavaScri
 * As a user I want to view my own past game statistics so that I can see how well I played games.
 * As a user I want to view my account information.
 
-# Dependency
+# Usage
+clone the git repo
+run the backend server: mvn spring-boot:run
+run the front-end: npm start
+interact with the web application: http://localhost:3000/
