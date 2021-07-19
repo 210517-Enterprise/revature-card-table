@@ -38,6 +38,16 @@ public class GameStatisticsController {
 		return ResponseEntity.ok(statService.findAllOrderByPoints());
 	}
 	
+	@GetMapping("/find-all-by-time")
+	public ResponseEntity<List<GameStatistics>> getAllByTime() {
+		return ResponseEntity.ok(statService.findAllOrderByTime());
+	}
+	
+	@GetMapping("/find-all-by-points-asc")
+	public ResponseEntity<List<GameStatistics>> getAllByPointsAsc() {
+		return ResponseEntity.ok(statService.findAllOrderByPointsAsc());
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<List<GameStatistics>> getStatsByID(@PathVariable int id) {
 		return ResponseEntity.ok(statService.findByUserId(id));
