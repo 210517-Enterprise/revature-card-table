@@ -6,7 +6,7 @@ import TransparentCard from "../Images/TransparentCard.png"
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function SingleMatchingGame({ token }){
+export default function Pickup({ token }){
     const [ userMoves, updateUserMoves ] = useState(0);
     const [ cards, updateCards ] = useState(null);
     const [ timeCompleted, updateTimeCompleted ] = useState("");
