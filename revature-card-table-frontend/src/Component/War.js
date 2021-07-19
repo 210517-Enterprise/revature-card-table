@@ -260,6 +260,11 @@ export default function War({ token }) {
     playerDeck.shift();
   }
 
+  const fadeIn = {
+    hidden: { opacity: 0, x: 0 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return string === null ? (
     <>
       <div id="page-layout" class="container-fluid">
@@ -276,15 +281,17 @@ export default function War({ token }) {
   ) : (
     <>
       <div id="page-layout" class="container-fluid">
-        <h3 className="return">Current Wave: {turn}</h3>
-        <button onClick={startGame} className="return">
-          Start the WAR!!!!!
-        </button>
-        <button onClick={fight} className="return">
-          Fight Wave!
-        </button>
+        <div id="game-area">
+          <h3 className="return">Current Wave: {turn}</h3>
+          <button onClick={startGame} className="return">
+           Restart War
+          </button>
+          <button onClick={fight} className="return">
+            Battle Computer
+          </button>
 
-        {string}
+          {string}
+        </div>
       </div>
     </>
   );
