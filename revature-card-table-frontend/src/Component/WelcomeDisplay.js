@@ -19,14 +19,9 @@ import CardBack2 from "../Images/CardBackRetro.png";
 import CardBack3 from "../Images/CardBackBlue.png";
 import CardBack4 from "../Images/CardBackYellow.png";
 
-let x = Math.floor(Math.random()*10);
+
 let CardBack = CardBack1;
 
-if(x<3) {
-  CardBack = CardBack3;
-} else if (x<6) {
-  CardBack = CardBack4;
-} 
 
 export default function WelcomeDisplay() {
   const fadeDir = {
