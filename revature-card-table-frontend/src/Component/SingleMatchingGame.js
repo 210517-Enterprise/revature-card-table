@@ -1,11 +1,28 @@
 import { useState, useEffect, useRef } from "react";
 import { Alert, Button } from "react-bootstrap";
 import axios from "axios";
-import CardBack from "../Images/design2.png"
+//import CardBack from "../Images/design2.png"
 import "../CSS/MatchingGame.css"
 import TransparentCard from "../Images/TransparentCard.png"
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
+import CardBack1 from "../Images/cardBack.png";
+import CardBack2 from "../Images/CardBackRetro.png";
+import CardBack3 from "../Images/CardBackBlue.png";
+import CardBack4 from "../Images/CardBackYellow.png";
+
+let x = Math.floor(Math.random()*10);
+let CardBack = CardBack1;
+
+if(x<3) {
+    CardBack = CardBack1;
+  } else if (x<5) {
+    CardBack = CardBack2;
+  } else if (x<8) {
+    CardBack = CardBack3;
+  } else if (x<10) {
+    CardBack = CardBack4;
+  }
 
 export default function SingleMatchingGame({ token }){
     const [ userMoves, updateUserMoves ] = useState(0);

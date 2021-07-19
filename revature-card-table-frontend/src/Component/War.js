@@ -269,7 +269,7 @@ export default function War({ token }) {
         <div id="game-area">
           <h2 className="return">Current Wave: {turn}</h2>
           <button id="war-button" onClick={startGame} className="return">
-            Start the WAR!!!!!
+            Start the WAR!
           </button>
           <br />
           <button id="war-button" onClick={fight} className="return">
