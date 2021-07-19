@@ -142,30 +142,18 @@ export default function Speed({ username }) {
     );
   };
 
-  Date.prototype.timeNow = function () {
-    return (
-      (this.getHours() < 10 ? "0" : "") +
-      this.getHours() +
-      ":" +
-      (this.getMinutes() < 10 ? "0" : "") +
-      this.getMinutes() +
-      ":" +
-      (this.getSeconds() < 10 ? "0" : "") +
-      this.getSeconds()
-    );
-  };
-
-  //     Date.prototype.timeNow = function () {
-  //         let hours = this.getHours();
-  //         let minutes = this.getMinutes();
-  //         let seconds = this.getSeconds();
-  //         let amOrPm = hours >= 12 ? 'PM' : 'AM';
-  //         hours = hours % 12;
-  //         hours = hours ? hours : 12; //hour 0 = 12
-  //         minutes = minutes < 10 ? '0'+minutes : minutes;
-  //         seconds = seconds < 10 ? '0'+seconds : seconds;
-  //         return hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
-  //    }
+  // Date.prototype.timeNow = function () {
+  //   return (
+  //     (this.getHours() < 10 ? "0" : "") +
+  //     this.getHours() +
+  //     ":" +
+  //     (this.getMinutes() < 10 ? "0" : "") +
+  //     this.getMinutes() +
+  //     ":" +
+  //     (this.getSeconds() < 10 ? "0" : "") +
+  //     this.getSeconds()
+  //   );
+  // };
 
   useEffect(async () => {
     //Push to leaderboard
@@ -186,7 +174,7 @@ export default function Speed({ username }) {
 
       let date = new Date();
       let todaysDate = date.today();
-      let timeNow = date.timeNow();
+      let time = "00:00:00 AM";
 
       const userFromDB = await axios.get(
         `http://localhost:8080/revature-card-table/users/${username}`
@@ -197,7 +185,7 @@ export default function Speed({ username }) {
         points: pointsWon,
         won: userWin,
         datePlayed: todaysDate,
-        timeCompleted: timeNow,
+        timeCompleted: time,
         gameName: "speed",
       };
 
