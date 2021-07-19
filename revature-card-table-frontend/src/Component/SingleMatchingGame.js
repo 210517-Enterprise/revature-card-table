@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Alert, Button } from "react-bootstrap";
 import axios from "axios";
 import CardBack from "../Images/design2.png"
@@ -23,13 +23,13 @@ export default function SingleMatchingGame({ token }){
 
     let cardsFlipped = 0;
     let usersCards = [null, null];
-    const start = Date.now();
+
+    let start = useRef();
 
     const headers = {
         Accept: "application/json",
         "Content-Type": "application/json",
       };
-    
 
     useEffect(() => {
         axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/", {
@@ -45,7 +45,9 @@ export default function SingleMatchingGame({ token }){
             console.log(response.data.cards);
             console.log("new cards!!!!!!!!!!!!!!!!!!!")
             updateCards(response.data.cards);
-        })
+        });
+
+        start.current = Date.now();
     }, []);
 
 
@@ -92,7 +94,7 @@ export default function SingleMatchingGame({ token }){
 
             if(matches === 13){
                 console.log("GAME OVER")
-                let timeLapsedInMilliseconds = Date.now() - start;
+                let timeLapsedInMilliseconds = Date.now() - start.current;
                 let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds/1000);
                 let hours = Math.floor(timeLapsedInSecond/3600);
                 let minutes = Math.floor(timeLapsedInSecond /60);

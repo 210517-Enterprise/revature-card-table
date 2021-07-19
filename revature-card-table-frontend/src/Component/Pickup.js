@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Alert } from "react-bootstrap";
 import axios from "axios";
 import "../CSS/MatchingGame.css"
@@ -18,7 +18,8 @@ export default function Pickup({ token }){
 
     today = mm + '/' + dd + '/' + yyyy;
     let usersCards = [null, null];
-    const start = Date.now();
+    
+    let start = useRef(Date.now());
 
     const headers = {
         Accept: "application/json",
@@ -41,7 +42,8 @@ export default function Pickup({ token }){
             console.log(response.data.cards);
             console.log("new cards!!!!!!!!!!!!!!!!!!!")
             updateCards(response.data.cards);
-        })
+        });
+            
     }, []);
 
 
@@ -67,7 +69,7 @@ export default function Pickup({ token }){
 
             if(userMoves === 39){
                 console.log("GAME OVER")
-                let timeLapsedInMilliseconds = Date.now() - start;
+                let timeLapsedInMilliseconds = Date.now() - start.current;
                 let timeLapsedInSecond = Math.floor(timeLapsedInMilliseconds/1000);
                 let hours = Math.floor(timeLapsedInSecond/3600);
                 let minutes = Math.floor(timeLapsedInSecond /60);
