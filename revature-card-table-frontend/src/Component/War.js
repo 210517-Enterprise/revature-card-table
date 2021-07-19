@@ -268,28 +268,36 @@ export default function War({ token }) {
   return string === null ? (
     <>
       <div id="page-layout" class="container-fluid">
-        <h2 className="return">Current Wave: {turn}</h2>
-        <button onClick={startGame} className="return">
-          Start the WAR!!!!!
-        </button>
-        <button onClick={fight} className="return">
-          Fight Wave!
-        </button>
-        <h1 className="return">Start the War!</h1>
+        <div id="game-area">
+          <h2 className="return">Current Wave: {turn}</h2>
+          <button id="war-button" onClick={startGame} className="return">
+            Start the WAR!!!!!
+          </button>
+          <br />
+          <button id="war-button" onClick={fight} className="return">
+            Fight Wave!
+          </button>
+          <h1 className="return">Start the War!</h1>
+        </div>
       </div>
     </>
   ) : (
     <>
       <div id="page-layout" class="container-fluid">
         <div id="game-area">
-          <h3 className="return">Current Wave: {turn}</h3>
-          <button onClick={startGame} className="return">
-           Restart War
-          </button>
-          <button onClick={fight} className="return">
-            Battle Computer
-          </button>
-
+          <row>
+            
+              <h3 className="return">Current Wave: {turn}</h3>
+            
+          </row>
+          <row>
+            <button id="war-button" onClick={startGame} className="return">
+              Restart War
+            </button>
+            <button id="war-button" onClick={fight} className="return">
+              Battle Computer
+            </button>
+          </row>
           {string}
         </div>
       </div>

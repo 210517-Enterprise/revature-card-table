@@ -73,7 +73,6 @@ export default function Leaderboard() {
             <thead>
               <tr>
                 <td className="leader-td">Username</td>
-                <td className="leader-td">Points</td>
                 <td className="leader-td">Date</td>
                 <td className="leader-td">Game Length</td>
               </tr>
@@ -84,7 +83,6 @@ export default function Leaderboard() {
                   return (
                     <tr>
                       <td>{gamestat.user.username}</td>
-                      <td>{gamestat.points}</td>
                       <td>{gamestat.datePlayed}</td>
                       <td>{gamestat.timeCompleted}</td>
                     </tr>
@@ -98,10 +96,7 @@ export default function Leaderboard() {
           <table className="leader-table">
             <thead>
               <tr>
-                <td className="leader-td">Game ID</td>
-                <td className="leader-td">User Username</td>
-                <td className="leader-td">User First Name</td>
-                <td className="leader-td">User Last Name</td>
+                <td className="leader-td">Username</td>
                 <td className="leader-td">Guesses</td>
                 <td className="leader-td">Date</td>
                 <td className="leader-td">Game Length</td>
@@ -128,7 +123,6 @@ export default function Leaderboard() {
             <thead>
               <tr>
                 <td className="leader-td">Username</td>
-                <td className="leader-td">Points</td>
                 <td className="leader-td">Date</td>
                 <td className="leader-td">Game Length</td>
               </tr>
@@ -139,7 +133,6 @@ export default function Leaderboard() {
                   return (
                     <tr>
                       <td>{gamestat.user.username}</td>
-                      <td>{gamestat.points}</td>
                       <td>{gamestat.datePlayed}</td>
                       <td>{gamestat.timeCompleted}</td>
                     </tr>
