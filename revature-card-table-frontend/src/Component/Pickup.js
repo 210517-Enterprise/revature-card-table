@@ -542,7 +542,7 @@ const cardVariant2 = {
 const cardVariant3 = {
   hover: {
     x: [-60, -60, 60, 60, -60,-60, -60, 60, 60, -60],
-    y: [0, 40, 0, -40, 0],
+    y: [0, 40, 0, -40, 0, 0, 40, 0, -40, 0],
     transition: {
       duration: 1,
       yoyo: Infinity,
