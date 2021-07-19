@@ -134,7 +134,7 @@ export default function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {gamestats.map((gamestat) => {
+              {gamestatsTime.map((gamestat) => {
                 if (gamestat.won && gamestat.gameName === "Pickup") {
                   return (
                     <tr>
@@ -150,39 +150,7 @@ export default function Leaderboard() {
           </table>
         </div>
 
-        <div>
-          <h2>Pickup Leaderboard</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td className="leader-td">Game ID</td>
-                  <td className="leader-td">User Username</td>
-                  <td className="leader-td">User First Name</td>
-                  <td className="leader-td">User Last Name</td>
-                  <td className="leader-td">Points</td>
-                  <td className="leader-td">Date</td>
-                  <td className="leader-td">Game Length</td>
-                </tr>
-              </thead>
-              <tbody>
-                {gamestatsTime.map((gamestat) => {
-                  if (gamestat.won && gamestat.gameName === "pickup") {
-                    return (
-                      <tr>
-                        <td>{gamestat.id}</td>
-                        <td>{gamestat.user.username}</td>
-                        <td>{gamestat.user.firstName}</td>
-                        <td>{gamestat.user.lastName}</td>
-                        <td>{gamestat.points}</td>
-                        <td>{gamestat.datePlayed}</td>
-                        <td>{gamestat.timeCompleted}</td>
-                      </tr>
-                    );
-                  }
-                })}
-              </tbody>
-            </table>
-        </div>
+      
         
       </div>
 
