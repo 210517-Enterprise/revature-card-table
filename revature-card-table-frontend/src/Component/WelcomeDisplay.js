@@ -14,7 +14,19 @@ import Welcome9 from "../Images/Welcome/Welcome9.png";
 import Welcome10 from "../Images/Welcome/Welcome10.png";
 import Welcome11 from "../Images/Welcome/Welcome11.png";
 import Welcome12 from "../Images/Welcome/Welcome12.png";
-import CardBack from "../Images/cardBack.png";
+import CardBack1 from "../Images/cardBack.png";
+import CardBack2 from "../Images/CardBackRetro.png";
+import CardBack3 from "../Images/CardBackBlue.png";
+import CardBack4 from "../Images/CardBackYellow.png";
+
+let x = Math.floor(Math.random()*10);
+let CardBack = CardBack1;
+
+if(x<3) {
+  CardBack = CardBack3;
+} else if (x<6) {
+  CardBack = CardBack4;
+} 
 
 export default function WelcomeDisplay() {
   const fadeDir = {
