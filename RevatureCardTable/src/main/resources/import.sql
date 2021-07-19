@@ -12,10 +12,10 @@ insert into users (first_name, last_name, pwd, username, security_question, secu
 insert into users (first_name, last_name, pwd, username, security_question, security_answer) values ('Tester', 'Tester', 'test', 'test', 'What is your mothers maiden name?', 'Smith');
 
 
-insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/07/2021', 'speed', 100, '00:00:00 AM', false, 4);
-insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/12/2021', 'speed', 100, '00:00:00 AM', true, 9);
-insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/10/2021', 'speed', 100, '00:00:00 AM', false, 5);
-insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('12/28/2020', 'speed', 100, '00:00:00 AM', true, 5);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/07/2021', 'speed', 100, '00:5:20 AM', true, 4);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/12/2021', 'speed', 100, '00:01:39 AM', true, 9);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/10/2021', 'speed', 100, '00:20:30 AM', true, 5);
+insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('12/28/2020', 'speed', 100, '00:04:16 AM', true, 5);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('01/19/2021', 'war', 11, '4:54:45 AM', false, 7);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('04/21/2021', 'war', 25, '12:09:31 AM', false, 4);
 insert into leaderboard (date_played, game_name, points, time_completed, won, user_id) values ('07/07/2021', 'war', 10, '1:13:30 AM', false, 7);
