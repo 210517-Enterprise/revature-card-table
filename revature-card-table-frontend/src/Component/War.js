@@ -151,6 +151,9 @@ export default function War({ token }) {
 
     let timer = hours + ":" + minutes + ":" + seconds;
 
+    
+    let math = (playerScore / turn) * 100
+
     axios
       .get(`http://localhost:8080/revature-card-table/users/${token.username}`)
       .then((response) => {
@@ -165,7 +168,7 @@ export default function War({ token }) {
             securityQuestion: response.data.securityQuestion,
             securityAnswer: response.data.securityAnswer,
           },
-          points: 0,
+          points: math,
           won: false,
           datePlayed: today,
           timeCompleted: timer,
@@ -195,6 +198,8 @@ export default function War({ token }) {
 
     let timer = hours + ":" + minutes + ":" + seconds;
 
+    let math = (playerScore / turn) * 100
+
     axios
       .get(`http://localhost:8080/revature-card-table/users/${token.username}`)
       .then((response) => {
@@ -209,7 +214,7 @@ export default function War({ token }) {
             securityQuestion: response.data.securityQuestion,
             securityAnswer: response.data.securityAnswer,
           },
-          points: 1,
+          points: math,
           won: true,
           datePlayed: today,
           timeCompleted: timer,
