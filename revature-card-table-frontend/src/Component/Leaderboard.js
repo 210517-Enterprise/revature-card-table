@@ -32,7 +32,7 @@ export default function Leaderboard() {
     console.log(gamestatsTime);
   }, []);
 
-  return gamestats === null && gamestatsAsc === null && gamestatsTime === null ? (
+  return (gamestats === null || gamestatsAsc === null || gamestatsTime === null) ? (
     <div id="page-layout" class="container-fluid">
       <div id="leader-area">
         <h1>Loading Stats...</h1>
